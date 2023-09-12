@@ -1,9 +1,0 @@
-# depslib dependency file v1.0
-1694504406 source:c:\users\szale8\desktop\1ora\lifo\main.cpp
-	<iostream>
-	<exception>
-	"FixedStack.h"
-
-1694504260 c:\users\szale8\desktop\1ora\lifo\fixedstack.h
-	<iostream>
-
