@@ -3,5 +3,5 @@
 int main() {
     std::cout << "Hello, World!" << std::endl;
     return 0;
-    //ez a geprol van
+    //ez a laptoprol van
 }
