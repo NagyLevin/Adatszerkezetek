@@ -51,13 +51,13 @@ build cmake_object_order_depends_target_lifo: phony || CMakeFiles/lifo.dir
 
 build CMakeFiles/lifo.dir/main.cpp.obj: CXX_COMPILER__lifo_Debug D$:/Egyetem2/3felev/Adatszerkezetek/gyak1/lifo/main.cpp || cmake_object_order_depends_target_lifo
   DEP_FILE = CMakeFiles\lifo.dir\main.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
+  FLAGS = -Werror -Wall -Wextra -pedantic -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\lifo.dir
   OBJECT_FILE_DIR = CMakeFiles\lifo.dir
 
 build CMakeFiles/lifo.dir/FixedStack.cpp.obj: CXX_COMPILER__lifo_Debug D$:/Egyetem2/3felev/Adatszerkezetek/gyak1/lifo/FixedStack.cpp || cmake_object_order_depends_target_lifo
   DEP_FILE = CMakeFiles\lifo.dir\FixedStack.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
+  FLAGS = -Werror -Wall -Wextra -pedantic -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\lifo.dir
   OBJECT_FILE_DIR = CMakeFiles\lifo.dir
 
@@ -70,7 +70,7 @@ build CMakeFiles/lifo.dir/FixedStack.cpp.obj: CXX_COMPILER__lifo_Debug D$:/Egyet
 # Link the executable lifo.exe
 
 build lifo.exe: CXX_EXECUTABLE_LINKER__lifo_Debug CMakeFiles/lifo.dir/main.cpp.obj CMakeFiles/lifo.dir/FixedStack.cpp.obj
-  FLAGS = -g
+  FLAGS = -Werror -Wall -Wextra -pedantic -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\lifo.dir
   POST_BUILD = cd .
