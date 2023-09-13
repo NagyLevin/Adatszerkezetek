@@ -1,0 +1,3 @@
+D:/Egyetem2/3felev/Adatszerkezetek/gyak1/fifo/cmake-build-debug/CMakeFiles/fifo.dir
+D:/Egyetem2/3felev/Adatszerkezetek/gyak1/fifo/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Egyetem2/3felev/Adatszerkezetek/gyak1/fifo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
