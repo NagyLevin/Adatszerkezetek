@@ -1,10 +1,12 @@
 #include <iostream>
 #include "woodpecker.hpp"
 #include "bracketchecker.h"
+using namespace std;
 
 TEST("Simple & small") {
     BracketChecker bracketChecker;
     bool result = bracketChecker.checkCorrectness("()");
+    cout << result << endl;
     CHECK_EQ(result, true);
     result = bracketChecker.checkCorrectness("(");
     CHECK_EQ(result, false);

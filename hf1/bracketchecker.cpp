@@ -19,7 +19,7 @@ bool BracketChecker::checkCorrectness(const std::string& expression) {
     nyitojelek.push_back('{');
     zarojelek.push_back('}');
 
-    char keresettjel = ' ';
+    string jelek = "";
 
 
     for (int i = 0; i < int(expression.length()); ++i) {
@@ -29,16 +29,21 @@ bool BracketChecker::checkCorrectness(const std::string& expression) {
             //std::cout << int(zarojelek.size()) << std::endl;
             if(egykarakter == nyitojelek[j]){
                 //cout << egykarakter << "es" << zarojelek[j] << endl;
-                keresettjel = zarojelek[j]; //a nyitojel melle zarot keresem
-                //mi van akkor, ha (( vagy ([ jön egymás utan
+                jelek = jelek + zarojelek[j]; //a parjat hozzairja egy stringhez
+
 
 
             } else{
 
                 for (int k = 0; k < int(zarojelek.size()); ++k) {
                     if(egykarakter == zarojelek[k]){
-                        if(keresettjel == zarojelek[k]){
-                            keresettjel = ' ';
+                        //cout << "help" << endl;
+
+                        if(jelek[jelek.length()-1] == zarojelek[k]){
+
+                            //cout << "elotte: " << jelek << "!" << endl;
+                            jelek = jelek[-1]; //ha megtalalja a parjat akkor torolje oket
+                            //cout << "utana: " << jelek << "!" << endl;
                         }
                     }
 
@@ -53,12 +58,21 @@ bool BracketChecker::checkCorrectness(const std::string& expression) {
         }
 
     }
-    cout << "part done" << endl;
+    cout << "part done:" << jelek.length() << "!" << endl;
+    if(jelek == ""){
+
+        return true;
+
+    }
+    else{
+
+        return false;
+    }
 
 
 
 
 
-    (void) expression;
-    return true;
+    //(void) expression;
+    //return true;
 }
