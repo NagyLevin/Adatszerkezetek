@@ -39,12 +39,18 @@ bool BracketChecker::checkCorrectness(const std::string& expression) {
                     if(egykarakter == zarojelek[k]){
                         //cout << "help" << endl;
 
+                        if(jelek.length() == 0){ //különben bezaratlan marad a zarojel
+
+                            return false;
+                        }
+                        /////////////////////////////////valamit talalj ki arra, ha ())
                         if(jelek[jelek.length()-1] == zarojelek[k]){
 
                             //cout << "elotte: " << jelek << "!" << endl;
                             jelek = jelek.substr(0, jelek.size()-1); //ha megtalalja a parjat akkor torolje oket
                             //cout << "utana: " << jelek << "!" << endl;
                         }
+
                     }
 
                     }
@@ -58,8 +64,8 @@ bool BracketChecker::checkCorrectness(const std::string& expression) {
         }
 
     }
-    cout << "part done:" << jelek.length() << "!" << endl;
-    if(jelek == ""){
+    //cout << "part done:" << jelek.length() << "!" << endl;
+    if(jelek.length() == 0){
 
         return true;
 

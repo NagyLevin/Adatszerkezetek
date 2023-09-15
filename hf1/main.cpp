@@ -36,6 +36,7 @@ TEST("Simple") {
     result = bracketChecker.checkCorrectness("{}(()[]{}(({}{}{}[{}{}{})){})");
     CHECK_EQ(result, false);
 }
+
 TEST("Bad cases") {
     BracketChecker bracketChecker;
     bool result = bracketChecker.checkCorrectness("(()");
@@ -47,6 +48,7 @@ TEST("Bad cases") {
     result = bracketChecker.checkCorrectness("1-(2+3)/6)+(4-(2+2)");
     CHECK_EQ(result, false);
 }
+
 TEST("Complex cases") {
     BracketChecker bracketChecker;
     bool result = bracketChecker.checkCorrectness("Solve (12+13+14)-(((12*2+5-4*(9-4)*[6-3]+{2-(2*7)})+5)*3)-111");
