@@ -1,0 +1,3 @@
+C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/hf1/cmake-build-debug/CMakeFiles/adatszerk_hf01.dir
+C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/hf1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/hf1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
