@@ -42,7 +42,7 @@ bool BracketChecker::checkCorrectness(const std::string& expression) {
                         if(jelek[jelek.length()-1] == zarojelek[k]){
 
                             //cout << "elotte: " << jelek << "!" << endl;
-                            jelek = jelek[-1]; //ha megtalalja a parjat akkor torolje oket
+                            jelek = jelek.substr(0, jelek.size()-1); //ha megtalalja a parjat akkor torolje oket
                             //cout << "utana: " << jelek << "!" << endl;
                         }
                     }
