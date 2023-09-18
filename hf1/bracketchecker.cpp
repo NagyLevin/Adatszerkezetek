@@ -3,7 +3,7 @@
 #include "vector"
 using namespace std;
 bool BracketChecker::checkCorrectness(const std::string& expression) {
-    // TODO solve homework by deadline
+    // TODO solved homework by deadline
 
 
 
