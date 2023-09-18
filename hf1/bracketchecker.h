@@ -2,14 +2,15 @@
 #define ADATSZERK_HF01_BRACKETCHECKER_H
 
 #include <string>
-#include "vector"
+#include "mystack.h"
 
 class BracketChecker {
 
 public:
     bool checkCorrectness(const std::string& expression);
-    std::vector<char> zarojelek;
-    std::vector<char> nyitojelek;
+    MyStack myStack;
+    MyStack zarojelek;
+    MyStack nyitojelek;
     std::string jelek;
 
 

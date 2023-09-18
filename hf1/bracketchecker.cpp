@@ -1,6 +1,6 @@
 #include "bracketchecker.h"
 #include <iostream>
-#include "vector"
+
 using namespace std;
 bool BracketChecker::checkCorrectness(const std::string& expression) {
     // TODO solve homework by deadline
@@ -8,12 +8,12 @@ bool BracketChecker::checkCorrectness(const std::string& expression) {
 
 
 
-    nyitojelek.push_back('(');
-    zarojelek.push_back(')');
-    nyitojelek.push_back('[');
-    zarojelek.push_back(']');
-    nyitojelek.push_back('{');
-    zarojelek.push_back('}');
+    nyitojelek.push('(');
+    zarojelek.push(')');
+    nyitojelek.push('[');
+    zarojelek.push(']');
+    nyitojelek.push('{');
+    zarojelek.push('}');
     jelek = "";
 
 
@@ -24,10 +24,10 @@ bool BracketChecker::checkCorrectness(const std::string& expression) {
 
         for (int j = 0; j < int(nyitojelek.size()); ++j) {
             //std::cout << int(zarojelek.size()) << std::endl;
-            if(egykarakter == nyitojelek[j]){
+            if(egykarakter == nyitojelek.GiveItem(j)){
                 //cout << egykarakter << "es" << zarojelek[j] << endl;
-                jelek = jelek + zarojelek[j]; //a parjat hozzairja egy stringhez
-
+                jelek = jelek + zarojelek.GiveItem(j); //a parjat hozzairja egy stringhez
+                //cout << "hozzaadva: " << jelek << "!" << endl;
 
 
             }
@@ -35,7 +35,7 @@ bool BracketChecker::checkCorrectness(const std::string& expression) {
 
             }
         for (int k = 0; k < int(zarojelek.size()); ++k) { //megnezi a zarojel masik felet
-            if(egykarakter == zarojelek[k]){
+            if(egykarakter == zarojelek.GiveItem(k)){
                 //cout << "help" << endl;
 
                 //cout << "egykarakter: " << egykarakter << "!" << endl;
@@ -48,7 +48,7 @@ bool BracketChecker::checkCorrectness(const std::string& expression) {
                     return false;
                 }
 
-                if(jelek[jelek.length()-1] == zarojelek[k]){
+                if(jelek[jelek.length()-1] == zarojelek.GiveItem(k)){
 
                     //cout << "elotte: " << jelek << "!" << endl;
                     jelek = jelek.substr(0, jelek.size()-1); //ha megtalalja a parjat akkor torolje oket

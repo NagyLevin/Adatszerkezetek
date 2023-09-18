@@ -37,6 +37,15 @@ int MyStack::top() const {
 
 }
 
+int MyStack::size(){
+    return max;
+}
+char MyStack::GiveItem(int elemszam){
+    return array[elemszam];
+
+}
+
+
 int MyStack::pop() {
     if (isEmpty()) {
         return -1; // Később megírjuk szebben is!

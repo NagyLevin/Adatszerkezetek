@@ -11,12 +11,15 @@ public:
     void push(int new_item);
     int pop();
     int top() const;
+    int size();
     bool isEmpty() const;
     void print() const;
+    char GiveItem(int elemszam);
+
 
 private:
     static const int max = 10; //array merete(tarolo merete)
-    int array[max]; //tomb merettel egyutt
+    char array[max]; //tomb merettel egyutt
     int head; //mutato, ami a legutobb belerakott elemet mutatja
 };
 
