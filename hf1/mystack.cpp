@@ -59,18 +59,4 @@ int MyStack::pop() {
     return temp;
 }
 
-void MyStack::print() const {
 
-    if (isEmpty()) {
-        std::cout << array[head-1] <<", ";
-    }
-    std::cout << "" << std::endl;
-    for(int i =0; i < (head);i++){
-        //std::cout << "head: " << head << std::endl;
-
-        std::cout << array[i] << std::endl;
-    }
-
-
-
-}

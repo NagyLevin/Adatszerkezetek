@@ -6,4 +6,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Wall -Wextra -pedantic")
 
 add_executable(adatszerk_hf01 main.cpp
         bracketchecker.cpp
-        bracketchecker.h)
+        bracketchecker.h
+        mystack.cpp
+        mystack.h)

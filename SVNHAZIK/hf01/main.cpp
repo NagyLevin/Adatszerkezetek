@@ -6,7 +6,7 @@ using namespace std;
 TEST("Simple & small") {
     BracketChecker bracketChecker;
     bool result = bracketChecker.checkCorrectness("()");
-    cout << result << endl;
+    //cout << result << endl;
     CHECK_EQ(result, true);
     result = bracketChecker.checkCorrectness("(");
     CHECK_EQ(result, false);
@@ -23,6 +23,7 @@ TEST("Simple & small") {
     result = bracketChecker.checkCorrectness("");
     CHECK_EQ(result, true);
 }
+
 TEST("Simple") {
     BracketChecker bracketChecker;
     bool result = bracketChecker.checkCorrectness(" ( ) \n [[this text should be ignored]]....{{}}");
