@@ -2,22 +2,26 @@
 #include <iostream>
 
 using namespace std;
-bool BracketChecker::checkCorrectness(const std::string& expression) {
-    // TODO solve homework by deadline
-
-
-
-
+BracketChecker::BracketChecker() {
     nyitojelek.push('(');
     zarojelek.push(')');
     nyitojelek.push('[');
     zarojelek.push(']');
     nyitojelek.push('{');
     zarojelek.push('}');
+
+
+}
+
+bool BracketChecker::checkCorrectness(const std::string& expression) {
+    // TODO solve homework by deadline
+
+
+
+
+
     jelek = "";
-
-
-
+    //cout << jelek <<endl;
     for (int i = 0; i < int(expression.length()); ++i) { //megnezi a zarojel kezdetet
         //cout << expression[i] << endl;
         char egykarakter = expression[i];
@@ -62,8 +66,8 @@ bool BracketChecker::checkCorrectness(const std::string& expression) {
 
         }
 
-
-    //cout << "part done:" << jelek.length() << "!" << endl;
+    //cout << expression <<endl;
+    //cout << "part done:" << jelek << "!" << endl;
     if(jelek.length() == 0){
 
         return true;

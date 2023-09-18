@@ -7,10 +7,13 @@
 class BracketChecker {
 
 public:
+    BracketChecker();
     bool checkCorrectness(const std::string& expression);
     MyStack myStack;
+
     MyStack zarojelek;
     MyStack nyitojelek;
+
     std::string jelek;
 
 
