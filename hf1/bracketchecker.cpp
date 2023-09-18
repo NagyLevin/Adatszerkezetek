@@ -16,10 +16,6 @@ BracketChecker::BracketChecker() {
 bool BracketChecker::checkCorrectness(const std::string& expression) {
     // TODO solve homework by deadline
 
-
-
-
-
     jelek = "";
     //cout << jelek <<endl;
     for (int i = 0; i < int(expression.length()); ++i) { //megnezi a zarojel kezdetet
