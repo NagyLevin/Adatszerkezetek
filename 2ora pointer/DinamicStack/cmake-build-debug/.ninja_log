@@ -1,0 +1,11 @@
+# ninja log v5
+0	265	7168125237883926	CMakeFiles/DinamicStack.dir/main.cpp.obj	7ba7341d1d598f5a
+3	267	7168125237894233	CMakeFiles/DinamicStack.dir/DynamicIntStack.cpp.obj	5026541602c6f652
+267	339	7168125238599639	DinamicStack.exe	43de2d3800edead5
+2	256	7168125497769871	CMakeFiles/DinamicStack.dir/main.cpp.obj	7ba7341d1d598f5a
+2	233	7168127036306955	CMakeFiles/DinamicStack.dir/main.cpp.obj	7ba7341d1d598f5a
+234	292	7168127036856830	DinamicStack.exe	43de2d3800edead5
+2	234	7168128294772301	CMakeFiles/DinamicStack.dir/DynamicIntStack.cpp.obj	5026541602c6f652
+235	297	7168128295371670	DinamicStack.exe	43de2d3800edead5
+2	237	7168132905745774	CMakeFiles/DinamicStack.dir/DynamicIntStack.cpp.obj	5026541602c6f652
+238	299	7168132906337427	DinamicStack.exe	43de2d3800edead5

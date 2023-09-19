@@ -1,0 +1,3 @@
+C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/2ora pointer/cmake-build-debug/CMakeFiles/2ora_pointer.dir
+C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/2ora pointer/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/2ora pointer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
