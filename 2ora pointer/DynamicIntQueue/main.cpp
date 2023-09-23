@@ -1,4 +1,4 @@
-#include "DynamicIntQueue.h"
+#include "DynamicIntQueue.cpp"
 #include <iostream>
 
 using namespace std;
@@ -52,7 +52,7 @@ int main() {
     cout << endl;
 
     // out
-    cout << "\n/**********Out from Queue**********\\" << endl;
+    cout << "\n/**********Out from Queue**********\\" << endl; //itt
 
     cout << "first(): " << queue.first() << endl;
     cout << "out(): " << queue.out() << endl;
@@ -64,6 +64,7 @@ int main() {
     queue.print();
     cout << endl;
     cout << "first(): " << queue.first() << endl;
+    cout << "out(): " << queue.out() << endl;
     cout << "out(): " << queue.out() << endl;
     cout << "out(): " << queue.out() << endl;
     cout << "out(): " << queue.out() << endl;

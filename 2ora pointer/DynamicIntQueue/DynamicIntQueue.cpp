@@ -62,10 +62,29 @@ if(isEmpty()){
 }
 
 int DynamicIntQueue::out() {
+    if(isEmpty()){
+        return -1;
+    }
+    Node * p = head;
+    head = head->pNext;
+    int temp = p->value; //int?
+    delete p;
+    if(head == nullptr){
+        tail = nullptr;
+    }
+
+    return temp;
+
+
 
 }
 
 int DynamicIntQueue::first() const {
+    if(isEmpty()){
+        return -1;
+    }
+
+    return head->value;
 
 }
 
