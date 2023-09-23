@@ -5,6 +5,7 @@
 #ifndef LENGYEL_POLISHNOTATION_H
 #define LENGYEL_POLISHNOTATION_H
 #include <string>
+#include <vector>
 using namespace std;
 
 class PolishNotation {
@@ -16,6 +17,12 @@ public:
     int evaluate(string polish_input);
 private:
     int ConvertDecimal(string number);
+    vector<char> lengyel;
+    vector<char> jelek;
+    char nyitojel = '(';
+    char zarojel = ')';
+
+
 
 
 };
