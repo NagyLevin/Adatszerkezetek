@@ -4,7 +4,6 @@
 
 #ifndef LENGYEL_POLISHNOTATION_H
 #define LENGYEL_POLISHNOTATION_H
-
 #include <string>
 using namespace std;
 
