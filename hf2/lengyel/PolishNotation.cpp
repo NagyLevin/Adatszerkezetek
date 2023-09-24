@@ -17,36 +17,65 @@ PolishNotation::PolishNotation() {
 
 int PolishNotation::ConvertDecimal(std::string number) {
 
+    int szam = 0;
+    int hatvany = 0;
+    //cout << number <<endl;
+    for (int i = number.size()-1; i > -1; --i) {
+        int hanyszor = (int(number[i]))-48;
+        //cout << hanyszor <<endl;
+        int khatvany = pow(2,hatvany);
+        szam = szam + hanyszor * khatvany;
+        hatvany = hatvany +1;
+    }
+    cout << szam <<endl;
+    /*
+    int hatvany = 8-szamszamlalo;
+
+    //cout << hatvany <<endl;
+    int hatvanyozva = pow(2,hatvany);
+
+    szam1 = szam1 + hanyszor*hatvanyozva;
+
+    //int teszt = pow(2,3);
+    //cout << teszt <<endl;
+     */
+
 }
 
 int PolishNotation::evaluate(std::string polish_input) {
-    int szam1 = 0;
-    int szam2 = 0;
+
     int szamszamlalo = 0;
+    string egyszam = "";
 
     for (int i = 0; i < polish_input.size(); ++i) { //ha kaptam 8 szamot huzamban, akkor elkuldom a kiertekelonek, es az visszaad egy int? szamot
         if(isdigit(polish_input[i])){
-            if(szamszamlalo <= 8){
 
-                int hatvany = 8-szamszamlalo;
-                int hanyszor = (int(polish_input[i]))-48;
-                //cout << hatvany <<endl;
-                int hatvanyozva = pow(2,hatvany);
+            if(szamszamlalo == 8){
 
-                szam1 = szam1 + hanyszor*hatvanyozva;
-
-                //int teszt = pow(2,3);
-                //cout << teszt <<endl;
-
+                char szam = ConvertDecimal(egyszam);
+                szamok.push_back(szam);
+                cout << szam <<endl;
+                szamszamlalo = 0;
+                egyszam = "";
 
 
             }
+           egyszam = egyszam + polish_input[i];
             szamszamlalo = szamszamlalo +1;
 
         }
+        if(!isdigit(polish_input[i]) && polish_input[i] != terkoz){
+            if(polish_input[i] == '+'){
+
+            }
+
+
+        }
+
+
 
     }
-    cout << szam1 <<endl;
+
 
 }
 
@@ -55,13 +84,13 @@ string PolishNotation::convert(string polishInfix) {
 
     for (int i = 0; i < polishInfix.size(); ++i) {
 
-        if( polishInfix[i] != ' ' && !isdigit(polishInfix[i])){
+        if( polishInfix[i] != terkoz && !isdigit(polishInfix[i])){
 
             if(polishInfix[i] == zarojel){
 
                 //char test = jelek[jelek.size()-1]; //kesobb popback majd
                 //cout << test << endl;
-                lengyel.push_back(' ');
+                lengyel.push_back(terkoz);
                 lengyel.push_back(jelek[jelek.size()-1]);                        //addig popback amig nem nyitojelet kapunk vissza
                 while(jelek[jelek.size()-1] != nyitojel){
                     //cout << jelek[jelek.size()-1] <<endl;
@@ -82,7 +111,7 @@ string PolishNotation::convert(string polishInfix) {
                 //cout << jelek[jelek.size()-1] <<endl;
 
                 if(jelek.size() == 1){
-                    lengyel.push_back(' ');
+                    lengyel.push_back(terkoz);
                     lengyel.push_back(jelek[jelek.size()-1]);
 
                     jelek.pop_back();
@@ -100,7 +129,8 @@ string PolishNotation::convert(string polishInfix) {
 
         if(isdigit(polishInfix[i])){
             if(szamszamlalo == 8){
-                lengyel.push_back(' ');
+                lengyel.push_back(terkoz);
+
                 szamszamlalo = 0;
 
             }

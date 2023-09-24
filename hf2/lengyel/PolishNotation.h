@@ -19,9 +19,10 @@ private:
     int ConvertDecimal(string number);
     vector<char> lengyel;
     vector<char> jelek;
+    vector<char> szamok;
     char nyitojel = '(';
     char zarojel = ')';
-
+    char terkoz = ' ';
 
 
 
