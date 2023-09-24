@@ -4,6 +4,8 @@
 
 #include "PolishNotation.h"
 #include <iostream>
+#include <math.h>
+
 using namespace std;
 
 
@@ -13,6 +15,40 @@ PolishNotation::PolishNotation() {
 
 }
 
+int PolishNotation::ConvertDecimal(std::string number) {
+
+}
+
+int PolishNotation::evaluate(std::string polish_input) {
+    int szam1 = 0;
+    int szam2 = 0;
+    int szamszamlalo = 0;
+
+    for (int i = 0; i < polish_input.size(); ++i) { //ha kaptam 8 szamot huzamban, akkor elkuldom a kiertekelonek, es az visszaad egy int? szamot
+        if(isdigit(polish_input[i])){
+            if(szamszamlalo <= 8){
+
+                int hatvany = 8-szamszamlalo;
+                int hanyszor = (int(polish_input[i]))-48;
+                //cout << hatvany <<endl;
+                int hatvanyozva = pow(2,hatvany);
+
+                szam1 = szam1 + hanyszor*hatvanyozva;
+
+                //int teszt = pow(2,3);
+                //cout << teszt <<endl;
+
+
+
+            }
+            szamszamlalo = szamszamlalo +1;
+
+        }
+
+    }
+    cout << szam1 <<endl;
+
+}
 
 string PolishNotation::convert(string polishInfix) {
     int szamszamlalo = 0;
