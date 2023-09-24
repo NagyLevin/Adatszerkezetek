@@ -29,7 +29,7 @@ int PolishNotation::ConvertDecimal(std::string number) {
 
         hatvany = hatvany +1;
     }
-    cout << szam <<endl;
+    //cout << szam <<endl;
 
     return szam;
 }
@@ -44,56 +44,74 @@ int PolishNotation::evaluate(std::string polish_input) {
         //cout << polish_input[i] <<endl;
         if(isdigit(polish_input[i])){
 
-            if(szamszamlalo > 7){
-
-                char szam = ConvertDecimal(egyszam);
-                szamok.push_back(szam);
-                szamszamlalo = 0;
-                egyszam = "";
-            }
             szamszamlalo = szamszamlalo +1;
             egyszam = egyszam + polish_input[i];
-
-
-        }
-
-
-
-        /*
-        if(isdigit(polish_input[i])){
-
             if(szamszamlalo > 7){
 
-                char szam = ConvertDecimal(egyszam);
+                char szam = ConvertDecimal(egyszam)+48; ///ezt told el
+                //cout << szam << endl;
                 szamok.push_back(szam);
-                cout << szam <<endl;
                 szamszamlalo = 0;
                 egyszam = "";
-
-
             }
-           egyszam = egyszam + polish_input[i];
-            szamszamlalo = szamszamlalo +1;
+
+
 
         }
-         */
-        /*
+
         if(!isdigit(polish_input[i]) && polish_input[i] != terkoz){
             if(polish_input[i] == '+'){
+                int szam2 = int(szamok[szamok.size()-1])-48;
+                //cout << szamok[szamok.size()-1] <<endl;
+                //cout << szam1 <<endl;
+                szamok.pop_back();
+
+                int szam1 = int(szamok[szamok.size()-1])-48;
+                //cout << szamok[szamok.size()-1] <<endl;
+                //cout << szam2 <<endl;
+                szamok.pop_back();
+                int osszeg = szam1 + szam2;
+                //cout << osszeg <<endl;;
+
+                char cosszeg = osszeg+48;
+                //cout << cosszeg << endl;
+                szamok.push_back(cosszeg);
+            }
+            if(polish_input[i] == '-'){
+                int szam2 = int(szamok[szamok.size()-1])-48;
+                szamok.pop_back();
 
                 int szam1 = int(szamok[szamok.size()-1])-48;
                 szamok.pop_back();
+                int osszeg = szam1 - szam2;
+
+                char cosszeg = osszeg+48;
+                //cout << cosszeg << endl;
+                szamok.push_back(cosszeg);
+
+            }
+            if(polish_input[i] == '*'){
                 int szam2 = int(szamok[szamok.size()-1])-48;
                 szamok.pop_back();
-                int osszeg = szam1 + szam2;
-                szamok.push_back(osszeg);
+
+                int szam1 = int(szamok[szamok.size()-1])-48;
+                szamok.pop_back();
+                int osszeg = szam1 * szam2;
+
+                char cosszeg = osszeg+48;
+                cout << cosszeg << endl;
+                szamok.push_back(cosszeg);///sajnos nem jó
+                ///Char ba nem lehet 27 et belerakni, ezert konvertalast el kell tolni
 
 
             }
 
 
+
+
+
         }
-*/
+
 
 
     }
