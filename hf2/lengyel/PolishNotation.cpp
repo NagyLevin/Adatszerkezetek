@@ -20,7 +20,7 @@ int PolishNotation::ConvertDecimal(std::string number) {
     int szam = 0;
     int hatvany = 0;
     //cout << number <<endl;
-    for (int i = number.size(); i > 0; --i) {
+    for (int i = number.size()-1; i > -1; --i) {
         int hanyszor = (int(number[i]))-48;
         //cout << hanyszor <<endl;
         int khatvany = pow(2,hatvany);
