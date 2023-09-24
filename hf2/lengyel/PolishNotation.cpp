@@ -20,26 +20,18 @@ int PolishNotation::ConvertDecimal(std::string number) {
     int szam = 0;
     int hatvany = 0;
     //cout << number <<endl;
-    for (int i = number.size()-1; i > -1; --i) {
+    for (int i = number.size(); i > 0; --i) {
         int hanyszor = (int(number[i]))-48;
         //cout << hanyszor <<endl;
         int khatvany = pow(2,hatvany);
-        szam = szam + hanyszor * khatvany;
+        //cout << khatvany <<endl;
+        szam = szam + (hanyszor * khatvany);
+
         hatvany = hatvany +1;
     }
     cout << szam <<endl;
-    /*
-    int hatvany = 8-szamszamlalo;
 
-    //cout << hatvany <<endl;
-    int hatvanyozva = pow(2,hatvany);
-
-    szam1 = szam1 + hanyszor*hatvanyozva;
-
-    //int teszt = pow(2,3);
-    //cout << teszt <<endl;
-     */
-
+    return szam;
 }
 
 int PolishNotation::evaluate(std::string polish_input) {
@@ -47,10 +39,30 @@ int PolishNotation::evaluate(std::string polish_input) {
     int szamszamlalo = 0;
     string egyszam = "";
 
-    for (int i = 0; i < polish_input.size(); ++i) { //ha kaptam 8 szamot huzamban, akkor elkuldom a kiertekelonek, es az visszaad egy int? szamot
+    for (int i = 0; i < polish_input.size(); i++) { //ha kaptam 8 szamot huzamban, akkor elkuldom a kiertekelonek, es az visszaad egy int? szamot
+
+        //cout << polish_input[i] <<endl;
         if(isdigit(polish_input[i])){
 
-            if(szamszamlalo == 8){
+            if(szamszamlalo > 7){
+
+                char szam = ConvertDecimal(egyszam);
+                szamok.push_back(szam);
+                szamszamlalo = 0;
+                egyszam = "";
+            }
+            szamszamlalo = szamszamlalo +1;
+            egyszam = egyszam + polish_input[i];
+
+
+        }
+
+
+
+        /*
+        if(isdigit(polish_input[i])){
+
+            if(szamszamlalo > 7){
 
                 char szam = ConvertDecimal(egyszam);
                 szamok.push_back(szam);
@@ -64,19 +76,29 @@ int PolishNotation::evaluate(std::string polish_input) {
             szamszamlalo = szamszamlalo +1;
 
         }
+         */
+        /*
         if(!isdigit(polish_input[i]) && polish_input[i] != terkoz){
             if(polish_input[i] == '+'){
+
+                int szam1 = int(szamok[szamok.size()-1])-48;
+                szamok.pop_back();
+                int szam2 = int(szamok[szamok.size()-1])-48;
+                szamok.pop_back();
+                int osszeg = szam1 + szam2;
+                szamok.push_back(osszeg);
+
 
             }
 
 
         }
-
+*/
 
 
     }
 
-
+    return 0;
 }
 
 string PolishNotation::convert(string polishInfix) {
@@ -145,11 +167,11 @@ string PolishNotation::convert(string polishInfix) {
 
     }
     string lengyelfroma = "";
-    for (int i = 0; i < lengyel.size(); ++i) {
+    for (int i = 0; i < lengyel.size(); i++) {
         //cout << lengyel[i] <<endl;
         lengyelfroma = lengyelfroma + lengyel[i];
     }
-    cout << lengyelfroma <<endl;
+    //cout << lengyelfroma <<endl;
 
 
     return lengyelfroma;
