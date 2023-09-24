@@ -95,7 +95,7 @@ int PolishNotation::evaluate(std::string polish_input) {
                 szamok.pop_back();
 
                 int szam1 = int(szamok[szamok.size()-1])-48;
-                szamok.pop_back();
+                szamok.pop_back();///siman csak 8 popback es utana meg 8 pushback
                 int osszeg = szam1 * szam2;
 
                 char cosszeg = osszeg+48;
