@@ -41,7 +41,7 @@ int PolishNotation::ConvertDecimal() {
 }
 
 int PolishNotation::evaluate(std::string polish_input) {
-
+    int osszeg = 0;
 
 
     for (int i = 0; i < polish_input.size(); i++) { //ha kaptam 8 szamot huzamban, akkor elkuldom a kiertekelonek, es az visszaad egy int? szamot
@@ -67,7 +67,7 @@ int PolishNotation::evaluate(std::string polish_input) {
                 int szam1 = ConvertDecimal();
 
 
-                int osszeg = muvelet(szam1,szam2,polish_input[i]);
+                osszeg = muvelet(szam1,szam2,polish_input[i]);
                 //cout << osszeg << endl;
                 convertobinar(osszeg); // binarisba visszakonvertalom, es pushbackelem
 
@@ -88,15 +88,15 @@ int PolishNotation::evaluate(std::string polish_input) {
 
 
     }
-
-    return 0;
+    //cout << osszeg << endl;
+    return osszeg;
 }
 
 void PolishNotation::convertobinar(int szam) {
 
     int n = 0;
     int lepesszam = 0;
-    cout << "ez a szam : " << szam <<endl;
+    //cout << "ez a szam : " << szam <<endl;
     while(szam != 0){
         n = szam%2;
 
@@ -142,7 +142,7 @@ void PolishNotation::convertobinar(int szam) {
 
 
 
-    cout << "vege binar" <<endl;
+    //cout << "vege binar" <<endl;
 
 }
 
