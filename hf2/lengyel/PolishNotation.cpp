@@ -42,8 +42,7 @@ int PolishNotation::ConvertDecimal() {
 
 int PolishNotation::evaluate(std::string polish_input) {
 
-    int szamszamlalo = 0;
-    //string egyszam = "";
+
 
     for (int i = 0; i < polish_input.size(); i++) { //ha kaptam 8 szamot huzamban, akkor elkuldom a kiertekelonek, es az visszaad egy int? szamot
 
@@ -51,17 +50,7 @@ int PolishNotation::evaluate(std::string polish_input) {
         if(isdigit(polish_input[i])){
 
 
-            if(szamszamlalo > 7){
 
-                //char szam = ConvertDecimal(egyszam)+48; ///ezt told el
-                //cout << "szam" << endl;
-                //szamok.push_back(terkoz);
-                szamszamlalo = 0;
-                //egyszam = "";
-            }
-            szamszamlalo = szamszamlalo +1;
-            //egyszam = egyszam + polish_input[i];
-            //cout << polish_input[i] <<endl;
             szamok.push_back(polish_input[i]);
 
 
@@ -79,7 +68,7 @@ int PolishNotation::evaluate(std::string polish_input) {
 
 
                 int osszeg = muvelet(szam1,szam2,polish_input[i]);
-
+                cout << osszeg << endl;
                 convertobinar(osszeg); // binarisba visszakonvertalom, es pushbackelem
 
                 //char cosszeg = osszeg+48;
@@ -108,26 +97,31 @@ void PolishNotation::convertobinar(int szam) {
         int hatvany = pow(2,i);
         //cout << hatvany << endl;
         if(szam % hatvany == 0){
-            szamok.push_back(1);
-
+            szamok.push_back('1');
+            //cout << szam <<endl;
         }
         if(szam % hatvany != 0){
-            szamok.push_back(0);
-
+            szamok.push_back('0');
+            //cout << szam <<endl;
 
         }
-
+        //cout << szamok[szamok.size()-1] <<endl;
 
 
 
     }
+    //cout << "vege binar" <<endl;
 
 }
 
 int PolishNotation::muvelet(int szam1, int szam2,char jel) {
     int osszeg = 0;
     if(jel == '*'){
+
+        //cout << szam1 <<endl;
+        //cout << szam2 <<endl;
         osszeg = szam1 * szam2;
+        //cout << osszeg <<endl;
 
     }
     if(jel == '+'){
