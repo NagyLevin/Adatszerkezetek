@@ -94,25 +94,54 @@ int PolishNotation::evaluate(std::string polish_input) {
 
 void PolishNotation::convertobinar(int szam) {
 
+    int n = 0;
+    int lepesszam = 0;
+    cout << "ez a szam : " << szam <<endl;
+    while(szam != 0){
+        n = szam%2;
 
+
+
+
+        szam = szam / 2;
+        lepesszam = lepesszam +1;
+    }
+    for (int i = 0; i < 8-lepesszam; ++i) {
+
+        szamok.push_back('0');
+        //cout << " maradek 0" <<endl;
+
+    }
+    for (int i = 0; i < lepesszam; ++i) {
+
+        szamok.push_back('1');
+        //cout << " maradek 0" <<endl;
+
+    }
+
+
+    /*
     for (int i = 7; i > -1; --i) {
         int hatvany = pow(2,i);
         //cout << hatvany << endl;
 
-        if(szam % hatvany == 0){
+        if(szam % hatvany == 1){
             szamok.push_back('1');
-            cout << szam <<endl;
+            //cout << szam <<endl;
+            szam = szam / hatvany;
         }
-        if(szam % hatvany != 0){
+        if(szam % hatvany != 1){
             szamok.push_back('0');
             //cout << szam <<endl;
 
         }
-        //cout << szamok[szamok.size()-1] <<endl;
+        cout << szamok[szamok.size()-1] <<endl;
+
+        }
+        */
 
 
 
-    }
     cout << "vege binar" <<endl;
 
 }
