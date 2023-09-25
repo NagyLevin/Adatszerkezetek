@@ -68,7 +68,7 @@ int PolishNotation::evaluate(std::string polish_input) {
 
 
                 int osszeg = muvelet(szam1,szam2,polish_input[i]);
-                cout << osszeg << endl;
+                //cout << osszeg << endl;
                 convertobinar(osszeg); // binarisba visszakonvertalom, es pushbackelem
 
                 //char cosszeg = osszeg+48;
@@ -93,12 +93,15 @@ int PolishNotation::evaluate(std::string polish_input) {
 }
 
 void PolishNotation::convertobinar(int szam) {
+
+
     for (int i = 7; i > -1; --i) {
         int hatvany = pow(2,i);
         //cout << hatvany << endl;
+
         if(szam % hatvany == 0){
             szamok.push_back('1');
-            //cout << szam <<endl;
+            cout << szam <<endl;
         }
         if(szam % hatvany != 0){
             szamok.push_back('0');
@@ -110,18 +113,20 @@ void PolishNotation::convertobinar(int szam) {
 
 
     }
-    //cout << "vege binar" <<endl;
+    cout << "vege binar" <<endl;
 
 }
 
 int PolishNotation::muvelet(int szam1, int szam2,char jel) {
     int osszeg = 0;
+    //cout << jel <<endl;
     if(jel == '*'){
 
         //cout << szam1 <<endl;
         //cout << szam2 <<endl;
         osszeg = szam1 * szam2;
         //cout << osszeg <<endl;
+        //cout << "egyszer" <<endl;
 
     }
     if(jel == '+'){
