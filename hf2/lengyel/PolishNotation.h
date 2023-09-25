@@ -16,7 +16,9 @@ public:
     string convert(string polishInfix);
     int evaluate(string polish_input);
 private:
-    int ConvertDecimal(string number);
+    int ConvertDecimal();
+    int muvelet(int szam1, int szam2, char jel);
+    void convertobinar(int szam);
     vector<char> lengyel;
     vector<char> jelek;
     vector<char> szamok;

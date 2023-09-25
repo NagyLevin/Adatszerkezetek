@@ -15,13 +15,19 @@ PolishNotation::PolishNotation() {
 
 }
 
-int PolishNotation::ConvertDecimal(std::string number) {
+int PolishNotation::ConvertDecimal() {
 
     int szam = 0;
     int hatvany = 0;
+    string number = "";
+    for (int i = 0; i < 8; ++i) {
+        number = number + szamok[szamok.size()-1];
+        szamok.pop_back();
+    }
+
     //cout << number <<endl;
     for (int i = number.size()-1; i > -1; --i) {
-        int hanyszor = (int(number[i]))-48;
+        int hanyszor = (int(number[hatvany]))-48;
         //cout << hanyszor <<endl;
         int khatvany = pow(2,hatvany);
         //cout << khatvany <<endl;
@@ -37,74 +43,52 @@ int PolishNotation::ConvertDecimal(std::string number) {
 int PolishNotation::evaluate(std::string polish_input) {
 
     int szamszamlalo = 0;
-    string egyszam = "";
+    //string egyszam = "";
 
     for (int i = 0; i < polish_input.size(); i++) { //ha kaptam 8 szamot huzamban, akkor elkuldom a kiertekelonek, es az visszaad egy int? szamot
 
         //cout << polish_input[i] <<endl;
         if(isdigit(polish_input[i])){
 
-            szamszamlalo = szamszamlalo +1;
-            egyszam = egyszam + polish_input[i];
+
             if(szamszamlalo > 7){
 
-                char szam = ConvertDecimal(egyszam)+48; ///ezt told el
-                //cout << szam << endl;
-                szamok.push_back(szam);
+                //char szam = ConvertDecimal(egyszam)+48; ///ezt told el
+                //cout << "szam" << endl;
+                //szamok.push_back(terkoz);
                 szamszamlalo = 0;
-                egyszam = "";
+                //egyszam = "";
             }
-
+            szamszamlalo = szamszamlalo +1;
+            //egyszam = egyszam + polish_input[i];
+            //cout << polish_input[i] <<endl;
+            szamok.push_back(polish_input[i]);
 
 
         }
 
         if(!isdigit(polish_input[i]) && polish_input[i] != terkoz){
-            if(polish_input[i] == '+'){
-                int szam2 = int(szamok[szamok.size()-1])-48;
-                //cout << szamok[szamok.size()-1] <<endl;
-                //cout << szam1 <<endl;
-                szamok.pop_back();
 
-                int szam1 = int(szamok[szamok.size()-1])-48;
-                //cout << szamok[szamok.size()-1] <<endl;
+
+
+
+                int szam2 = ConvertDecimal();
                 //cout << szam2 <<endl;
-                szamok.pop_back();
-                int osszeg = szam1 + szam2;
-                //cout << osszeg <<endl;;
 
-                char cosszeg = osszeg+48;
+                int szam1 = ConvertDecimal();
+
+
+                int osszeg = muvelet(szam1,szam2,polish_input[i]);
+
+                convertobinar(osszeg); // binarisba visszakonvertalom, es pushbackelem
+
+                //char cosszeg = osszeg+48;
                 //cout << cosszeg << endl;
-                szamok.push_back(cosszeg);
-            }
-            if(polish_input[i] == '-'){
-                int szam2 = int(szamok[szamok.size()-1])-48;
-                szamok.pop_back();
-
-                int szam1 = int(szamok[szamok.size()-1])-48;
-                szamok.pop_back();
-                int osszeg = szam1 - szam2;
-
-                char cosszeg = osszeg+48;
-                //cout << cosszeg << endl;
-                szamok.push_back(cosszeg);
-
-            }
-            if(polish_input[i] == '*'){
-                int szam2 = int(szamok[szamok.size()-1])-48;
-                szamok.pop_back();
-
-                int szam1 = int(szamok[szamok.size()-1])-48;
-                szamok.pop_back();///siman csak 8 popback es utana meg 8 pushback
-                int osszeg = szam1 * szam2;
-
-                char cosszeg = osszeg+48;
-                cout << cosszeg << endl;
-                szamok.push_back(cosszeg);///sajnos nem jó
+                //szamok.push_back(cosszeg);///sajnos nem jó
                 ///Char ba nem lehet 27 et belerakni, ezert konvertalast el kell tolni
 
 
-            }
+
 
 
 
@@ -117,6 +101,49 @@ int PolishNotation::evaluate(std::string polish_input) {
     }
 
     return 0;
+}
+
+void PolishNotation::convertobinar(int szam) {
+    for (int i = 7; i > -1; --i) {
+        int hatvany = pow(2,i);
+        //cout << hatvany << endl;
+        if(szam % hatvany == 0){
+            szamok.push_back(1);
+
+        }
+        if(szam % hatvany != 0){
+            szamok.push_back(0);
+
+
+        }
+
+
+
+
+    }
+
+}
+
+int PolishNotation::muvelet(int szam1, int szam2,char jel) {
+    int osszeg = 0;
+    if(jel == '*'){
+        osszeg = szam1 * szam2;
+
+    }
+    if(jel == '+'){
+        osszeg = szam1 + szam2;
+
+    }
+    if(jel == '-'){
+        osszeg = szam1 - szam2;
+
+    }
+    if(jel == '/'){     //meg baj lehet, ha nem egesz szamokat osztunk egymassal
+        osszeg = szam1 / szam2;
+
+    }
+
+    return osszeg;
 }
 
 string PolishNotation::convert(string polishInfix) {
