@@ -9,4 +9,6 @@ add_executable(PolishNotation
         main.cpp
         PolishNotation.h
         PolishNotation.cpp
+        DynamicIntStack.h
+        DynamicIntStack.cpp
         )

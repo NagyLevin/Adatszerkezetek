@@ -20,7 +20,7 @@ int PolishNotation::ConvertDecimal() {
     int kiegyenlit =0;
     string number = "";
     for (int i = 0; i < 8; ++i) {
-        number = number + szamok[szamok.size()-1];
+        number = number + szamok.top();
         szamok.pop_back();
     }
 
@@ -57,7 +57,7 @@ void PolishNotation::convertobinar(int szam) {
 
     int szamertek = szam ;
     int lepesszam = 0;
-    cout << "ez a szam : " << szam <<endl;
+    //cout << "ez a szam : " << szam <<endl;
     while(szam != 0){
 
 
@@ -233,15 +233,15 @@ string PolishNotation::convert(string polishInfix) {
                 //char test = jelek[jelek.size()-1]; //kesobb popback majd
                 //cout << test << endl;
                 lengyel.push_back(terkoz);
-                lengyel.push_back(jelek[jelek.size()-1]);                        //addig popback amig nem nyitojelet kapunk vissza
+                lengyel.push_back(jelek.top());                        //addig popback amig nem nyitojelet kapunk vissza
                 //cout << jelek[jelek.size()-1] <<endl;
-                while(jelek[jelek.size()-1] != nyitojel){
+                while(jelek.top() != nyitojel){
                     //cout << jelek[jelek.size()-1] <<endl;
                     jelek.pop_back();
                     //cout << jelek[jelek.size()-1] <<endl;
                 }
 
-                if(jelek[jelek.size()-1] == nyitojel){
+                if(jelek.top() == nyitojel){
                     //cout << jelek[jelek.size()-1] <<endl;
                     /*
                     for (int j = 0; j < jelek.size(); ++j) {
@@ -255,7 +255,7 @@ string PolishNotation::convert(string polishInfix) {
 
                 if(jelek.size() == 1){
                     lengyel.push_back(terkoz);
-                    lengyel.push_back(jelek[jelek.size()-1]);
+                    lengyel.push_back(jelek.top());
 
                     jelek.pop_back();
                 }
@@ -289,16 +289,17 @@ string PolishNotation::convert(string polishInfix) {
     }
     if(jelek.size() > 0){
         lengyel.push_back(terkoz);
-        lengyel.push_back(jelek[jelek.size()-1]);
+        lengyel.push_back(jelek.top());
 
 
         jelek.pop_back();
     }
 
     string lengyelfroma = "";
-    for (size_t i = 0; i < lengyel.size(); i++) {
-        //cout << lengyel[i] <<endl;
-        lengyelfroma = lengyelfroma + lengyel[i];
+    for (int i = 0; i < lengyel.size(); i++) {
+        cout << lengyel.top() <<endl;
+        lengyelfroma = lengyelfroma + lengyel.top();
+        lengyel.pop_back();
     }
 
     //cout << lengyelfroma <<endl;

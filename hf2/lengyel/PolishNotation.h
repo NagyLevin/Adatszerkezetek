@@ -5,7 +5,7 @@
 #ifndef LENGYEL_POLISHNOTATION_H
 #define LENGYEL_POLISHNOTATION_H
 #include <string>
-#include <vector>
+#include "DynamicIntStack.h"
 using namespace std;
 
 class PolishNotation {
@@ -19,9 +19,10 @@ private:
     int ConvertDecimal();
     int muvelet(int szam1, int szam2, char jel);
     void convertobinar(int szam);
-    vector<char> lengyel;
-    vector<char> jelek;
-    vector<char> szamok;
+    //DynamicIntStack dynamicIntStack;
+    DynamicIntStack lengyel;
+    DynamicIntStack jelek;
+    DynamicIntStack szamok;
     char nyitojel = '(';
     char zarojel = ')';
     char terkoz = ' ';
