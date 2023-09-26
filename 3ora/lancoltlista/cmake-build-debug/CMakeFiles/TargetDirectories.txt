@@ -1,0 +1,3 @@
+C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/3ora/lancoltlista/cmake-build-debug/CMakeFiles/lancoltlista.dir
+C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/3ora/lancoltlista/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/3ora/lancoltlista/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,26 @@
+Sablon nélkül:
+
+void swap(int &a, int &b) {
+  int c = a;
+  a = b;
+  b = c;
+}
+
+// Használat:
+int a(3), b(4);
+swap(a, b);
+Sablon megadásával és használatával:
+
+template <typename T>
+void swap(T &a, T &b) {
+  T c = a;
+  a = b;
+  b = c;
+}
+
+// Használat:
+int a(3), b(4);
+swap<int>(a, b);
+swap(a, b); //automatikus behelyettesítés
+
+TEMPLATE CSAK A HEADERBEN
