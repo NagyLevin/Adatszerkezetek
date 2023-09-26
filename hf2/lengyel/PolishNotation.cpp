@@ -17,15 +17,19 @@ int PolishNotation::ConvertDecimal() {
 
     int szam = 0;
     int hatvany = 0;
+    int kiegyenlit =0;
     string number = "";
     for (int i = 0; i < 8; ++i) {
         number = number + szamok[szamok.size()-1];
         szamok.pop_back();
     }
 
-    cout << number <<endl;
-    for (int i = number.size()-1; i > -1; --i) {
+    //cout << number <<endl;
+    for (size_t i = number.size()-1; i > 0; --i) {
         int hanyszor = (int(number[hatvany]))-48;
+        if(hanyszor == 1 && i == number.size()){
+            kiegyenlit = 1;
+        }
         //cout << hanyszor <<endl;
         int khatvany = pow(2,hatvany);
         //cout << "ez a hatvany: " << khatvany <<endl;
@@ -34,14 +38,18 @@ int PolishNotation::ConvertDecimal() {
         hatvany = hatvany +1;
 
     }
-    cout << "ToDecElott:" << szam <<endl;
+
+
+    //cout << "ToDecElott:" << szam <<endl;
     //cout << "Ez az utcso karakter:" << number[number.size()-1] <<endl;
-    if(number[number.size()-1] == '1'){
-        szam = szam -255;
+    if(number[number.size()-1] == '1'){ //utolso eleme
+        szam = szam -pow(2,hatvany)+kiegyenlit;
+        //cout << szam  <<endl;
+        //cout << pow(2,hatvany)  <<endl;
     }
 
 
-   cout << "ToDec:" << szam <<endl;
+   //cout << "ToDec:" << szam <<endl;
 
     return szam;
 }
@@ -49,7 +57,7 @@ void PolishNotation::convertobinar(int szam) {
 
     int szamertek = szam ;
     int lepesszam = 0;
-    //cout << "ez a szam : " << szam <<endl;
+    cout << "ez a szam : " << szam <<endl;
     while(szam != 0){
 
 
@@ -58,6 +66,9 @@ void PolishNotation::convertobinar(int szam) {
         szam = szam / 2;
         lepesszam = lepesszam +1;
     }
+
+    //cout << "a leopeszam : " << lepesszam <<endl;
+
     if(szamertek > 0){
 
         for (int i = 0; i < 8-lepesszam; ++i) {
@@ -76,10 +87,11 @@ void PolishNotation::convertobinar(int szam) {
 
     }
     if(0 > szamertek){
+        lepesszam = lepesszam -1;
         for (int i = 0; i < 8-lepesszam; ++i) {
 
             szamok.push_back('1');
-            //cout << " maradek 0" <<endl;
+            //cout << " maradek 1" <<endl;
 
         }
         for (int i = 0; i < lepesszam; ++i) {
@@ -185,8 +197,8 @@ int PolishNotation::muvelet(int szam1, int szam2,char jel) {
 
     }
     if(jel == '+'){
-        //cout << szam1 <<endl;
-        //cout << szam2 <<endl;
+        //cout << "sz1: " << szam1 <<endl;
+        //cout << "sz2: " << szam2 <<endl;
         osszeg = szam1 + szam2;
         //cout << osszeg <<endl;
         //cout << "egyszer" <<endl;
@@ -194,8 +206,10 @@ int PolishNotation::muvelet(int szam1, int szam2,char jel) {
 
     }
     if(jel == '-'){
+        //cout << "sz1: " << szam1 <<endl;
+        //cout << "sz2: " << szam2 <<endl;
         osszeg = szam1 - szam2;
-
+        //cout << osszeg <<endl;
     }
     if(jel == '/'){     //meg baj lehet, ha nem egesz szamokat osztunk egymassal
         osszeg = szam1 / szam2;
