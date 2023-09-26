@@ -33,14 +33,69 @@ int PolishNotation::ConvertDecimal() {
 
         hatvany = hatvany +1;
     }
+    //cout << "Ez az utcso karakter:" << number[number.size()-1] <<endl;
     if(number[number.size()-1] == '1'){
-        szam = szam -256;
+        szam = szam -255;
     }
 
 
-    //cout << szam <<endl;
+   // cout << "ToDec:" << szam <<endl;
 
     return szam;
+}
+void PolishNotation::convertobinar(int szam) {
+
+    int szamertek = szam ;
+    int lepesszam = 0;
+    //cout << "ez a szam : " << szam <<endl;
+    while(szam != 0){
+
+
+
+
+        szam = szam / 2;
+        lepesszam = lepesszam +1;
+    }
+    if(szamertek > 0){
+
+        for (int i = 0; i < 8-lepesszam; ++i) {
+
+            szamok.push_back('0');
+            //cout << " maradek 0" <<endl;
+
+        }
+        for (int i = 0; i < lepesszam; ++i) {
+
+            szamok.push_back('1');
+            //cout << " maradek 0" <<endl;
+
+        }
+
+
+    }
+    if(0 > szamertek){
+        for (int i = 0; i < 8-lepesszam; ++i) {
+
+            szamok.push_back('1');
+            //cout << " maradek 0" <<endl;
+
+        }
+        for (int i = 0; i < lepesszam; ++i) {
+
+            szamok.push_back('0');
+            //cout << " maradek 0" <<endl;
+
+        }
+
+
+
+    }
+
+
+
+
+    //cout << "vege binar" <<endl;
+
 }
 
 int PolishNotation::evaluate(std::string polish_input) {
@@ -110,39 +165,6 @@ int PolishNotation::evaluate(std::string polish_input) {
     return osszeg;
 }
 
-void PolishNotation::convertobinar(int szam) {
-
-
-    int lepesszam = 0;
-    //cout << "ez a szam : " << szam <<endl;
-    while(szam != 0){
-
-
-
-
-        szam = szam / 2;
-        lepesszam = lepesszam +1;
-    }
-    for (int i = 0; i < 8-lepesszam; ++i) {
-
-        szamok.push_back('0');
-        //cout << " maradek 0" <<endl;
-
-    }
-    for (int i = 0; i < lepesszam; ++i) {
-
-        szamok.push_back('1');
-        //cout << " maradek 0" <<endl;
-
-    }
-
-
-
-
-
-    //cout << "vege binar" <<endl;
-
-}
 
 int PolishNotation::muvelet(int szam1, int szam2,char jel) {
     int osszeg = 0;

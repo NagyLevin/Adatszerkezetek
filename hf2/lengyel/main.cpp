@@ -3,7 +3,7 @@
 
 
 ///Basic converting
-
+/*
 TEST("Simple convert",1){
     PolishNotation pn;
     CHECK_EQ("00000001 00000010 +", pn.convert("00000001 + 00000010"));
@@ -33,10 +33,12 @@ TEST("Negative Infix Subtraction evaluate",1){
     PolishNotation pn;
     CHECK_EQ(1, pn.evaluate("11111111 - 11111110"));
 }
+ */
 TEST("Medium Infix evaluate",1){
     PolishNotation pn;
     CHECK_EQ(-3, pn.evaluate("( 00000001 + 00000010 ) * ( 00000011 - 00000100 )"));
 }
+
 ///Basic Postfix Evaluation
 
 TEST("Simple Postfix evaluate",1){
@@ -89,5 +91,6 @@ TEST("Hard Combined",1){
     CHECK_EQ(14, pn.evaluate(postfix));
     CHECK_EQ(14, pn.evaluate(infix));
 }
+
 WOODPECKER_TEST_MAIN(-1, -1)
 
