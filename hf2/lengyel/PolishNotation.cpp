@@ -23,23 +23,25 @@ int PolishNotation::ConvertDecimal() {
         szamok.pop_back();
     }
 
-    //cout << number <<endl;
+    cout << number <<endl;
     for (int i = number.size()-1; i > -1; --i) {
         int hanyszor = (int(number[hatvany]))-48;
         //cout << hanyszor <<endl;
         int khatvany = pow(2,hatvany);
-        //cout << khatvany <<endl;
+        //cout << "ez a hatvany: " << khatvany <<endl;
         szam = szam + (hanyszor * khatvany);
 
         hatvany = hatvany +1;
+
     }
+    cout << "ToDecElott:" << szam <<endl;
     //cout << "Ez az utcso karakter:" << number[number.size()-1] <<endl;
     if(number[number.size()-1] == '1'){
         szam = szam -255;
     }
 
 
-   // cout << "ToDec:" << szam <<endl;
+   cout << "ToDec:" << szam <<endl;
 
     return szam;
 }
@@ -107,8 +109,12 @@ int PolishNotation::evaluate(std::string polish_input) {
     int osszeg = 0;
 
         //cout << "convertalas infix" << polish_input <<endl;
-        polish_input = convert(polish_input);
+        //if(polish_input[polish_input.size()-1] == terkoz && isdigit(polish_input[polish_input.size()-1]) && polish_input[polish_input.size()-1] == zarojel){
+      //      cout << "convertalas infix" << polish_input <<endl;
+            polish_input = convert(polish_input);
 
+       // }
+    //cout << "convertalas nelkul" << polish_input <<endl;
 
 
 
@@ -161,7 +167,7 @@ int PolishNotation::evaluate(std::string polish_input) {
 
     }
 
-    cout << osszeg << endl;
+    cout <<"ket szam osszege: "<< osszeg << endl;
     return osszeg;
 }
 
@@ -179,7 +185,12 @@ int PolishNotation::muvelet(int szam1, int szam2,char jel) {
 
     }
     if(jel == '+'){
+        //cout << szam1 <<endl;
+        //cout << szam2 <<endl;
         osszeg = szam1 + szam2;
+        //cout << osszeg <<endl;
+        //cout << "egyszer" <<endl;
+
 
     }
     if(jel == '-'){
