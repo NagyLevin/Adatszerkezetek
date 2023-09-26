@@ -39,7 +39,19 @@ int PolishNotation::ConvertDecimal() {
 }
 
 int PolishNotation::evaluate(std::string polish_input) {
+
+    lengyel.clear();
+    jelek.clear();
+    szamok.clear();
+
     int osszeg = 0;
+
+        //cout << "convertalas infix" << polish_input <<endl;
+        polish_input = convert(polish_input);
+
+
+
+
 
 
     for (size_t i = 0; i < polish_input.size(); i++) { //ha kaptam 8 szamot huzamban, akkor elkuldom a kiertekelonek, es az visszaad egy int? szamot
@@ -53,8 +65,10 @@ int PolishNotation::evaluate(std::string polish_input) {
 
 
         }
-
-        if(!isdigit(polish_input[i]) && polish_input[i] != terkoz){
+        //cout << i <<endl;
+        //cout << "ez a meret" << polish_input.size() <<endl;
+        //cout << polish_input <<endl;
+       if(!isdigit(polish_input[i]) && polish_input[i] != terkoz){
 
 
 
@@ -86,6 +100,7 @@ int PolishNotation::evaluate(std::string polish_input) {
 
 
     }
+
     //cout << osszeg << endl;
     return osszeg;
 }
