@@ -65,11 +65,15 @@ int DynamicIntQueue::out() {
     if(isEmpty()){
         return -1;
     }
+
+
+
+
+    int temp = head->value; //int?
     Node * p = head;
     head = head->pNext;
-    int temp = p->value; //int?
     delete p;
-    if(head == nullptr){
+    if(head == nullptr){ //kell?
         tail = nullptr;
     }
 

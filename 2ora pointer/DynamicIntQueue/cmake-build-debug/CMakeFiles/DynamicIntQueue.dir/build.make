@@ -43,19 +43,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue"
+CMAKE_SOURCE_DIR = "C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/DynamicIntQueue.dir/depend.make
@@ -69,32 +69,32 @@ include CMakeFiles/DynamicIntQueue.dir/progress.make
 include CMakeFiles/DynamicIntQueue.dir/flags.make
 
 CMakeFiles/DynamicIntQueue.dir/main.cpp.obj: CMakeFiles/DynamicIntQueue.dir/flags.make
-CMakeFiles/DynamicIntQueue.dir/main.cpp.obj: D:/Egyetem2/3felev/Adatszerkezetek/2ora\ pointer/DynamicIntQueue/main.cpp
+CMakeFiles/DynamicIntQueue.dir/main.cpp.obj: C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/2ora\ pointer/DynamicIntQueue/main.cpp
 CMakeFiles/DynamicIntQueue.dir/main.cpp.obj: CMakeFiles/DynamicIntQueue.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DynamicIntQueue.dir/main.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DynamicIntQueue.dir/main.cpp.obj -MF CMakeFiles\DynamicIntQueue.dir\main.cpp.obj.d -o CMakeFiles\DynamicIntQueue.dir\main.cpp.obj -c "D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue\main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DynamicIntQueue.dir/main.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DynamicIntQueue.dir/main.cpp.obj -MF CMakeFiles\DynamicIntQueue.dir\main.cpp.obj.d -o CMakeFiles\DynamicIntQueue.dir\main.cpp.obj -c "C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue\main.cpp"
 
 CMakeFiles/DynamicIntQueue.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DynamicIntQueue.dir/main.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue\main.cpp" > CMakeFiles\DynamicIntQueue.dir\main.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue\main.cpp" > CMakeFiles\DynamicIntQueue.dir\main.cpp.i
 
 CMakeFiles/DynamicIntQueue.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DynamicIntQueue.dir/main.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue\main.cpp" -o CMakeFiles\DynamicIntQueue.dir\main.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue\main.cpp" -o CMakeFiles\DynamicIntQueue.dir\main.cpp.s
 
 CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.obj: CMakeFiles/DynamicIntQueue.dir/flags.make
-CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.obj: D:/Egyetem2/3felev/Adatszerkezetek/2ora\ pointer/DynamicIntQueue/DynamicIntQueue.cpp
+CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.obj: C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/2ora\ pointer/DynamicIntQueue/DynamicIntQueue.cpp
 CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.obj: CMakeFiles/DynamicIntQueue.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.obj -MF CMakeFiles\DynamicIntQueue.dir\DynamicIntQueue.cpp.obj.d -o CMakeFiles\DynamicIntQueue.dir\DynamicIntQueue.cpp.obj -c "D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue\DynamicIntQueue.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.obj -MF CMakeFiles\DynamicIntQueue.dir\DynamicIntQueue.cpp.obj.d -o CMakeFiles\DynamicIntQueue.dir\DynamicIntQueue.cpp.obj -c "C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue\DynamicIntQueue.cpp"
 
 CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue\DynamicIntQueue.cpp" > CMakeFiles\DynamicIntQueue.dir\DynamicIntQueue.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue\DynamicIntQueue.cpp" > CMakeFiles\DynamicIntQueue.dir\DynamicIntQueue.cpp.i
 
 CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue\DynamicIntQueue.cpp" -o CMakeFiles\DynamicIntQueue.dir\DynamicIntQueue.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.1\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue\DynamicIntQueue.cpp" -o CMakeFiles\DynamicIntQueue.dir\DynamicIntQueue.cpp.s
 
 # Object files for target DynamicIntQueue
 DynamicIntQueue_OBJECTS = \
@@ -110,7 +110,7 @@ DynamicIntQueue.exe: CMakeFiles/DynamicIntQueue.dir/build.make
 DynamicIntQueue.exe: CMakeFiles/DynamicIntQueue.dir/linkLibs.rsp
 DynamicIntQueue.exe: CMakeFiles/DynamicIntQueue.dir/objects1.rsp
 DynamicIntQueue.exe: CMakeFiles/DynamicIntQueue.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable DynamicIntQueue.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable DynamicIntQueue.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\DynamicIntQueue.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -122,6 +122,6 @@ CMakeFiles/DynamicIntQueue.dir/clean:
 .PHONY : CMakeFiles/DynamicIntQueue.dir/clean
 
 CMakeFiles/DynamicIntQueue.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue" "D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue" "D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug" "D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug" "D:\Egyetem2\3felev\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug\CMakeFiles\DynamicIntQueue.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue" "C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue" "C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug" "C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug" "C:\Users\administrator\Documents\adatszerk\Adatszerkezetek\2ora pointer\DynamicIntQueue\cmake-build-debug\CMakeFiles\DynamicIntQueue.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/DynamicIntQueue.dir/depend
 
