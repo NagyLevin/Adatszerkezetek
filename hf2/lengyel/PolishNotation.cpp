@@ -248,6 +248,7 @@ string PolishNotation::convert(string polishInfix) {
                        cout << jelek[j] <<endl;
                     }
                     */
+
                     jelek.pop_back();
                     //cout << jelek[jelek.size()-1] <<endl;
                 }
@@ -263,8 +264,9 @@ string PolishNotation::convert(string polishInfix) {
 
             } else{
 
-                //cout << "vege" <<endl;
+
                 jelek.push_back(polishInfix[i]);
+
 
             }
 
@@ -278,6 +280,7 @@ string PolishNotation::convert(string polishInfix) {
 
             }
 
+                //cout << polishInfix[i] <<endl;
                 lengyel.push_back(polishInfix[i]); //8 szamjegyenkent el tudjuk valasztani a szamokat()
                 szamszamlalo = szamszamlalo + 1;
 
@@ -292,16 +295,21 @@ string PolishNotation::convert(string polishInfix) {
         lengyel.push_back(jelek.top());
 
 
+
         jelek.pop_back();
+
     }
 
     string lengyelfroma = "";
-    for (int i = 0; i < lengyel.size(); i++) {
-        cout << lengyel.top() <<endl;
-        lengyelfroma = lengyelfroma + lengyel.top();
+    //lengyel.print();
+    //cout << lengyel.size() <<endl;
+    int meret = lengyel.size();
+    for (int i = 0; i < meret; i++) {
+        //cout << lengyel.top() <<endl;
+        lengyelfroma = lengyel.top()+lengyelfroma;
         lengyel.pop_back();
     }
-
+    //cout << "" <<endl;
     //cout << lengyelfroma <<endl;
 
 
