@@ -8,7 +8,7 @@ TEST("Simple convert",1){
     PolishNotation pn;
     CHECK_EQ("00000001 00000010 +", pn.convert("00000001 + 00000010"));
 }
-/*
+
 TEST("Negative convert",1){
     PolishNotation pn;
     CHECK_EQ("11111111 11111110 +", pn.convert("11111111 + 11111110"));
@@ -64,7 +64,7 @@ TEST("Medium Postfix evaluate",1){
     PolishNotation pn;
     CHECK_EQ(-3, pn.evaluate("00000001 00000010 + 00000011 00000100 - *"));
 }
-*/
+
 /*
 ///Other tests
 
