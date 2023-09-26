@@ -1,0 +1,44 @@
+el lehet kapni hibákat
+
+int Verem::top(){
+  if (IsEmpty()) {
+    throw std::exception();
+  }
+  else {
+    return tomb[head-1];
+  }
+}
+
+int main(){
+  try {
+    Verem v;
+    cout << "top():" << v.top();
+  }
+  catch (std::exception& e) {
+    cout << "Hiba a verem futása közben!";
+  }
+  return 0;
+}
+
+throw [mit] – kivétel kiváltása, dobása
+
+try { [programkód] } – a try blokkon belül található maga a programkód, melynek végrehajtása közben a kivétel kiváltódhat
+
+catch ( [mit] ) { [hibakezelés] } – a catch blokk csak és kizárólag a hibakezelést szolgálja
+
+Ha dobunk egy kivételt, akkor a programkód futása ott megszakad azaz a try{} blokkon belüli, a kivétel kiváltása utáni utasítások nem fognak lefutni
+
+1.3. Catch ellipsis
+Lehetőség van mindenre illeszkedő catch ág használatára, ez típustól függetlenül minden dobott kivételt el fog kapni. C++-ban ezt az ún. catch ellipsis-el lehet elérni: catch(...) { }
+
+Itt is fontos, hogy jó sorrendben adjuk meg!
+
+try {
+  // Programkod
+} catch (std::logic_error &) {
+  std::cout << "logic error" << std::endl;
+} catch (std::runtime_error &) {
+  std::cout << "runtime error" << std::endl; 
+} catch (...) { 
+  std::cout << "other problem" << std::endl;
+}
