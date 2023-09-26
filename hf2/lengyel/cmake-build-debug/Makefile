@@ -116,24 +116,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named lengyel
+# Target rules for targets named PolishNotation
 
 # Build rule for target.
-lengyel: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 lengyel
-.PHONY : lengyel
+PolishNotation: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 PolishNotation
+.PHONY : PolishNotation
 
 # fast build rule for target.
-lengyel/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lengyel.dir\build.make CMakeFiles/lengyel.dir/build
-.PHONY : lengyel/fast
+PolishNotation/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PolishNotation.dir\build.make CMakeFiles/PolishNotation.dir/build
+.PHONY : PolishNotation/fast
 
 PolishNotation.obj: PolishNotation.cpp.obj
 .PHONY : PolishNotation.obj
 
 # target to build an object file
 PolishNotation.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lengyel.dir\build.make CMakeFiles/lengyel.dir/PolishNotation.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PolishNotation.dir\build.make CMakeFiles/PolishNotation.dir/PolishNotation.cpp.obj
 .PHONY : PolishNotation.cpp.obj
 
 PolishNotation.i: PolishNotation.cpp.i
@@ -141,7 +141,7 @@ PolishNotation.i: PolishNotation.cpp.i
 
 # target to preprocess a source file
 PolishNotation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lengyel.dir\build.make CMakeFiles/lengyel.dir/PolishNotation.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PolishNotation.dir\build.make CMakeFiles/PolishNotation.dir/PolishNotation.cpp.i
 .PHONY : PolishNotation.cpp.i
 
 PolishNotation.s: PolishNotation.cpp.s
@@ -149,7 +149,7 @@ PolishNotation.s: PolishNotation.cpp.s
 
 # target to generate assembly for a file
 PolishNotation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lengyel.dir\build.make CMakeFiles/lengyel.dir/PolishNotation.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PolishNotation.dir\build.make CMakeFiles/PolishNotation.dir/PolishNotation.cpp.s
 .PHONY : PolishNotation.cpp.s
 
 main.obj: main.cpp.obj
@@ -157,7 +157,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lengyel.dir\build.make CMakeFiles/lengyel.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PolishNotation.dir\build.make CMakeFiles/PolishNotation.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -165,7 +165,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lengyel.dir\build.make CMakeFiles/lengyel.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PolishNotation.dir\build.make CMakeFiles/PolishNotation.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -173,7 +173,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lengyel.dir\build.make CMakeFiles/lengyel.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PolishNotation.dir\build.make CMakeFiles/PolishNotation.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -184,7 +184,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... lengyel
+	@echo ... PolishNotation
 	@echo ... PolishNotation.obj
 	@echo ... PolishNotation.i
 	@echo ... PolishNotation.s
