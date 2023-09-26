@@ -33,6 +33,11 @@ int PolishNotation::ConvertDecimal() {
 
         hatvany = hatvany +1;
     }
+    if(number[number.size()-1] == '1'){
+        szam = szam -256;
+    }
+
+
     //cout << szam <<endl;
 
     return szam;
@@ -101,7 +106,7 @@ int PolishNotation::evaluate(std::string polish_input) {
 
     }
 
-    //cout << osszeg << endl;
+    cout << osszeg << endl;
     return osszeg;
 }
 

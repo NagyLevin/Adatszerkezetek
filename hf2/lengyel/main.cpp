@@ -24,9 +24,10 @@ TEST("Simple Infix evaluate",1){
     PolishNotation pn;
     CHECK_EQ(3, pn.evaluate("00000001 + 00000010"));
 }
-TEST("Negative Infix Addition evaluate",1){
+
+ TEST("Negative Infix Addition evaluate",1){
     PolishNotation pn;
-    CHECK_EQ(-3, pn.evaluate("11111111 + 11111110"));
+    CHECK_EQ(-3, pn.evaluate("11111111 + 11111110")); //elso bit -os ?
 }
 TEST("Negative Infix Subtraction evaluate",1){
     PolishNotation pn;
