@@ -44,7 +44,7 @@ int PolishNotation::evaluate(std::string polish_input) {
     int osszeg = 0;
 
 
-    for (size_t i = 0; i < polish_input.size(); i++) { //ha kaptam 8 szamot huzamban, akkor elkuldom a kiertekelonek, es az visszaad egy int? szamot
+    for (int i = 0; i < polish_input.size(); i++) { //ha kaptam 8 szamot huzamban, akkor elkuldom a kiertekelonek, es az visszaad egy int? szamot
 
         //cout << polish_input[i] <<endl;
         if(isdigit(polish_input[i])){
@@ -94,10 +94,11 @@ int PolishNotation::evaluate(std::string polish_input) {
 
 void PolishNotation::convertobinar(int szam) {
 
-
+    int n = 0;
     int lepesszam = 0;
     //cout << "ez a szam : " << szam <<endl;
     while(szam != 0){
+        n = szam%2;
 
 
 
@@ -119,6 +120,25 @@ void PolishNotation::convertobinar(int szam) {
     }
 
 
+    /*
+    for (int i = 7; i > -1; --i) {
+        int hatvany = pow(2,i);
+        //cout << hatvany << endl;
+
+        if(szam % hatvany == 1){
+            szamok.push_back('1');
+            //cout << szam <<endl;
+            szam = szam / hatvany;
+        }
+        if(szam % hatvany != 1){
+            szamok.push_back('0');
+            //cout << szam <<endl;
+
+        }
+        cout << szamok[szamok.size()-1] <<endl;
+
+        }
+        */
 
 
 
@@ -157,7 +177,7 @@ int PolishNotation::muvelet(int szam1, int szam2,char jel) {
 string PolishNotation::convert(string polishInfix) {
     int szamszamlalo = 0;
 
-    for (size_t i = 0; i < polishInfix.size(); ++i) {
+    for (int i = 0; i < polishInfix.size(); ++i) {
 
         if( polishInfix[i] != terkoz && !isdigit(polishInfix[i])){
 
@@ -220,7 +240,7 @@ string PolishNotation::convert(string polishInfix) {
 
     }
     string lengyelfroma = "";
-    for (size_t i = 0; i < lengyel.size(); i++) {
+    for (int i = 0; i < lengyel.size(); i++) {
         //cout << lengyel[i] <<endl;
         lengyelfroma = lengyelfroma + lengyel[i];
     }
