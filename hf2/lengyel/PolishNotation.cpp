@@ -11,6 +11,8 @@ using namespace std;
 
 PolishNotation::PolishNotation() {
 
+
+
 }
 
 int PolishNotation::ConvertDecimal() {
