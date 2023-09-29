@@ -27,12 +27,10 @@ int PolishNotation::ConvertDecimal() {
     }
 
     //cout << "ezt akarom 10-re convertalni: " << number <<endl;
-    if(number[number.size()-1] == '1'){ //akkor ez egy negativ szam
 
-
-    }
     if(number[number.size()-1] == '0'){ //akkor ez egy pozitiv szam
-        for (size_t i = 0; i < number.size(); ++i) {
+        int meret = number.size();
+        for (int i = 0; i < meret; ++i) {
             if(number[i] == '1'){
                 szam = szam + pow(2,i);
                // cout << szam <<endl;
@@ -43,50 +41,81 @@ int PolishNotation::ConvertDecimal() {
         }
 
     }
-    //cout << "10eskonverter kimenet: " << szam <<endl;
+    if(number[number.size()-1] == '1') { //akkor ez egy negativ szam
+        int meret = number.size();
+        for (int i = 0; i < meret-1; ++i) {
+            if (number[i] == '1') {
+                szam = szam + pow(2, i);
+                // cout << szam <<endl;
+            }
+
+        }
+        szam = szam -128;
+        //szam = szam *-1;
+    }
+
+    cout << "10eskonverter kimenet: " << szam <<endl;
 
 
     return szam;
 }
 void PolishNotation::convertobinar(int szam) {
-    szamok.print();
-    if (szam > -1) {
+
+    int szamertek = szam ;
+    int lepesszam = 0;
+    //cout << "ez a szam : " << szam <<endl;
+    while(szam != 0){
 
 
-        for (int i = 7; i > -1; --i) {
 
-            if (szam - pow(2, i) > -1) {
-                szamok.push_back('1');
-                szam = szam - pow(2, i);
-            }
-            else{
-                szamok.push_back('0');
-            }
 
-    }
+        szam = szam / 2;
+        lepesszam = lepesszam +1;
     }
 
-    else if (szam >= -1) {
-        szam = abs(szam); //abszolutertek
+    //cout << "a leopeszam : " << lepesszam <<endl;
 
-        for (int i = 7; i > -1; --i) {
+    if(szamertek > 0){
 
-            if (szam - pow(2, i) > -1) {
-                szamok.push_back('1');
-                szam = szam - pow(2, i);
-            }
-            if (szam - pow(2, i) < -1) {
-                szamok.push_back('0');
-            }
+        for (int i = 0; i < 8-lepesszam; ++i) {
+
+            szamok.push_back('0');
+            //cout << " maradek 0" <<endl;
 
         }
-        szamok.push_back('1');
+        for (int i = 0; i < lepesszam; ++i) {
+
+            szamok.push_back('1');
+            //cout << " maradek 0" <<endl;
+
+        }
+
+
+    }
+    if(0 > szamertek){
+        lepesszam = lepesszam -1;
+        for (int i = 0; i < 8-lepesszam; ++i) {
+
+            szamok.push_back('1');
+            //cout << " maradek 1" <<endl;
+
+        }
+        for (int i = 0; i < lepesszam; ++i) {
+
+            szamok.push_back('0');
+            //cout << " maradek 0" <<endl;
+
+        }
+
+
 
     }
 
 
-    cout << "vege binar" <<endl;
-    szamok.print();
+
+
+    //cout << "vege binar" <<endl;
+
 }
 
 int PolishNotation::evaluate(std::string polish_input) {
@@ -141,7 +170,7 @@ int PolishNotation::evaluate(std::string polish_input) {
 
 
                 osszeg = muvelet(szam1,szam2,polish_input[i]);
-                cout << osszeg << endl;
+                cout << "muvelet ultan: " <<  osszeg << endl;
                 convertobinar(osszeg); // binarisba visszakonvertalom, es pushbackelem
 
                 //char cosszeg = osszeg+48;
@@ -172,16 +201,16 @@ int PolishNotation::muvelet(int szam1, int szam2,char jel) {
     cout << jel <<endl;
     if(jel == '*'){
 
-        //cout << szam1 <<endl;
-        //cout << szam2 <<endl;
+        cout << "sz1: " << szam1 <<endl;
+        cout << "sz2: " << szam2 <<endl;
         osszeg = szam1 * szam2;
         //cout << osszeg <<endl;
         //cout << "egyszer" <<endl;
 
     }
     if(jel == '+'){
-        cout << "sz1: " << szam1 <<endl;
-        cout << "sz2: " << szam2 <<endl;
+       // cout << "sz1: " << szam1 <<endl;
+      //  cout << "sz2: " << szam2 <<endl;
         osszeg = szam1 + szam2;
         //cout << osszeg <<endl;
         //cout << "egyszer" <<endl;
@@ -189,8 +218,8 @@ int PolishNotation::muvelet(int szam1, int szam2,char jel) {
 
     }
     if(jel == '-'){
-        cout << "sz1: " << szam1 <<endl;
-        cout << "sz2: " << szam2 <<endl;
+      //  cout << "sz1: " << szam1 <<endl;
+      //  cout << "sz2: " << szam2 <<endl;
         osszeg = szam1 - szam2;
         //cout << osszeg <<endl;
     }
