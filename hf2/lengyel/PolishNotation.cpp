@@ -54,7 +54,7 @@ int PolishNotation::ConvertDecimal() {
         //szam = szam *-1;
     }
 
-    cout << "10eskonverter kimenet: " << szam <<endl;
+    //cout << "10eskonverter kimenet: " << szam <<endl;
 
 
     return szam;
@@ -63,7 +63,7 @@ void PolishNotation::convertobinar(int szam) {
 
     int szamertek = szam ;
     int lepesszam = 0;
-    //cout << "ez a szam : " << szam <<endl;
+    cout << "ez a szam : " << szam <<endl;
     while(szam != 0){
 
 
