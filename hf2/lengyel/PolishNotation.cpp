@@ -226,6 +226,8 @@ int PolishNotation::muvelet(int szam1, int szam2,char jel) {
 }
 
 string PolishNotation::convert(string polishInfix) {
+
+
     int szamszamlalo = 0;
     lengyel.clear();
     jelek.clear();
@@ -236,24 +238,23 @@ string PolishNotation::convert(string polishInfix) {
 
             if(polishInfix[i] == zarojel){
 
+
                 //char test = jelek[jelek.size()-1]; //kesobb popback majd
                 //cout << test << endl;
-                lengyel.push_back(terkoz);
-                lengyel.push_back(jelek.top());                        //addig popback amig nem nyitojelet kapunk vissza
+                                      //addig popback amig nem nyitojelet kapunk vissza
                 //cout << jelek[jelek.size()-1] <<endl;
                 while(jelek.top() != nyitojel){
+
                     //cout << jelek[jelek.size()-1] <<endl;
+                    lengyel.push_back(terkoz);
+                    lengyel.push_back(jelek.top());
                     jelek.pop_back();
+
                     //cout << jelek[jelek.size()-1] <<endl;
                 }
 
                 if(jelek.top() == nyitojel){
                     //cout << jelek[jelek.size()-1] <<endl;
-                    /*
-                    for (int j = 0; j < jelek.size(); ++j) {
-                       cout << jelek[j] <<endl;
-                    }
-                    */
 
                     jelek.pop_back();
                     //cout << jelek[jelek.size()-1] <<endl;
@@ -270,8 +271,36 @@ string PolishNotation::convert(string polishInfix) {
 
             } else{
 
+                if( (polishInfix[i] == '+' || polishInfix[i] == '-') && (jelek.top() == '*' || jelek.top() == '/')){    //szorzas osztas prioritása nagyobb
+
+                    while(jelek.size() > 0){
+                        lengyel.push_back(terkoz);
+                        lengyel.push_back(jelek.top());
+
+                        jelek.pop_back();
+
+                    }
+
+                }
+                if( (polishInfix[i] == '+' || polishInfix[i] == '-') && (jelek.top() == '+' || jelek.top() == '-')) {    //szorzas osztas prioritása nagyobb
+                    lengyel.push_back(terkoz);
+                    lengyel.push_back(jelek.top());
+
+                    jelek.pop_back();
+
+                }
+                if( (polishInfix[i] == '*' || polishInfix[i] == '/') && (jelek.top() == '*' || jelek.top() == '/')) {    //szorzas osztas prioritása nagyobb
+                    lengyel.push_back(terkoz);
+                    lengyel.push_back(jelek.top());
+
+                    jelek.pop_back();
+
+                }
+
 
                 jelek.push_back(polishInfix[i]);
+
+
 
 
             }
@@ -316,7 +345,8 @@ string PolishNotation::convert(string polishInfix) {
         lengyel.pop_back();
     }
     //cout << "" <<endl;
-    //cout << lengyelfroma <<endl;
+    jelek.print();
+    cout << lengyelfroma <<endl;
 
 
     return lengyelfroma;

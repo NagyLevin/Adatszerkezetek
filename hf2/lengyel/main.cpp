@@ -96,8 +96,10 @@ TEST("Hard Combined",1){
     string infix ="00000010 + 00000100 * 00000010 - 00000011 + 00000100 * ( 00000011 + 00000001 ) / 00000010 - 00000001";
     string postfix = pn.convert(infix);
     CHECK_EQ("00000010 00000100 00000010 * + 00000011 - 00000100 00000011 00000001 + * 00000010 / + 00000001 -",postfix);
-    CHECK_EQ(14, pn.evaluate(postfix));
+
     CHECK_EQ(14, pn.evaluate(infix));
+    CHECK_EQ(14, pn.evaluate(postfix));
+
 }
 
 WOODPECKER_TEST_MAIN(-1, -1)
