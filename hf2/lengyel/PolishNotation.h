@@ -26,7 +26,7 @@ private:
     char nyitojel = '(';
     char zarojel = ')';
     char terkoz = ' ';
-
+    int bitmeret = 8;
 
 
 };

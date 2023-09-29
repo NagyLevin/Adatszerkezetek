@@ -21,7 +21,7 @@ int PolishNotation::ConvertDecimal() {
     //int hatvany = 0;
     //int kiegyenlit =0;
     string number = "";
-    for (int i = 0; i < 8; ++i) {
+    for (int i = 0; i < bitmeret; ++i) {
         number = number + szamok.top();
         szamok.pop_back();
     }
@@ -76,7 +76,7 @@ void PolishNotation::convertobinar(int szam) {
     if (szamertek > -1) {
 
 
-        for (int i = 7; i > -1; --i) {
+        for (int i = bitmeret-1; i > -1; --i) {
 
             if (szamertek - pow(2, i) > -1) {
                 szamok.push_back('1');
@@ -91,7 +91,7 @@ void PolishNotation::convertobinar(int szam) {
 
    else if(0 > szamertek){
         lepesszam = lepesszam -1;
-        for (int i = 0; i < 8-lepesszam; ++i) {
+        for (int i = 0; i < bitmeret-lepesszam; ++i) {
 
             szamok.push_back('1');
             //cout << " maradek 1" <<endl;
@@ -311,7 +311,7 @@ string PolishNotation::convert(string polishInfix) {
         }
 
         if(isdigit(polishInfix[i])){
-            if(szamszamlalo == 8){
+            if(szamszamlalo == bitmeret){
                 lengyel.push_back(terkoz);
 
                 szamszamlalo = 0;
