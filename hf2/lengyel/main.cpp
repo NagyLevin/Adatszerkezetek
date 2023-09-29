@@ -65,7 +65,7 @@ TEST("Medium Postfix evaluate",1){
     CHECK_EQ(-3, pn.evaluate("00000001 00000010 + 00000011 00000100 - *"));
 }
 
-/*
+
 ///Other tests
 
 
@@ -89,6 +89,7 @@ TEST("Division"){
     PolishNotation pn;
     CHECK_EQ(1, pn.evaluate("00000011 / 00000010"));
 }
+
 TEST("Hard Combined",1){
     PolishNotation pn;
     ///2+4*2-3+4*(3+1)/2-1;
@@ -98,6 +99,6 @@ TEST("Hard Combined",1){
     CHECK_EQ(14, pn.evaluate(postfix));
     CHECK_EQ(14, pn.evaluate(infix));
 }
-*/
+
 WOODPECKER_TEST_MAIN(-1, -1)
 

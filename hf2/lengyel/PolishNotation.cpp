@@ -1,5 +1,7 @@
 //
 // Created by Levi on 2023. 09. 23..
+//Verziokezeles:
+//https://github.com/NagyLevin/Adatszerkezetek
 //
 
 #include "PolishNotation.h"
@@ -119,14 +121,18 @@ int PolishNotation::evaluate(std::string polish_input) {
     szamok.clear();
 
     int osszeg = 0;
+    char vege = polish_input[polish_input.size()-1];;
+    int z = polish_input.size()-1;
+    while (polish_input[z] == terkoz){ //hatha van egy space a vegen
+        vege = polish_input[z];
+        z = z -1 ;
+    }
 
-        //cout << "convertalas infix" << polish_input <<endl;
-        //if(polish_input[polish_input.size()-1] == terkoz && isdigit(polish_input[polish_input.size()-1]) && polish_input[polish_input.size()-1] == zarojel){
-      //      cout << "convertalas infix" << polish_input <<endl;
-            polish_input = convert(polish_input);
+    if( isdigit(vege) ||  vege == zarojel){ //Ha postfix, akkor nem kell átalakítani
+        polish_input = convert(polish_input);
 
-       // }
-    //cout << "convertalas nelkul" << polish_input <<endl;
+    }
+
 
 
 
