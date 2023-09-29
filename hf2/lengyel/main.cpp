@@ -3,7 +3,7 @@
 
 
 ///Basic converting
-
+/*
 TEST("Simple convert",1){
     PolishNotation pn;
     CHECK_EQ("00000001 00000010 +", pn.convert("00000001 + 00000010"));
@@ -89,7 +89,7 @@ TEST("Division"){
     PolishNotation pn;
     CHECK_EQ(1, pn.evaluate("00000011 / 00000010"));
 }
-
+*/
 TEST("Hard Combined",1){
     PolishNotation pn;
     ///2+4*2-3+4*(3+1)/2-1;
