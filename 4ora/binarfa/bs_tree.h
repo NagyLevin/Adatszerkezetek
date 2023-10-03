@@ -29,7 +29,7 @@ class Bs_tree {
     };
 
     // Adattag
-    Node *root;
+    Node *root;     //gyoker
 
     // Felszabadító függvény
     void _destroy(Node* x);
@@ -101,9 +101,15 @@ public:
 // Rekurzívan felszabadítja a csúcsokat.
 // A destruktor hívja meg a gyökérre.
 template<class T>
-void Bs_tree<T>::_destroy(Node* /*x*/) {
-    // TODO
-    throw method_not_implemented();
+void Bs_tree<T>::_destroy(Node* x) {
+
+    if(x != nullptr){   //ha nullptr akkor leallitja a rekurziot    //nem lehet mas sorrendben torlesnel nincs post, pre meg inorder
+        _destroy(x->left);
+        _destroy(x->right);
+        delete x;
+
+    }
+
 }
 
 // Segéd függvény a copy constructor-hoz valamint assigment operator-hoz
