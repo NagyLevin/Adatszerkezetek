@@ -74,9 +74,9 @@ public:
     void insert(const T& k);
     void remove(const T& k);
 
-    ostream& inorder(ostream& o);
-    ostream& preorder(ostream& o);
-    ostream& postorder(ostream& o);
+    ostream& inorder(ostream& o);   //csak kiiras sorrendje
+    ostream& preorder(ostream& o);  //csak kiiras sorrendje
+    ostream& postorder(ostream& o); //csak kiiras sorrendje
 
     T min() const {
         if(isempty()) {
@@ -114,80 +114,148 @@ void Bs_tree<T>::_destroy(Node* x) {
 
 // Segéd függvény a copy constructor-hoz valamint assigment operator-hoz
 template<class T>
-typename Bs_tree<T>::Node* Bs_tree<T>::_copyOf(Node* /*n*/, Node* /*p*/) {
-    // TODO
-    throw method_not_implemented();
+typename Bs_tree<T>::Node* Bs_tree<T>::_copyOf(Node* n, Node* p) {
+
+    if(n == nullptr){//elertuk a fa leveleit (veget)
+        return nullptr;
+    }
+
+    Node *x = new Node(n->_key, p); //key a tarolt ertek
+    x->left = _copyOf(n->left,p);  //lemásoljuk a csucsot
+    x->right =_copyOf(n->right,p);  //_copyOf(melyiket,hova);
+
+    return x;   //visszaadjuk a node-ot
 }
 
 // Másoló konstruktor (klónozás - meglévő fából készít másolatot)
 template<class T>
-Bs_tree<T>::Bs_tree(const Bs_tree<T>& /*t*/) {
-    // TODO
-    throw method_not_implemented();
+Bs_tree<T>::Bs_tree(const Bs_tree<T>& t) {
+    root = _copyOf(t.root, nullptr);    //uj fa
 }
 
 // Assigment operator (meglévő fát tesz egyenlővé egy másikkal)
 template<class T>
-Bs_tree<T>& Bs_tree<T>::operator=(const Bs_tree<T>& /*t*/) {
-    // TODO
-    throw method_not_implemented();
+Bs_tree<T>& Bs_tree<T>::operator=(const Bs_tree<T>& t) {
+  if(&t == this){   //nem azonos-e azzal ami mar van?
+      return *this;//ha azonos, ugyanazt visszaadom
+  }
+    _destroy(root); //toroljuk az ertekul adott fat //felszabaditjuk a memot //nemtudjuk hogy egyforma meretu e a ket fa
+
+    root = _copyOf(t.root); //uj fa beillsezstese a regi copyjabol
+
+    return *this;
+
 }
 
 // Visszaadja az x gyökerű részfa legkisebb értékű csúcsát.
 // Előfeltétel: x != nil
 template<class T>
-typename Bs_tree<T>::Node *Bs_tree<T>::_min(Node* /*x*/) {
-    // TODO
-    throw method_not_implemented();
+typename Bs_tree<T>::Node *Bs_tree<T>::_min(Node* x) {
+
+    while (x->left != nullptr){   //fa bejarasa, amig van baloldali gyerek addig megyunk
+        x = x->left;
+
+
+    }
+    return x;
+
 }
 
 // Visszaadja az x gyökerű részfa legnagyobb értékű csúcsát.
 // Előfeltétel: x != nil
 template<class T>
-typename Bs_tree<T>::Node *Bs_tree<T>::_max(Node* /*x*/) {
-    // TODO
-    throw method_not_implemented();
+typename Bs_tree<T>::Node *Bs_tree<T>::_max(Node*x) {//ugyan az csak  //feltetelezzuk hogy a fa rendezett
+    while (x->right != nullptr){
+        x = x->right;
+
+
+    }
+    return x;
 }
 
 // Visszaadja a fából az x csúcs rákövetkezőjét,
 // vagy nil-t, ha x az legnagyobb kulcsú elem.
 // Előfeltétel: x != nilif(isempty())
 template<class T>
-typename Bs_tree<T>::Node *Bs_tree<T>::_next(Node* /*x*/) {
-    // TODO
-    throw method_not_implemented();
+typename Bs_tree<T>::Node *Bs_tree<T>::_next(Node* x) { //rakovetkezo elem megtalalasa
+
+    if(x->right != nullptr){
+        return _min(x->right);
+    }
+
+    Node *y = x->parent;
+
+    while (y != nullptr && x== y->right){
+        x = y;
+        y = y->parent;
+
+    }
+    return y;
+
 }
 
 // Visszaadja a fából az x csúcs megelőzőjét,
 // vagy nil-t, ha x az legkisebb kulcsú elem.
 // Előfeltétel: x != nil
 template<class T>
-typename Bs_tree<T>::Node *Bs_tree<T>::_prev(Node* /*x*/) {
-    // TODO
-    throw method_not_implemented();
+typename Bs_tree<T>::Node *Bs_tree<T>::_prev(Node* x) { //next hez kepest a masik agon valo fellepdeles
+    if(x->left != nullptr){
+        return _max(x->left);
+    }
+
+    Node *y = x->parent;
+
+    while (y != nullptr && x== y->left){
+        x = y;
+        y = y->parent;
+
+    }
+    return y;
+
+
+
+
 }
 
 // Rekurzívan meghatározza, és visszaadja
 // az x gyökerű részfa elemeinek számát.
 // Megjegyzés: üres fára is működik -> 0-t ad vissza
 template<class T>
-size_t Bs_tree<T>::_size(Node* /*x*/) const {
-    // TODO
-    throw method_not_implemented();
+size_t Bs_tree<T>::_size(Node* x) const {
+if(x == nullptr){   //ha ures a fa
+    return 0;
+} else{
+
+    return _size(x->left) + _size(x->right) + 1;    //jobb ag + bal ag + a csucs ami 1
+}
+
 }
 
 template<class T>
 T Bs_tree<T>::getroot() const {
-    //TODO
-    throw method_not_implemented();
+if(isempty()){
+    throw internal_error("A fa ures");
+}
+
+    return _getroot()->key; // visszaadja a gyoker erteket
+
+
 }
 
 // Lekérdezi, hogy található-e k kulcs a fában.
 // Igazat ad vissza, ha található.
 template<class T>
-bool Bs_tree<T>::find(const T& /*k*/) const {
-    // TODO
-    throw method_not_implemented();
+bool Bs_tree<T>::find(const T& k) const {   //visszaadja hogy van-e ilyen elem a faban
+    Node *x = root ;
+    while (x != nullptr && (k > x->key ||  x->key < k  )){
+        if(k < x->key){
+            x = x->left;
+        } else{
+            x = x->right;
+
+        }
+    }
+    return x;   //vagy x!= nullptr
 }
 
 // Beszúrja a k értéket a fába.
@@ -201,9 +269,11 @@ void Bs_tree<T>::insert(const T& /*k*/) {
 // Eltávolítja a k értéket a fából.
 // Ha nem volt k érték a fában, akkor nem csinál semmit.
 template<class T>
-void Bs_tree<T>::remove(const T& /*k*/) {
-    // TODO
-    throw method_not_implemented();
+void Bs_tree<T>::remove(const T& k) {
+
+
+
+
 }
 
 // Bináris keresőfa bejárások kívülről elérhető függvényei.
