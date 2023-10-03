@@ -21,7 +21,7 @@ int PolishNotation::ConvertDecimal() {
     //int hatvany = 0;
     //int kiegyenlit =0;
     string number = "";
-    for (int i = 0; i < bitmeret; ++i) {
+    for (int i = 0; i < 8; ++i) {
         number = number + szamok.top();
         szamok.pop_back();
     }
@@ -60,9 +60,10 @@ int PolishNotation::ConvertDecimal() {
     return szam;
 }
 void PolishNotation::convertobinar(int szam) {
+
     int szamertek = szam ;
     int lepesszam = 0;
-   // cout << "ez a szam : " << szam <<endl;
+    cout << "ez a szam : " << szam <<endl;
     while(szam != 0){
 
 
@@ -71,27 +72,29 @@ void PolishNotation::convertobinar(int szam) {
         szam = szam / 2;
         lepesszam = lepesszam +1;
     }
-   // szamok.print();
 
-    if (szamertek > -1) {
+    //cout << "a leopeszam : " << lepesszam <<endl;
 
+    if(szamertek > 0){
 
-        for (int i = bitmeret-1; i > -1; --i) {
+        for (int i = 0; i < 8-lepesszam; ++i) {
 
-            if (szamertek - pow(2, i) > -1) {
-                szamok.push_back('1');
-                szamertek = szamertek - pow(2, i);
-            }
-            else{
-                szamok.push_back('0');
-            }
+            szamok.push_back('0');
+            //cout << " maradek 0" <<endl;
 
         }
-    }
+        for (int i = 0; i < lepesszam; ++i) {
 
-   else if(0 > szamertek){
+            szamok.push_back('1');
+            //cout << " maradek 0" <<endl;
+
+        }
+
+
+    }
+    if(0 > szamertek){
         lepesszam = lepesszam -1;
-        for (int i = 0; i < bitmeret-lepesszam; ++i) {
+        for (int i = 0; i < 8-lepesszam; ++i) {
 
             szamok.push_back('1');
             //cout << " maradek 1" <<endl;
@@ -109,11 +112,11 @@ void PolishNotation::convertobinar(int szam) {
     }
 
 
+
+
     //cout << "vege binar" <<endl;
-   // szamok.print();
+
 }
-
-
 
 int PolishNotation::evaluate(std::string polish_input) {
 
@@ -167,7 +170,7 @@ int PolishNotation::evaluate(std::string polish_input) {
 
 
                 osszeg = muvelet(szam1,szam2,polish_input[i]);
-               // cout << "muvelet ultan: " <<  osszeg << endl;
+                cout << "muvelet ultan: " <<  osszeg << endl;
                 convertobinar(osszeg); // binarisba visszakonvertalom, es pushbackelem
 
                 //char cosszeg = osszeg+48;
@@ -188,18 +191,18 @@ int PolishNotation::evaluate(std::string polish_input) {
 
     }
 
-   // cout <<"ket szam osszege: "<< osszeg << endl;
+    cout <<"ket szam osszege: "<< osszeg << endl;
     return osszeg;
 }
 
 
 int PolishNotation::muvelet(int szam1, int szam2,char jel) {
     int osszeg = 0;
-   // cout << jel <<endl;
+    cout << jel <<endl;
     if(jel == '*'){
 
-       // cout << "sz1: " << szam1 <<endl;
-      //  cout << "sz2: " << szam2 <<endl;
+        cout << "sz1: " << szam1 <<endl;
+        cout << "sz2: " << szam2 <<endl;
         osszeg = szam1 * szam2;
         //cout << osszeg <<endl;
         //cout << "egyszer" <<endl;
@@ -311,7 +314,7 @@ string PolishNotation::convert(string polishInfix) {
         }
 
         if(isdigit(polishInfix[i])){
-            if(szamszamlalo == bitmeret){
+            if(szamszamlalo == 8){
                 lengyel.push_back(terkoz);
 
                 szamszamlalo = 0;
@@ -348,7 +351,7 @@ string PolishNotation::convert(string polishInfix) {
         lengyel.pop_back();
     }
     //cout << "" <<endl;
-   // jelek.print();
+    jelek.print();
     //cout << lengyelfroma <<endl;
 
 

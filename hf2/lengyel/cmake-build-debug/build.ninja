@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: lengyel
+# Project: PolishNotation
 # Configurations: Debug
 # =============================================================================
 
@@ -41,43 +41,49 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = D$:/Egyetem2/3felev/Adatszerkezetek/hf2/lengyel/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target lengyel
+# Object build statements for EXECUTABLE target PolishNotation
 
 
 #############################################
-# Order-only phony target for lengyel
+# Order-only phony target for PolishNotation
 
-build cmake_object_order_depends_target_lengyel: phony || CMakeFiles/lengyel.dir
+build cmake_object_order_depends_target_PolishNotation: phony || CMakeFiles/PolishNotation.dir
 
-build CMakeFiles/lengyel.dir/main.cpp.obj: CXX_COMPILER__lengyel_unscanned_Debug D$:/Egyetem2/3felev/Adatszerkezetek/hf2/lengyel/main.cpp || cmake_object_order_depends_target_lengyel
-  DEP_FILE = CMakeFiles\lengyel.dir\main.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\lengyel.dir
-  OBJECT_FILE_DIR = CMakeFiles\lengyel.dir
+build CMakeFiles/PolishNotation.dir/main.cpp.obj: CXX_COMPILER__PolishNotation_unscanned_Debug D$:/Egyetem2/3felev/Adatszerkezetek/hf2/lengyel/main.cpp || cmake_object_order_depends_target_PolishNotation
+  DEP_FILE = CMakeFiles\PolishNotation.dir\main.cpp.obj.d
+  FLAGS = -Werror -Wall -Wextra -pedantic -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PolishNotation.dir
+  OBJECT_FILE_DIR = CMakeFiles\PolishNotation.dir
 
-build CMakeFiles/lengyel.dir/PolishNotation.cpp.obj: CXX_COMPILER__lengyel_unscanned_Debug D$:/Egyetem2/3felev/Adatszerkezetek/hf2/lengyel/PolishNotation.cpp || cmake_object_order_depends_target_lengyel
-  DEP_FILE = CMakeFiles\lengyel.dir\PolishNotation.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\lengyel.dir
-  OBJECT_FILE_DIR = CMakeFiles\lengyel.dir
+build CMakeFiles/PolishNotation.dir/PolishNotation.cpp.obj: CXX_COMPILER__PolishNotation_unscanned_Debug D$:/Egyetem2/3felev/Adatszerkezetek/hf2/lengyel/PolishNotation.cpp || cmake_object_order_depends_target_PolishNotation
+  DEP_FILE = CMakeFiles\PolishNotation.dir\PolishNotation.cpp.obj.d
+  FLAGS = -Werror -Wall -Wextra -pedantic -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PolishNotation.dir
+  OBJECT_FILE_DIR = CMakeFiles\PolishNotation.dir
+
+build CMakeFiles/PolishNotation.dir/DynamicIntStack.cpp.obj: CXX_COMPILER__PolishNotation_unscanned_Debug D$:/Egyetem2/3felev/Adatszerkezetek/hf2/lengyel/DynamicIntStack.cpp || cmake_object_order_depends_target_PolishNotation
+  DEP_FILE = CMakeFiles\PolishNotation.dir\DynamicIntStack.cpp.obj.d
+  FLAGS = -Werror -Wall -Wextra -pedantic -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\PolishNotation.dir
+  OBJECT_FILE_DIR = CMakeFiles\PolishNotation.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target lengyel
+# Link build statements for EXECUTABLE target PolishNotation
 
 
 #############################################
-# Link the executable lengyel.exe
+# Link the executable PolishNotation.exe
 
-build lengyel.exe: CXX_EXECUTABLE_LINKER__lengyel_Debug CMakeFiles/lengyel.dir/main.cpp.obj CMakeFiles/lengyel.dir/PolishNotation.cpp.obj
-  FLAGS = -g
+build PolishNotation.exe: CXX_EXECUTABLE_LINKER__PolishNotation_Debug CMakeFiles/PolishNotation.dir/main.cpp.obj CMakeFiles/PolishNotation.dir/PolishNotation.cpp.obj CMakeFiles/PolishNotation.dir/DynamicIntStack.cpp.obj
+  FLAGS = -Werror -Wall -Wextra -pedantic -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\lengyel.dir
+  OBJECT_DIR = CMakeFiles\PolishNotation.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = lengyel.exe
-  TARGET_IMPLIB = liblengyel.dll.a
-  TARGET_PDB = lengyel.exe.dbg
+  TARGET_FILE = PolishNotation.exe
+  TARGET_IMPLIB = libPolishNotation.dll.a
+  TARGET_PDB = PolishNotation.exe.dbg
 
 
 #############################################
@@ -105,7 +111,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build lengyel: phony lengyel.exe
+build PolishNotation: phony PolishNotation.exe
 
 # =============================================================================
 # Folder targets.
@@ -115,7 +121,7 @@ build lengyel: phony lengyel.exe
 #############################################
 # Folder: D:/Egyetem2/3felev/Adatszerkezetek/hf2/lengyel/cmake-build-debug
 
-build all: phony lengyel.exe
+build all: phony PolishNotation.exe
 
 # =============================================================================
 # Built-in targets
