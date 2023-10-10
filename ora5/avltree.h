@@ -30,7 +30,7 @@ private:
         int balanceFactor() const { return _height(right) - _height(left); }
 
         void updateHeight() {
-            height = std::max(_height(left), _height(right)) + 1;
+            height = std::max(_height(left), _height(right)) + 1; //magassag kiszamitasa
         }
 
     private:
@@ -103,8 +103,49 @@ public:
 // az x csúcs körül, illetve más szóhasználattal
 // az x csúcs és a jobb gyereke közötti él mentén.
 // Előfeltétel, hogy x és a jobb gyereke létezzenek.
-template <class T> void AvlTree<T>::_rotateLeft(Node * /*x*/) {
-    // TODO
+template <class T> void AvlTree<T>::_rotateLeft(Node * x) {
+    if( x == nullptr || x->right){
+        throw new InternalError("Ervenytelen Node");
+
+    }
+    Node *y = x->right;
+
+    y->parent = x->parent;
+    x->right = y->left;
+
+
+    //x szulojenek kell szolni
+
+    if(x->parent == nullptr){ //ka x 0ptr akkor a gyokerben vagyunk
+        this->root = y;
+    } else{
+        if(x->parent->left == x){
+            x->parent->left = y;
+
+        } else{
+            x->parent->right = y;
+
+        }
+    }
+
+    //y egyereknek kell szolni
+
+    if(y->left != nullptr){
+        y->left->parent = x;
+    }
+
+
+    //x szuloje
+    x->parent = y;
+
+
+    //y gyereke ki lesz
+
+    x->left = x;
+
+
+
+
 }
 
 // Jobbra forgatás ...
