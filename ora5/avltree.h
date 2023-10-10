@@ -103,7 +103,8 @@ public:
 // az x csúcs körül, illetve más szóhasználattal
 // az x csúcs és a jobb gyereke közötti él mentén.
 // Előfeltétel, hogy x és a jobb gyereke létezzenek.
-template <class T> void AvlTree<T>::_rotateLeft(Node * x) {
+template <class T> void AvlTree<T>::_rotateLeft(Node * x) { //ez orai munka volt
+
     if( x == nullptr || x->right){
         throw new InternalError("Ervenytelen Node");
 
@@ -152,8 +153,49 @@ template <class T> void AvlTree<T>::_rotateLeft(Node * x) {
 // az x csúcs körül, illetve más szóhasználattal
 // az x csúcs és a bal gyereke közötti él mentén.
 // Előfeltétel, hogy x és a bal gyereke létezzenek.
-template <class T> void AvlTree<T>::_rotateRight(Node * /*x*/) {
-    // TODO
+template <class T> void AvlTree<T>::_rotateRight(Node * x) {   //ez magamtol volt irva
+
+    if( x == nullptr || x->left){
+        throw new InternalError("Ervenytelen Node");
+
+    }
+    Node *y = x->left;
+
+    y->parent = x->parent;
+    x->right = y->right;
+
+
+    //x szulojenek kell szolni
+
+    if(x->parent == nullptr){ //ka x 0ptr akkor a gyokerben vagyunk
+        this->root = y;
+    } else{
+        if(x->parent->right == x){
+            x->parent->right = y;
+
+        } else{
+            x->parent->left = y;
+
+        }
+    }
+
+    //y egyereknek kell szolni
+
+    if(y->right != nullptr){
+        y->right->parent = x;
+    }
+
+
+    //x szuloje
+    x->parent = y;
+
+
+    //y gyereke ki lesz
+
+    x->right = x;
+
+
+
 }
 
 // Az újrakiegyensúlyozó függvény
@@ -169,8 +211,47 @@ template <class T> void AvlTree<T>::_rotateRight(Node * /*x*/) {
 // x NULL, vagy
 // x mindkét részfája érvényes, kiegyensúlyozott AVL fa helyes
 // magasságértékekkel (üres részfa is helyes AVL fa)
-template <class T> void AvlTree<T>::_rebalance(Node * /*x*/) {
-    // TODO
+template <class T> void AvlTree<T>::_rebalance(Node * x) { //! ha van egy rotate fv akkor mindenkit ujra kell szamolni
+    while (x != nullptr){
+
+    int old_h = x->height;
+
+    if (x->balanceFactor() == -2){
+        Node *y = x->left;
+        if ( x->left->balanceFactor() == 1){
+            this->_rotateLeft(x->left);
+            y->updateHeight();
+        }
+        this->_rotateRight(x);
+        x->updateHeight();
+        x = x->parent;
+    }
+    else if(x-> balanceFactor() == 2){
+        Node *y = x->right;
+
+        if ( x->right->balanceFactor() == -1){
+            this->_rotateRight(x->right);
+            y->updateHeight();
+        }
+        this->_rotateLeft(x);
+        x->updateHeight();
+        x = x->parent;
+    }
+
+
+
+
+    x->updateHeight();
+
+    if (x->height == old_h){
+        break;
+    }
+
+    x = x->parent;
+
+    }//whilevege
+
+
 }
 
 // Rekurzívan felszabadítja a csúcsokat.
