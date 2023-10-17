@@ -248,6 +248,18 @@ template <class T> void List<T>::insertBefore(T e) {
 // Az aktuális elem után szúrja be a paraméterben kapott új értéket
 template <class T> void List<T>::insertAfter(T e) {
     // TODO
+    if(isLast()){
+        insertLast(e); //ha utolso akkor a vegere rakjuk
+
+    }else{
+        Node *p = new Node(e, cur, cur->next) ;
+        cur->prev->next = p;
+        cur->prev = p;
+        cur = p;
+
+    }
+
+
 }
 
 /// Törlő metódusok implementálása
@@ -273,11 +285,43 @@ template <class T> void List<T>::removeFirst() {
 // Törli a lista utolsó elemét
 template <class T> void List<T>::removeLast() {
     // TODO
+    if(isEmpty()) throw UnderFlowException();
+
+    if(head == tail){
+        tail = tail->prev;
+        delete tail->next;
+        tail->next = nullptr;
+        cur = tail;
+
+
+    }
+
+
 }
 
 // Törli a lista aktuális elemét
 template <class T> void List<T>::removeCur() {
     // TODO
+    if(isEmpty()) throw UnderFlowException(); //ha ures, akkor alulcsordulas kikerül
+
+    if(!cur) throw CurNullException();
+
+    if(isFirst()){
+        removeFirst();
+    }
+    else if(isLast()){
+        removeLast();
+    } else{
+        Node * p = cur;
+        cur = cur->prev;
+        p->next->prev = p->prev;
+        p->prev->next = p->next;
+
+        delete p;
+
+
+    }
+
 }
 
 /// Kiegészítő eljárás implementálása
