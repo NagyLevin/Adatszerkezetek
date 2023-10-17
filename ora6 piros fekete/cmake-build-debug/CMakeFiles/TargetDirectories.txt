@@ -1,0 +1,3 @@
+D:/Egyetem2/3felev/Adatszerkezetek/ora6 piros fekete/cmake-build-debug/CMakeFiles/ora5.dir
+D:/Egyetem2/3felev/Adatszerkezetek/ora6 piros fekete/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Egyetem2/3felev/Adatszerkezetek/ora6 piros fekete/cmake-build-debug/CMakeFiles/rebuild_cache.dir
