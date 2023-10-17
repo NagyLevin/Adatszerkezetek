@@ -3,7 +3,7 @@
 
 #include <algorithm>
 #include <iostream>
-
+using namespace std;
 #include "exceptions.h"
 
 //
@@ -105,44 +105,29 @@ public:
 // Előfeltétel, hogy x és a jobb gyereke létezzenek.
 template <class T> void AvlTree<T>::_rotateLeft(Node * x) { //ez orai munka volt
 
-    if( x == nullptr || x->right){
-        throw new InternalError("Ervenytelen Node");
 
-    }
     Node *y = x->right;
 
-    y->parent = x->parent;
+    // y bal gyereke forgatás után x jobb gyereke lesz
+    // a gyerek szülő mezőjét is frissíteni kell
     x->right = y->left;
-
-
-    //x szulojenek kell szolni
-
-    if(x->parent == nullptr){ //ka x 0ptr akkor a gyokerben vagyunk
-        this->root = y;
-    } else{
-        if(x->parent->left == x){
-            x->parent->left = y;
-
-        } else{
-            x->parent->right = y;
-
-        }
-    }
-
-    //y egyereknek kell szolni
-
-    if(y->left != nullptr){
+    if (y->left != nullptr) /* a feltétel opcionális */
         y->left->parent = x;
-    }
 
+    // az adott részfának mostantól y lesz a gyökere
+    // így megkapja x szülőjét, és
+    // a szülőnél is be kell állítani, hogy mostantól y az ő gyereke
+    y->parent = x->parent;
+    if (x->parent == nullptr)
+        root = y;
+    else if (x == x->parent->left)
+        x->parent->left = y;
+    else
+        x->parent->right = y;
 
-    //x szuloje
+    // végül beállítjuk x és y között a szülő-gyerek kapcsolatot
+    y->left = x;
     x->parent = y;
-
-
-    //y gyereke ki lesz
-
-    x->left = x;
 
 
 
@@ -155,45 +140,29 @@ template <class T> void AvlTree<T>::_rotateLeft(Node * x) { //ez orai munka volt
 // Előfeltétel, hogy x és a bal gyereke létezzenek.
 template <class T> void AvlTree<T>::_rotateRight(Node * x) {   //ez magamtol volt irva
 
-    if( x == nullptr || x->left){
-        throw new InternalError("Ervenytelen Node");
 
-    }
     Node *y = x->left;
 
-    y->parent = x->parent;
-    x->right = y->right;
-
-
-    //x szulojenek kell szolni
-
-    if(x->parent == nullptr){ //ka x 0ptr akkor a gyokerben vagyunk
-        this->root = y;
-    } else{
-        if(x->parent->right == x){
-            x->parent->right = y;
-
-        } else{
-            x->parent->left = y;
-
-        }
-    }
-
-    //y egyereknek kell szolni
-
-    if(y->right != nullptr){
+    // y jobb gyereke forgatás után x bal gyereke lesz
+    // a gyerek szülő mezőjét is frissíteni kell
+    x->left = y->right;
+    if (y->right != nullptr) /* a feltétel opcionális */
         y->right->parent = x;
-    }
 
+    // az adott részfának mostantól y lesz a gyökere
+    // így megkapja x szülőjét, és
+    // a szülőnél is be kell állítani, hogy mostantól y az ő gyereke
+    y->parent = x->parent;
+    if (x->parent == nullptr)
+        root = y;
+    else if (x == x->parent->left)
+        x->parent->left = y;
+    else
+        x->parent->right = y;
 
-    //x szuloje
+    // végül beállítjuk x és y között a szülő-gyerek kapcsolatot
+    y->right = x;
     x->parent = y;
-
-
-    //y gyereke ki lesz
-
-    x->right = x;
-
 
 
 }
