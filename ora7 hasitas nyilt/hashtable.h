@@ -135,15 +135,39 @@ public:
 
     // Megkeresi, hogy egy adott elem megtalálható-e a hashtáblában
     bool find(const Key &key) {
-        // TODO
-        (void)key;
+
+        for (int i = 0; i < tablesize; ++i) {
+            int pos = getHash(key,i);
+           if(table[pos].key == key){ //ha megvan a key
+                return true;
+
+            }
+
+        }
+        return false;
+
+
     }
 
     // Kitöröl egy adott elemet, ha megtalálható a hashtáblában
     // Ha nem található meg, nem csinál semmit
     void erase(const Key &key) {    //ha torlunk akkor erasedre allitjuk
-        // TODO
-        (void)key;
+        for (int i = 0; i < tablesize; ++i) {
+            int pos = getHash(key,i);
+            if(table[pos].key == key){ //ha megvan a key
+
+                table[pos].state = FREE;
+
+
+                actualsize = actualsize -1;
+
+
+                return;
+
+            }
+
+        }
+
     }
 
     // Kiírja a hashtábla tartalmát
