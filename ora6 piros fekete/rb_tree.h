@@ -361,7 +361,7 @@ template <class T> void rb_tree<T>::_rebalance_after_remove(node * x) {
             //    -- kovetkezmeny : w->color == black [a testver FEKETE] (2. eset, 3.
             //    eset vagy 4. eset)
 
-            if(w->color == red){ //nagybacsi piros
+            if(w->color == red){ //testvér piros
                 w->color = black;
                 x->parent->color = red;
                 _rotate_left(x->parent);
@@ -384,18 +384,18 @@ template <class T> void rb_tree<T>::_rebalance_after_remove(node * x) {
 
 
 
-                x = x->parent;
-                continue;
+                x = x->parent; //feljebb lepes
+                continue;//kovetkezo iteracioban folytat
 
             }
 
             // 3. eset
             //    -- elofeltetel  : w FEKETE , w->left PIROS , w->right FEKETE
             //    -- kovetkezmeny : w FEKETE , w->left ????? , w->right PIROS   (4. eset)
-            if(w->right->color == black){
+            if(w->right->color == black){ //ha fekete, akkor a bal gyerekkel megcsereljuk a szinet
                 w->left->color = black;
                 w->color = red;
-                _rotate_left(w);
+                _rotate_left(w); //pirosat agyerekebe
                 w = x->parent->right;
 
 
@@ -405,11 +405,12 @@ template <class T> void rb_tree<T>::_rebalance_after_remove(node * x) {
             //    -- elofeltetel  : w FEKETE , w->right PIROS
             //    -- kovetkezmeny : a PF fa tulajdonsagai helyrealltak
 
-            w->color = x->parent->color;
+            w->color = x->parent->color; //testver szine megcserelve a szulovel
             x->parent->color =black;
             w->right->color = black;
             _rotate_left(x->parent);
 
+            break;
 
 
 
@@ -425,7 +426,7 @@ template <class T> void rb_tree<T>::_rebalance_after_remove(node * x) {
             //    -- kovetkezmeny : w->color == black [a testver FEKETE] (2. eset, 3.
             //    eset vagy 4. eset)
 
-            if(w->color == red){ //nagybacsi piros
+            if(w->color == red){ //testvér piros
                 w->color = black;
                 x->parent->color = red;
                 _rotate_right(x->parent);
@@ -442,24 +443,24 @@ template <class T> void rb_tree<T>::_rebalance_after_remove(node * x) {
             //                      ezen a szinten nincs tobb keresnivalonk
             //                      Elorol az egeszet a x->parent node-al.
 
-            if(w->right->color == black && w->left->color == black){
+            if(w->left->color == black && w->right->color == black){
 
                 w->color = red;
 
 
 
-                x = x->parent;
-                continue;
+                x = x->parent; //feljebb lepes
+                continue;//kovetkezo iteracioban folytat
 
             }
 
             // 3. eset
             //    -- elofeltetel  : w FEKETE , w->left PIROS , w->right FEKETE
             //    -- kovetkezmeny : w FEKETE , w->left ????? , w->right PIROS   (4. eset)
-            if(w->left->color == black){
-                w->right->color = black;
+            if(w->right->color == black){ //ha fekete, akkor a bal gyerekkel megcsereljuk a szinet
+                w->left->color = black;
                 w->color = red;
-                _rotate_right(w);
+                _rotate_right(w); //pirosat agyerekebe
                 w = x->parent->left;
 
 
@@ -469,11 +470,11 @@ template <class T> void rb_tree<T>::_rebalance_after_remove(node * x) {
             //    -- elofeltetel  : w FEKETE , w->right PIROS
             //    -- kovetkezmeny : a PF fa tulajdonsagai helyrealltak
 
-            w->color = x->parent->color;
+            w->color = x->parent->color; //testver szine megcserelve a szulovel
             x->parent->color =black;
             w->left->color = black;
             _rotate_right(x->parent);
-
+            break;
         }
 
 
@@ -488,7 +489,7 @@ template <class T> void rb_tree<T>::_rebalance_after_remove(node * x) {
 
 
 
-
+    x->color = black;
 }
 
 // Lekérdezi, hogy található-e k kulcs a fában.
