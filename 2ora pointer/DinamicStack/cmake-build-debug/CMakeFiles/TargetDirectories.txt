@@ -1,3 +1,3 @@
-C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/2ora pointer/DinamicStack/cmake-build-debug/CMakeFiles/DinamicStack.dir
-C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/2ora pointer/DinamicStack/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/2ora pointer/DinamicStack/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/Egyetem2/3felev/Adatszerkezetek/2ora pointer/DinamicStack/cmake-build-debug/CMakeFiles/DinamicStack.dir
+D:/Egyetem2/3felev/Adatszerkezetek/2ora pointer/DinamicStack/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Egyetem2/3felev/Adatszerkezetek/2ora pointer/DinamicStack/cmake-build-debug/CMakeFiles/rebuild_cache.dir

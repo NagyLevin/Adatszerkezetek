@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/2ora pointer/DynamicIntQueue/DynamicIntQueue.cpp" "CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.obj" "gcc" "CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.obj.d"
-  "C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/2ora pointer/DynamicIntQueue/main.cpp" "CMakeFiles/DynamicIntQueue.dir/main.cpp.obj" "gcc" "CMakeFiles/DynamicIntQueue.dir/main.cpp.obj.d"
+  "D:/Egyetem2/3felev/Adatszerkezetek/2ora pointer/DynamicIntQueue/DynamicIntQueue.cpp" "CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.obj" "gcc" "CMakeFiles/DynamicIntQueue.dir/DynamicIntQueue.cpp.obj.d"
+  "D:/Egyetem2/3felev/Adatszerkezetek/2ora pointer/DynamicIntQueue/main.cpp" "CMakeFiles/DynamicIntQueue.dir/main.cpp.obj" "gcc" "CMakeFiles/DynamicIntQueue.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
