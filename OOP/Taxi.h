@@ -35,7 +35,7 @@ public:
 
     };
 
-    double carriage(double km){
+    virtual double carriage(double km){
 
         if(moveOn(km) ==km){
             pocket = pocket + cost(km); //mennyit fizet az utas
@@ -53,7 +53,7 @@ public:
 
     }
 
-    double memberCost(double km, int member){
+    virtual double memberCost(double km, int member){
         if(member > capacity-1){
             return 0;//szebben egy exception osztaly meghivasa lenne
         } //mert sofor es utasok
