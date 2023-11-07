@@ -7,11 +7,13 @@
 using namespace std;
 
 int main() {
-    //cout << "70 liter benzin ara: " << Car::getCost(70) << endl;
+    cout << "70 liter benzin ara: " << Car::getCost(70) << endl;
+
 
     cout << endl << "Car teszt" << endl << endl;
 
     Car bmw("BMW", 14, 5, 10);
+
     cout << bmw.getCapacity() << " ferohelyes, " << bmw.getConsumption() << " literes fogyasztasu " << bmw.getType() << " Car letrehozva.\n";
     cout << "A benzin ara: " << Car::petrolCost << endl;
     //cout << "A benzin ara: " << bmw.petrolCost << endl; // Ez működik, de ronda

@@ -39,6 +39,13 @@ public:
 
         if(moveOn(km) ==km){
             pocket = pocket + cost(km); //mennyit fizet az utas
+
+
+            return km;
+
+
+
+
         } else{
             return 0;
         }

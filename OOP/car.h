@@ -29,7 +29,7 @@ public:
 
     static int petrolCost;
 
-    virtual double getCost(double liter){
+    static double getCost(double liter){
         return petrolCost * liter;
 
 
