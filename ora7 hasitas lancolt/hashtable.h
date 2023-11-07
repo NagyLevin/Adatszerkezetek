@@ -113,7 +113,7 @@ public:
 private:
     // Visszaadja egy adott kulcs hashét
     int getHash(const int & key) {
-
+        //std::cout << key << std::endl;
         return key % capacity;
 
     }
