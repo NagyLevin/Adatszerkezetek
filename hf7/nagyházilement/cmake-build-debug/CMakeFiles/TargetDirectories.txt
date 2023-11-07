@@ -1,0 +1,3 @@
+D:/Egyetem2/3felev/Adatszerkezetek/hf7/nagyházilement/cmake-build-debug/CMakeFiles/HF7_skeleton.dir
+D:/Egyetem2/3felev/Adatszerkezetek/hf7/nagyházilement/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Egyetem2/3felev/Adatszerkezetek/hf7/nagyházilement/cmake-build-debug/CMakeFiles/rebuild_cache.dir

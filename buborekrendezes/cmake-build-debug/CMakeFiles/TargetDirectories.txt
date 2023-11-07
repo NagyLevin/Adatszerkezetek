@@ -1,0 +1,3 @@
+D:/Egyetem2/3felev/Adatszerkezetek/buborekrendezes/cmake-build-debug/CMakeFiles/buborekrendezes.dir
+D:/Egyetem2/3felev/Adatszerkezetek/buborekrendezes/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Egyetem2/3felev/Adatszerkezetek/buborekrendezes/cmake-build-debug/CMakeFiles/rebuild_cache.dir
