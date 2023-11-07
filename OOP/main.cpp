@@ -29,8 +29,8 @@ int main() {
     taxi.carriage(100);
     cout << "100 km-es fuvar es 70 literes tankolas utan a taxis penztarcaja: " << taxi.getPocket() << endl;
     cout << "4 fo eseten 100 km ut koltsege / fo: " << taxi.memberCost(100, 4) << endl;
-    //cout << "10 fo eseten 100 km ut koltsege / fo: " << taxi.memberCost(100,10) << endl;
-    /*
+    cout << "10 fo eseten 100 km ut koltsege / fo: " << taxi.memberCost(100,10) << endl;
+
     cout << endl << "Bus teszt" << endl << endl;
 
 
@@ -41,7 +41,7 @@ int main() {
     cout << "80 fo eseten 10 km-es fuvar es 70 literes tankolas utan a vallalat penztarcaja: " << Bus.getPocket() << endl;
     cout << "A vallalat haszna ezen a fuvaron: " << Bus.profit(10, 80) << endl;
     cout << "80 fo eseten 10 km ut koltsege / fo: " << Bus.memberCost(10, 80) << endl;
-    */
+
     cout << endl << "Bike teszt" << endl << endl;
 
     Bike mBike("Mountain Bike");

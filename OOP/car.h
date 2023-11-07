@@ -55,7 +55,7 @@ public:
 
         }
 
-
+        return 0;
     }
 
     double getPetrol() const;
