@@ -6,15 +6,17 @@
 using namespace std;
 
 struct Pontok {
-    double x;
-    double y;
+    int x;
+    int y;
 };
 
 class GraphSolver{
 private:
     vector<Pontok> graf;
-    int start;
-    int end;
+    int startG;
+    int endG;
+    bool lehet_ut = false;
+
 
 public:
     GraphSolver(int start, int target) {
@@ -22,13 +24,20 @@ public:
             cout << "hibas bemenet" <<endl;
         }
 
+        graf.push_back({start,0});
+        graf.push_back({0,target});
+
+        startG = start;
+        endG = target;
+
+
 
 
 
 
     }
     ~GraphSolver(){
-        //TODO
+        graf.clear();
     }
     GraphSolver(const GraphSolver& _other){
         // Copy konstruktor
@@ -45,9 +54,53 @@ public:
     bool exitsAfterPathAdded(int node1, int node2) {
         if(node1 < 1 || node2 < 1){
             return false;
+        } else{
+
+            graf.push_back({node1,node2});
+
+            for (int i = 0; i < graf.size()-1; ++i) {
+                if(graf[i].y == node2){
+
+                    lehet_ut = true;
+                    //ha valami csatlakozik a vegehez onnantol nezni kell hogy van e ut
+
+                }
+                if(lehet_ut == true){
+
+                    int akt = endG;
+                    bool voltakt = true;
+                    while (voltakt == true){
+                        voltakt = false;
+                        for (int j = 0; j < graf.size()-1; ++j) {
+
+                            if(graf[i].y == akt){
+                                akt = graf[i].x;
+                                voltakt = true;
+                                cout << akt <<endl;
+                            }
+
+
+                        }
+
+
+                    }
+
+
+
+
+                }
+
+
+
+            }
+
+
+
+
         }
 
-        //TODO
+
+
     }
 };
 
