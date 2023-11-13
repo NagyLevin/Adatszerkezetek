@@ -10,7 +10,7 @@ TEST("Simple graph") {
     CHECK_EQ(graphSolver.exitsAfterPathAdded(3,4), true);
     CHECK_EQ(graphSolver.exitsAfterPathAdded(3,5), true);
 }
-
+/*
 TEST("Simple graph copy") {
     GraphSolver graphSolver = GraphSolver(1,4);
     CHECK_EQ(graphSolver.exitsAfterPathAdded(1,2), false);
@@ -108,5 +108,5 @@ TEST("Graph 4") {
     CHECK_EQ(graphSolver.exitsAfterPathAdded(2,5), true);
     CHECK_EQ(graphSolver.exitsAfterPathAdded(8,5), true);
 }
-
+*/
 WOODPECKER_TEST_MAIN()

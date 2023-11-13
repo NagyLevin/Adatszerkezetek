@@ -4,7 +4,7 @@
 #include "vector"
 #include "map"
 using namespace std;
-
+//set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Wall -Wextra -pedantic")
 struct Pontok {
     int x;
     int y;
@@ -15,6 +15,7 @@ private:
     vector<Pontok> graf;
     int startG;
     int endG;
+    int akt;
     bool lehet_ut = false;
 
 
@@ -58,25 +59,32 @@ public:
 
             graf.push_back({node1,node2});
 
-            for (int i = 0; i < graf.size()-1; ++i) {
-                if(graf[i].y == node2){
-
+            for (int i = 0; i < graf.size(); ++i) {
+                if (endG == graf[i].y && endG == node2 ) {
+                    //cout << node2 <<endl;
+                    graf[i].x = node1;
                     lehet_ut = true;
                     //ha valami csatlakozik a vegehez onnantol nezni kell hogy van e ut
 
                 }
+            }
+
+
                 if(lehet_ut == true){
 
-                    int akt = endG;
+                     akt = endG;
+
                     bool voltakt = true;
                     while (voltakt == true){
                         voltakt = false;
-                        for (int j = 0; j < graf.size()-1; ++j) {
+                        for (int j = 0; j < graf.size(); ++j) {
 
-                            if(graf[i].y == akt){
-                                akt = graf[i].x;
+                            if(graf[j].y == akt){
+                                //cout << akt <<endl;
+                                akt = graf[j].x;
+                                //cout << akt << "utana" <<endl;
                                 voltakt = true;
-                                cout << akt <<endl;
+
                             }
 
 
@@ -92,14 +100,12 @@ public:
 
 
 
-            }
-
-
-
-
         }
-
-
+        if(akt == startG){
+            return true;
+        } else{
+            return false;
+        }
 
     }
 };
