@@ -117,7 +117,7 @@ public:
 
         for (int i = 0; i < tablesize; ++i) {
             int pos = getHash(key,i);
-            if(table[pos].state != USED){
+            if(table[pos].state != USED){ //mi a megoldas arra hogy ne erasedbe irjunk be
                 table[pos].key = key;
                 table[pos].state = USED;
                 actualsize = actualsize +1;
@@ -138,13 +138,18 @@ public:
 
         for (int i = 0; i < tablesize; ++i) {
             int pos = getHash(key,i);
-           if(table[pos].key == key){ //ha megvan a key
+
+            if(table[pos].state == FREE){
+                return false;
+            }
+
+            if(table[pos].key == key && table[pos].state == USED){ //ha megvan a key
                 return true;
 
             }
 
         }
-        return false;
+        return false;//ha vegigertunk es nem talaltunk semmit
 
 
     }
@@ -154,7 +159,12 @@ public:
     void erase(const Key &key) {    //ha torlunk akkor erasedre allitjuk
         for (int i = 0; i < tablesize; ++i) {
             int pos = getHash(key,i);
-            if(table[pos].key == key){ //ha megvan a key
+
+            if(table[pos].state == FREE){ //ha eleve ures a hely keszen vagyunk
+                return;
+            }
+
+            if(table[pos].key == key){ //ha megvan a key atallitjuk a statet es csokkentjuk az elemszamot
 
                 table[pos].state = FREE;
 
