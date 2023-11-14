@@ -1,0 +1,3 @@
+C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/ora9_kupacrendezok/cmake-build-debug/CMakeFiles/ora8_rendezok.dir
+C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/ora9_kupacrendezok/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/ora9_kupacrendezok/cmake-build-debug/CMakeFiles/rebuild_cache.dir
