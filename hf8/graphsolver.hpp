@@ -26,8 +26,8 @@ public:
             cout << "hibas bemenet" <<endl;
         }
 
-        graf.push_back({start,0});
-        graf.push_back({0,target});
+        //graf.push_back({start,0}); //lehet nem is kell
+        //graf.push_back({0,target});
 
         startG = start;
         endG = target;
@@ -102,6 +102,7 @@ public:
 
     }
     bool exitsAfterPathAdded(int node1, int node2) {
+
         if(node1 < 1 || node2 < 1){
             return false;
         } else{
@@ -109,30 +110,72 @@ public:
             graf.push_back({node1,node2});
 
             for (int i = 0; i < graf.size(); ++i) {
-                if (endG == graf[i].y && endG == node2 ) {
+                if ( endG == graf[i].y && endG == node2 ) {
                     //cout << node2 <<endl;
-                    graf[i].x = node1;
+                    //graf[i].x = node1;
                     lehet_ut = true;
                     //ha valami csatlakozik a vegehez onnantol nezni kell hogy van e ut
 
                 }
+                if(endG == graf[i].x && endG == node1){
+
+                    //graf[i].y = endG;
+                    //graf[i].x = node2;
+
+                    //cout << graf[i].y <<endl;
+                    //cout << graf[i].y <<endl;
+
+
+                    lehet_ut = true;
+
+
+                }
+
             }
 
 
                 if(lehet_ut == true){
-
+                    vector<Pontok> graf2 = graf;
                      akt = endG;
 
                     bool voltakt = true;
+                    for (int j = 0; j < graf2.size(); ++j) {
+                        if ((graf2[j].x == endG && graf2[j].y == startG) || (graf2[j].y == endG && graf2[j].x ==
+                                                                                                   startG)) {  //a legegyszerübb eset, ha a ket pont eleve ossze van kotve
+
+                            return true;
+                        }
+                    }
+
                     while (voltakt == true){
                         voltakt = false;
-                        for (int j = 0; j < graf.size(); ++j) {
+                        for (int j = 0; j < graf2.size(); ++j) {
 
-                            if(graf[j].y == akt){
+
+
+
+                            if(graf2[j].y == akt){
                                 //cout << akt <<endl;
-                               akt = graf[j].x;
+                               akt = graf2[j].x;
+                               graf2[j].x = 0;
+                               graf2[j].y = 0;
+
                                 //cout << akt << "utana" <<endl;
                                 voltakt = true;
+
+                            }
+                            if(graf2[j].x == akt){
+                                //cout << akt <<endl;
+                                graf2[j].x = graf[j].y;
+                                graf2[j].y = akt;
+
+                                //cout << graf2[j].x << "x" <<endl;
+                                //cout << graf2[j].y << "y" <<endl;
+
+
+                                //cout << akt << "utana" <<endl;
+                                voltakt = true;
+
 
                             }
 
@@ -150,6 +193,8 @@ public:
 
 
         }
+
+        //cout << akt <<endl;
         if(akt == startG){
             return true;
         } else{
