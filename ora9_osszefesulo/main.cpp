@@ -2,9 +2,11 @@
 #include <queue>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
+
 using namespace std;
 
-/// Osszefesul ket rendezett sorozatot.
+/// Osszefesul ket rendezett sorozatot. //feltesszuk hogy rendezetttek
 void mergeArrays(const int vec1[], size_t n1, const int vec2[], size_t n2, int result[]) {
 	// TODO
     (void)vec1;
@@ -16,6 +18,9 @@ void mergeArrays(const int vec1[], size_t n1, const int vec2[], size_t n2, int r
 
 void mergeSort(int vec[], size_t n) {
 	// TODO
+
+
+
     (void)vec;
     (void)n;
 }
@@ -32,7 +37,7 @@ int main() {
 	for (int i = 0; i < n; i++)
 		cout << t[i] << ' ';
 	std::cout << std::endl;
-	std::cout << "mergeSort : " << (isSorted(t, t + n) ? "OK" : "NOK")
+	std::cout << "mergeSort : " << (is_sorted(t, t + n) ? "OK" : "NOK")
 			<< std::endl;
 	std::cout << "Nagyobb teszt : " << std::flush;
 	int * tlarge = new int[LARGE_TEST_SIZE];
@@ -41,7 +46,7 @@ int main() {
 	}
 	mergeSort(tlarge, LARGE_TEST_SIZE);
 
-	std::cout << (isSorted(tlarge, tlarge + LARGE_TEST_SIZE) ? "OK" : "NOK")
+	std::cout << (is_sorted(tlarge, tlarge + LARGE_TEST_SIZE) ? "OK" : "NOK")
 			<< std::endl;
 	delete[] tlarge;
 
