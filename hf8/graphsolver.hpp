@@ -128,6 +128,7 @@ public:
             if(lehet_ut == true){
                 cout << node1  <<node2<<endl;
 
+
                 for (int j = 0; j < graf.size(); ++j) {
 
                     //cout << graf[j].x  << "x" << graf[j].y << "y" <<endl;
@@ -136,6 +137,7 @@ public:
                         return true;
                     }
                 }
+
 
 
 
@@ -167,10 +169,20 @@ public:
                                 voltindex.push_back(j);
                                 if(j-1 > -1 && graf[j].x == graf[j-1].y && graf[j].y == graf[j-1].x){
                                     voltindex.push_back(j-1);
+                                   // cout << "most volt: " << graf[j].x  << "x" << graf[j].y << "y" <<endl;
+                                   // cout << "es meg torlom: " << graf[j-1].x  << "x" << graf[j-1].y << "y" <<endl;
+
                                 }
                                 if(j+1 < graf.size() && graf[j].x == graf[j+1].y && graf[j].y == graf[j+1].x){
                                     voltindex.push_back(j+1);
+                                    //cout << "most volt: " << graf[j].x  << "x" << graf[j].y << "y" <<endl;
+                                    //cout << "es meg torlom: " << graf[j+1].x  << "x" << graf[j+1].y << "y" <<endl;
+
                                 }
+                                if(akt == 10){
+                                    cout << "debugger" <<endl;
+                                }
+
 
                                 j = graf.size();
                             }
