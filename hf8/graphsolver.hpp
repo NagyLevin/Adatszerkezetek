@@ -13,10 +13,11 @@ struct Pontok {
 class GraphSolver{
 private:
     vector<Pontok> graf;
-    int startG;
-    int endG;
-    int akt;
+    int startG = -1;
+    int endG = -1;
+    int akt = -1;
     bool lehet_ut = false;
+
 
 
 public:
@@ -38,7 +39,13 @@ public:
 
     }
     ~GraphSolver(){
+
         graf.clear();
+        startG = -1;
+        endG = -1;
+        akt = -1;
+        lehet_ut = false;
+
     }
     GraphSolver(const GraphSolver& _other){
         //copy
@@ -79,6 +86,11 @@ public:
             //masik graf uritese a biztonsag kedveert
 
             _other.graf.clear();
+            _other.startG = -1;
+            _other.endG = -1;
+            _other.akt = -1;
+            _other.lehet_ut = false;
+
 
 
 
