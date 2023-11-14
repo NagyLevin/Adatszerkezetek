@@ -26,8 +26,8 @@ public:
             cout << "hibas bemenet" <<endl;
         }
 
-        graf.push_back({start,0});
-        graf.push_back({0,target});
+        //graf.push_back({start,0});
+        //graf.push_back({0,target});
 
         startG = start;
         endG = target;
@@ -129,6 +129,8 @@ public:
                 cout << node1  <<node2<<endl;
 
                 for (int j = 0; j < graf.size(); ++j) {
+
+                    //cout << graf[j].x  << "x" << graf[j].y << "y" <<endl;
                     if ((graf[j].x == endG && graf[j].y == startG) || (graf[j].y == endG && graf[j].x ==startG)) {  //a legegyszerübb eset, ha a ket pont eleve ossze van kotve
 
                         return true;
@@ -163,6 +165,13 @@ public:
                                 voltakt = true; //ha talalunk egyet akkor kilepunk a for cikulsbol
 
                                 voltindex.push_back(j);
+                                if(j-1 > -1 && graf[j].x == graf[j-1].y && graf[j].y == graf[j-1].x){
+                                    voltindex.push_back(j-1);
+                                }
+                                if(j+1 < graf.size() && graf[j].x == graf[j+1].y && graf[j].y == graf[j+1].x){
+                                    voltindex.push_back(j+1);
+                                }
+
                                 j = graf.size();
                             }
                             if(akt == startG){
