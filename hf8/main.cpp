@@ -64,7 +64,6 @@ TEST("Simple2") {
     CHECK_EQ(graphSolver.exitsAfterPathAdded(1,2), true);
 }
 */
-
 TEST("Graph 2") {
     GraphSolver graphSolver = GraphSolver(2,8);
     CHECK_EQ(graphSolver.exitsAfterPathAdded(3,4), false);
@@ -97,6 +96,7 @@ TEST("Graph 3") {
     CHECK_EQ(graphSolver.exitsAfterPathAdded(13,4), true);
     CHECK_EQ(graphSolver.exitsAfterPathAdded(1,4), true);
 }
+
 
 
 TEST("Graph 4") {

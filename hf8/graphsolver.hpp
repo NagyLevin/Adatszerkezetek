@@ -3,6 +3,7 @@
 
 #include "vector"
 #include "map"
+#include "list"
 using namespace std;
 //set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Wall -Wextra -pedantic")
 struct Pontok {
@@ -134,61 +135,67 @@ public:
             }
 
 
-                if(lehet_ut == true){
-                    vector<Pontok> graf2 = graf;
-                     akt = endG;
+            if(lehet_ut == true){
 
-                    bool voltakt = true;
-                    for (int j = 0; j < graf2.size(); ++j) {
-                        if ((graf2[j].x == endG && graf2[j].y == startG) || (graf2[j].y == endG && graf2[j].x ==
-                                                                                                   startG)) {  //a legegyszerübb eset, ha a ket pont eleve ossze van kotve
+                list<int> voltmar;
+                akt = endG;
 
-                            return true;
-                        }
+                bool voltakt = true;
+
+
+                for (int j = 0; j < graf.size(); ++j) {
+                    if ((graf[j].x == endG && graf[j].y == startG) || (graf[j].y == endG && graf[j].x ==
+                                                                                               startG)) {  //a legegyszerübb eset, ha a ket pont eleve ossze van kotve
+
+                        return true;
                     }
-
-                    while (voltakt == true){
-                        voltakt = false;
-                        for (int j = 0; j < graf2.size(); ++j) {
+                }
 
 
 
-
-                            if(graf2[j].y == akt){
-                                //cout << akt <<endl;
-                               akt = graf2[j].x;
-                               graf2[j].x = 0;
-                               graf2[j].y = 0;
-
-                                //cout << akt << "utana" <<endl;
-                                voltakt = true;
-
-                            }
-                            if(graf2[j].x == akt){
-                                //cout << akt <<endl;
-                                graf2[j].x = graf[j].y;
-                                graf2[j].y = akt;
-
-                                //cout << graf2[j].x << "x" <<endl;
-                                //cout << graf2[j].y << "y" <<endl;
+                while (voltakt == true){
+                    voltakt = false;
+                    for (int j = 0; j < graf.size(); ++j) {
 
 
-                                //cout << akt << "utana" <<endl;
-                                voltakt = true;
 
 
-                            }
+                        if(graf[j].y == akt && (find(voltmar.begin(), voltmar.end(), j) == voltmar.end())){
+                            //cout << akt <<endl;
+                            akt = graf[j].x;
+                            voltmar.push_back(j);
 
+
+                            //cout << akt << "utana" <<endl;
+                            voltakt = true;
 
                         }
+                        if(graf[j].x == akt && (find(voltmar.begin(), voltmar.end(), j) == voltmar.end())){
+                            //cout << akt <<endl;
+
+                            graf[j].y = akt;
+                            voltmar.push_back(j);
+
+                            //cout << graf2[j].x << "x" <<endl;
+                            //cout << graf2[j].y << "y" <<endl;
+
+
+                            //cout << akt << "utana" <<endl;
+                            voltakt = true;
+
+
+                        }
 
 
                     }
-
-
 
 
                 }
+
+
+
+
+            }
 
 
 
