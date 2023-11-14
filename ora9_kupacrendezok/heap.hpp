@@ -21,14 +21,14 @@ template <class T> class Heap {
   /**
    *   Konténer vektor
    */
-  std::vector<T> v;
+  std::vector<T> v; //vektorban tarolt fa
 
   /**
    * Kupacban elemet feljebbmozgató eljárás
    *
    * @param index az elem indexe, amit feljebb kell mozgatni
    */
-  void liftUp(std::size_t index) {
+  void liftUp(std::size_t index) {  //ezt irtuk oran
 
   }
 
@@ -37,20 +37,20 @@ template <class T> class Heap {
    *
    * @param index az elem indexe, amit lejjebb kell mozgatni
    */
-  void liftDown(std::size_t index) {
+  void liftDown(std::size_t index) { //ezt irtuk oran
 
   }
 
-  std::size_t getParent(std::size_t index) { return (index - 1) / 2; }
+  std::size_t getParent(std::size_t index) { return (index - 1) / 2; }//parent kiszamol
 
-  std::size_t leftChild(std::size_t index) { return 2 * index + 1; }
+  std::size_t leftChild(std::size_t index) { return 2 * index + 1; }    //balgyerek kiszamol
 
-  std::size_t rightChild(std::size_t index) { return 2 * index + 2; }
+  std::size_t rightChild(std::size_t index) { return 2 * index + 2; }   //jobbgyerek kiszamol
 
 public:
   Heap() {}
-  Heap(const std::vector<T> &v_) : v(v_) {
-    for (int i = static_cast<int>(v.size() / 2) - 1; i >= 0; --i)
+  Heap(const std::vector<T> &v_) : v(v_) {//vektorban rendezzuk az elemeket
+    for (int i = static_cast<int>(v.size() / 2) - 1; i >= 0; --i)//eleg a feleig, mert onnantol csak levelek vannask
       liftDown(i);
   }
 
