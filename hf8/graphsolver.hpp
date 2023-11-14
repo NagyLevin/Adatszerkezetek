@@ -4,7 +4,7 @@
 #include "vector"
 #include "map"
 using namespace std;
-//set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Wall -Wextra -pedantic")
+//
 struct Pontok {
     int x;
     int y;
@@ -109,7 +109,7 @@ public:
             graf.push_back({node1,node2});
             graf.push_back({node2,node1});
 
-            for (int i = 0; i < graf.size(); ++i) {
+            for (size_t i = 0; i < graf.size(); ++i) {
                 if (endG == graf[i].y && endG == node2 ) {
                     //cout << node2 <<endl;
                     //graf[i].x = node1;
@@ -129,7 +129,7 @@ public:
                // cout << node1  <<node2<<endl;
 
 
-                for (int j = 0; j < graf.size(); ++j) {
+                for (size_t j = 0; j < graf.size(); ++j) {
 
                     //cout << graf[j].x  << "x" << graf[j].y << "y" <<endl;
                     if ((graf[j].x == endG && graf[j].y == startG) || (graf[j].y == endG && graf[j].x ==startG)) {  //a legegyszerübb eset, ha a ket pont eleve ossze van kotve
@@ -151,12 +151,13 @@ public:
 
                 while (voltakt == true){
                     voltakt = false;
-                    for (int j = 0; j < graf.size(); ++j) {
+                    for (size_t j = 0; j < graf.size(); ++j) {
 
                         if(graf[j].y == akt[aktszam]){
                             bool nemvolt = true;
-                            for (int i = 0; i < voltindex.size(); ++i) {
-                                if(j == voltindex[i]){
+                            for (size_t i = 0; i < voltindex.size(); ++i) {
+
+                                if(int(j) == voltindex[i]){
                                     nemvolt = false;
                                     i = voltindex.size();
                                 }
@@ -171,7 +172,7 @@ public:
                                 voltakt = true; //ha talalunk egyet akkor kilepunk a for cikulsbol
 
                                 voltindex.push_back(j);
-                                if(j-1 > -1 && graf[j].x == graf[j-1].y && graf[j].y == graf[j-1].x){
+                                if(int(j)-1 > -1 && graf[j].x == graf[j-1].y && graf[j].y == graf[j-1].x){
                                     voltindex.push_back(j-1);
                                    // cout << "most volt: " << graf[j].x  << "x" << graf[j].y << "y" <<endl;
                                    // cout << "es meg torlom: " << graf[j-1].x  << "x" << graf[j-1].y << "y" <<endl;
