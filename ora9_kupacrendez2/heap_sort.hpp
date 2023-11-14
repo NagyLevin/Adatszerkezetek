@@ -23,7 +23,11 @@
 template <class T> void heapSort(std::vector<T> &v) {
   Heap<T> heap(v);
 
+    for (std::size_t i = 0; i < v.size(); ++i) {
+        v[v.size() -1 -i ] = heap.top();    //a maximumot beszurjuk mindig a vegere
+        heap.pop(); //ez mar helyre is allitja a kupac tult a torles utan
 
+    }
 
 
 }
