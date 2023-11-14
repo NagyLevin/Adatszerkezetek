@@ -41,12 +41,29 @@ public:
         graf.clear();
     }
     GraphSolver(const GraphSolver& _other){
-        // Copy konstruktor
-        //TODO
+        //copy
+        graf =_other.graf;
+        startG = _other.startG;
+        endG = _other.endG;
+        akt = _other.akt;
+        lehet_ut =_other.lehet_ut;
+
     }
     GraphSolver& operator= (const GraphSolver& _other){
         // Assignment operator
-        //TODO
+        if (this != &_other) {  //figyelni kell hogy ne legyen megfeleltetes sajat megaval
+            this->graf =_other.graf; //egyik graf megfeleltetese a masiknak
+            this->startG = _other.startG;
+            this->endG = _other.endG;
+            this->akt = _other.akt;
+            this->lehet_ut =_other.lehet_ut;
+
+
+
+
+        }
+        return *this;
+
     }
     GraphSolver& operator= (GraphSolver&& _other)  noexcept {
         // Move assignment operator

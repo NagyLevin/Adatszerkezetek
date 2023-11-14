@@ -40,7 +40,8 @@ void mergeSort(int vec[], size_t n) {
 	if(n <2){
         return;
     }
-    int n1 = n/2 , n2 = n-n1;
+    int n1 = n/2;
+    int n2 = n-n1;
 
     mergeSort(vec,n1);  //vektor ket reszre bontasa
     mergeSort(vec+n1,n2);   //vektor ket reszre bontasa
