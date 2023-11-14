@@ -14,6 +14,7 @@
 #include <cmath>
 #include <iostream>
 #include <vector>
+using namespace std;
 
 template <class I> bool validateHeap(I first, I last);
 
@@ -30,6 +31,19 @@ template <class T> class Heap {
    */
   void liftUp(std::size_t index) {  //ezt irtuk oran
 
+      if(index >= v.size()){
+          throw InvalidIndex(); //a sizen kivuli indexet ne lehet felfele buborekoltatni
+      }
+      std::size_t parent = getParent(index);
+      while (index != 0 && v[parent] < v[index]){
+         std::swap(v[parent],v[index]) ; //megcsereljuk a kettot
+         index = parent; //egyel feljebb lepunk
+         parent = getParent(index);
+
+      }
+
+
+
   }
 
   /**
@@ -38,6 +52,33 @@ template <class T> class Heap {
    * @param index az elem indexe, amit lejjebb kell mozgatni
    */
   void liftDown(std::size_t index) { //ezt irtuk oran
+
+      if(index >= v.size()){
+          throw InvalidIndex(); //a sizen kivuli indexet ne lehet felfele buborekoltatni
+      }
+
+      std::size_t left_child = leftChild(index);
+      std::size_t right_child = rightChild(index);
+
+
+      while ((right_child < v.size() && v[index] < v[right_child]) ||
+             (left_child < v.size() && v[index] < v[left_child])){
+          if(right_child < v.size() && v[left_child] < v[right_child]){
+              std::swap(v[right_child],v[index]);
+              index = right_child;
+
+
+          } else{
+              std::swap(v[left_child],v[index]);
+              left_child = leftChild(index);
+              right_child = rightChild(index);
+
+          }
+          left_child = leftChild(index) ;
+
+      }
+
+
 
   }
 
