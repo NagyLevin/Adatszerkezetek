@@ -3,7 +3,6 @@
 
 #include "vector"
 #include "map"
-#include "list"
 using namespace std;
 //set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Wall -Wextra -pedantic")
 struct Pontok {
@@ -27,8 +26,8 @@ public:
             cout << "hibas bemenet" <<endl;
         }
 
-        //graf.push_back({start,0}); //lehet nem is kell
-        //graf.push_back({0,target});
+        graf.push_back({start,0});
+        graf.push_back({0,target});
 
         startG = start;
         endG = target;
@@ -108,12 +107,9 @@ public:
         } else{
 
             graf.push_back({node1,node2});
-            graf.push_back({node2,node1});
 
             for (int i = 0; i < graf.size(); ++i) {
-
-                if (endG == graf[i].y) {
-
+                if (endG == graf[i].y && endG == node2 ) {
                     //cout << node2 <<endl;
                     graf[i].x = node1;
                     lehet_ut = true;
@@ -123,8 +119,6 @@ public:
             }
 
 
-
-
             if(lehet_ut == true){
 
                 akt = endG;
@@ -132,9 +126,8 @@ public:
                 bool voltakt = true;
                 while (voltakt == true){
                     voltakt = false;
-
                     for (int j = 0; j < graf.size(); ++j) {
-                        //cout << akt <<endl;
+
                         if(graf[j].y == akt){
                             //cout << akt <<endl;
                             akt = graf[j].x;
