@@ -9,7 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5b99b54-3f1c-47df-87b5-2ed9c4ec1e6c" name="Changes" comment="Hashed nyilt oran befejezve" />
+    <list default="true" id="d5b99b54-3f1c-47df-87b5-2ed9c4ec1e6c" name="Changes" comment="hasheles insert resze javitva" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,6 +85,8 @@
       <workItem from="1698743896309" duration="107000" />
       <workItem from="1698744017607" duration="455000" />
       <workItem from="1699342420010" duration="1089000" />
+      <workItem from="1699948119301" duration="489000" />
+      <workItem from="1699949475127" duration="38000" />
     </task>
     <task id="LOCAL-00001" summary="Hashed nyilt oran befejezve">
       <option name="closed" value="true" />
@@ -94,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699343343700</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="hasheles insert resze javitva">
+      <option name="closed" value="true" />
+      <created>1699948603004</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699948603004</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,6 +123,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Hashed nyilt oran befejezve" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hashed nyilt oran befejezve" />
+    <MESSAGE value="hasheles insert resze javitva" />
+    <option name="LAST_COMMIT_MESSAGE" value="hasheles insert resze javitva" />
   </component>
 </project>

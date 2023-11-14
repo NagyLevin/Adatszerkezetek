@@ -115,6 +115,12 @@ public:
     // Ha van már ilyen elem, nem csinál semmit
     void insert(const Key &key) {
 
+        if(actualsize == tablesize){
+            throw OverflowError(); //megtelet a tabla
+        }
+        if(!find((key))){
+
+
         for (int i = 0; i < tablesize; ++i) {
             int pos = getHash(key,i);
             if(table[pos].state != USED){ //mi a megoldas arra hogy ne erasedbe irjunk be
@@ -123,14 +129,17 @@ public:
                 actualsize = actualsize +1;
                 return;
             }
-            else if(table[pos].key == key){ //ha megvan a key
-                return;
 
-            }
 
         }
+        }
 
-        throw OverflowError(); //megtelet a tabla
+
+
+
+
+
+
     }
 
     // Megkeresi, hogy egy adott elem megtalálható-e a hashtáblában
