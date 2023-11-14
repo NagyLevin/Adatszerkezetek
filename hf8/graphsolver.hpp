@@ -65,9 +65,29 @@ public:
         return *this;
 
     }
-    GraphSolver& operator= (GraphSolver&& _other)  noexcept {
+    GraphSolver& operator= (GraphSolver&& _other)  noexcept {   //jobb mint a másolás, mert ez csak a mutatokat csereli meg
         // Move assignment operator
-        //TODO
+        //egyik grafbol pontok atmozgatasa a masikba
+        if (this != &_other) {  //figyelni kell hogy ne legyen megfeleltetes sajat megaval
+            this->graf =std::move(_other.graf); //egyik graf megfeleltetese a masiknak
+
+            this->startG = std::move(_other.startG);    //ezek lehet nem is kellenek?
+            this->endG = std::move(_other.endG);
+            this->akt = std::move(_other.akt);
+            this->lehet_ut =std::move(_other.lehet_ut);
+
+            //masik graf uritese a biztonsag kedveert
+
+            _other.graf.clear();
+
+
+
+
+        }
+        return *this;
+
+
+
     }
     bool exitsAfterPathAdded(int node1, int node2) {
         if(node1 < 1 || node2 < 1){
@@ -98,7 +118,7 @@ public:
 
                             if(graf[j].y == akt){
                                 //cout << akt <<endl;
-                                akt = graf[j].x;
+                               akt = graf[j].x;
                                 //cout << akt << "utana" <<endl;
                                 voltakt = true;
 
