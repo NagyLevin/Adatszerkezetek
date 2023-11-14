@@ -15,7 +15,7 @@ private:
     vector<Pontok> graf;
     int startG = -1;
     int endG = -1;
-    int akt = -1;
+
     bool lehet_ut = false;
 
 
@@ -43,7 +43,7 @@ public:
         graf.clear();
         startG = -1;
         endG = -1;
-        akt = -1;
+
         lehet_ut = false;
 
     }
@@ -52,7 +52,7 @@ public:
         graf =_other.graf;
         startG = _other.startG;
         endG = _other.endG;
-        akt = _other.akt;
+
         lehet_ut =_other.lehet_ut;
 
     }
@@ -62,7 +62,7 @@ public:
             this->graf =_other.graf; //egyik graf megfeleltetese a masiknak
             this->startG = _other.startG;
             this->endG = _other.endG;
-            this->akt = _other.akt;
+
             this->lehet_ut =_other.lehet_ut;
 
 
@@ -80,7 +80,7 @@ public:
 
             this->startG = std::move(_other.startG);    //ezek lehet nem is kellenek?
             this->endG = std::move(_other.endG);
-            this->akt = std::move(_other.akt);
+
             this->lehet_ut =std::move(_other.lehet_ut);
 
             //masik graf uritese a biztonsag kedveert
@@ -88,7 +88,7 @@ public:
             _other.graf.clear();
             _other.startG = -1;
             _other.endG = -1;
-            _other.akt = -1;
+
             _other.lehet_ut = false;
 
 
@@ -126,7 +126,7 @@ public:
 
 
             if(lehet_ut == true){
-                cout << node1  <<node2<<endl;
+               // cout << node1  <<node2<<endl;
 
 
                 for (int j = 0; j < graf.size(); ++j) {
@@ -140,8 +140,10 @@ public:
 
 
 
+                vector<int> akt;
+                akt.push_back(endG);
+                int aktszam = 0;
 
-                akt = endG;
                 bool voltakt = true;
                 vector<int> voltindex;
                 voltindex.clear();
@@ -151,18 +153,20 @@ public:
                     voltakt = false;
                     for (int j = 0; j < graf.size(); ++j) {
 
-                        if(graf[j].y == akt){
+                        if(graf[j].y == akt[aktszam]){
                             bool nemvolt = true;
                             for (int i = 0; i < voltindex.size(); ++i) {
                                 if(j == voltindex[i]){
                                     nemvolt = false;
+                                    i = voltindex.size();
                                 }
 
 
                             }
                             if(nemvolt == true){
-                                cout << akt <<endl;
-                                akt = graf[j].x;
+                               // cout << akt[aktszam] <<endl;
+                                akt.push_back(graf[j].x);
+                                aktszam = aktszam +1;
                                 //cout << akt << "utana" <<endl;
                                 voltakt = true; //ha talalunk egyet akkor kilepunk a for cikulsbol
 
@@ -179,14 +183,12 @@ public:
                                     //cout << "es meg torlom: " << graf[j+1].x  << "x" << graf[j+1].y << "y" <<endl;
 
                                 }
-                                if(akt == 10){
-                                    cout << "debugger" <<endl;
-                                }
+
 
 
                                 j = graf.size();
                             }
-                            if(akt == startG){
+                            if(akt[aktszam] == startG){
                                 return true;
                             }
 
@@ -194,6 +196,13 @@ public:
 
 
                     }
+                    if(voltakt == false && aktszam > 0){
+                        akt.pop_back();
+                        aktszam = aktszam -1;
+                        voltakt = true;
+
+                    }
+
 
 
                 }
@@ -206,11 +215,9 @@ public:
 
 
         }
-        if(akt == startG){
-            return true;
-        } else{
-            return false;
-        }
+
+            return false;//nem talalt semmit
+
 
     }
 };
