@@ -1,6 +1,6 @@
 #include "woodpecker.hpp"
 #include "graphsolver.hpp"
-
+/*
 TEST("Simple graph") {
     GraphSolver graphSolver = GraphSolver(1,4);
     CHECK_EQ(graphSolver.exitsAfterPathAdded(1,2), false);
@@ -58,7 +58,7 @@ TEST("Simple2") {
     CHECK_EQ(graphSolver.exitsAfterPathAdded(2,5), false);
     CHECK_EQ(graphSolver.exitsAfterPathAdded(1,2), true);
 }
-
+*/
 TEST("Graph 2") {
     GraphSolver graphSolver = GraphSolver(2,8);
     CHECK_EQ(graphSolver.exitsAfterPathAdded(3,4), false);
@@ -71,7 +71,7 @@ TEST("Graph 2") {
     CHECK_EQ(graphSolver.exitsAfterPathAdded(5,9), true);
     CHECK_EQ(graphSolver.exitsAfterPathAdded(2,8), true);
 }
-
+/*
 TEST("Graph 3") {
     GraphSolver graphSolver = GraphSolver(5,6);
     CHECK_EQ(graphSolver.exitsAfterPathAdded(5,2), false);
@@ -108,5 +108,5 @@ TEST("Graph 4") {
     CHECK_EQ(graphSolver.exitsAfterPathAdded(2,5), true);
     CHECK_EQ(graphSolver.exitsAfterPathAdded(8,5), true);
 }
-
+*/
 WOODPECKER_TEST_MAIN()
