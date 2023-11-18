@@ -1,0 +1,35 @@
+2023-09-29T20:12:55.264523
+[Compilation] testsuite 0: COMPILATION SUCCESSFUL
+[Testcase result] testsuite 0 testcase #0 "Simple convert": PASS
+[Testcase result] testsuite 0 testcase #1 "Negative convert": PASS
+[Testcase result] testsuite 0 testcase #2 "Medium convert": PASS
+[Testcase result] testsuite 0 testcase #3 "Simple Infix evaluate": PASS
+[Testcase result] testsuite 0 testcase #4 "Negative Infix Addition evaluate": PASS
+[Testcase result] testsuite 0 testcase #5 "Negative Infix Subtraction evaluate": PASS
+[Testcase result] testsuite 0 testcase #6 "Medium Infix evaluate": PASS
+[Testcase result] testsuite 0 testcase #7 "Simple Postfix evaluate": PASS
+[Testcase result] testsuite 0 testcase #8 "Negative Postfix Addition evaluate": PASS
+[Testcase result] testsuite 0 testcase #9 "Negative Postfix Subtraction evaluate": PASS
+[Testcase result] testsuite 0 testcase #10 "Medium Postfix evaluate": PASS
+[Testcase result] testsuite 0 testcase #11 "Multiple Conversions": PASS
+[Testcase result] testsuite 0 testcase #12 "Overflow": PASS
+[Testcase result] testsuite 0 testcase #13 "Division": PASS
+[Testcase result] testsuite 0 testcase #14 "Hard Combined": PASS
+
+Memory check:
+[Compilation] testsuite 0: COMPILATION SUCCESSFUL
+[Testcase result] testsuite 0 testcase #0 "Simple convert": PASS
+[Testcase result] testsuite 0 testcase #1 "Negative convert": PASS
+[Testcase result] testsuite 0 testcase #2 "Medium convert": PASS
+[Testcase result] testsuite 0 testcase #3 "Simple Infix evaluate": PASS
+[Testcase result] testsuite 0 testcase #4 "Negative Infix Addition evaluate": PASS
+[Testcase result] testsuite 0 testcase #5 "Negative Infix Subtraction evaluate": PASS
+[Testcase result] testsuite 0 testcase #6 "Medium Infix evaluate": PASS
+[Testcase result] testsuite 0 testcase #7 "Simple Postfix evaluate": PASS
+[Testcase result] testsuite 0 testcase #8 "Negative Postfix Addition evaluate": PASS
+[Testcase result] testsuite 0 testcase #9 "Negative Postfix Subtraction evaluate": PASS
+[Testcase result] testsuite 0 testcase #10 "Medium Postfix evaluate": PASS
+[Testcase result] testsuite 0 testcase #11 "Multiple Conversions": PASS
+[Testcase result] testsuite 0 testcase #12 "Overflow": PASS
+[Testcase result] testsuite 0 testcase #13 "Division": PASS
+[Testcase result] testsuite 0 testcase #14 "Hard Combined": PASS

@@ -1,0 +1,3 @@
+D:/Egyetem2/3felev/Adatszerkezetek/hf9/cmake-build-debug/CMakeFiles/hf09.dir
+D:/Egyetem2/3felev/Adatszerkezetek/hf9/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Egyetem2/3felev/Adatszerkezetek/hf9/cmake-build-debug/CMakeFiles/rebuild_cache.dir
