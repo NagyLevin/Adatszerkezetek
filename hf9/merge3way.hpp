@@ -8,14 +8,21 @@ void myMerge(const int v1[], size_t n1, const int v2[], size_t n2,const int v3[]
 
     unsigned int it1,it2,it3 = 0;
     int resultemp[n1+n2];
+    for (int i = 0; i < n1+n2; ++i) {
+        resultemp[i] = 0;
+
+    }
 
     while (it1 < n1 &&  it2 < n2){
-        if(v1[it1] < v2[it2]){
+
+        if(v1[it1] > v2[it2]){  //elso nagyobb mint masodik
             resultemp[it3++] = v1[it1++]; //kiolvassuk majd növeljuk az erteket
         }
-        else if(v1[it1] > v2[it2]){ //masik nagyobb
+
+        else if(v2[it2] > v1[it1]){ //masik nagyobb
             resultemp[it3++] = v2[it2++];
         }
+
         else if(v1[it1] == v2[it2]){   //egyenloek
             resultemp[it3++] = v1[it1++];
             resultemp[it3++] = v2[it2++];
@@ -36,15 +43,18 @@ void myMerge(const int v1[], size_t n1, const int v2[], size_t n2,const int v3[]
     it3 = 0;
 
     while (it1 < n1+n2 &&  it2 < n3){
-        if(resultemp[it1] < v3[it2]){
+
+        if(resultemp[it1] > v3[it2]){  //elso nagyobb mint masodik
             result[it3++] = resultemp[it1++]; //kiolvassuk majd növeljuk az erteket
         }
-        else if(resultemp[it1] > v3[it2]){ //masik nagyobb
+
+        else if(v3[it2] > resultemp[it1]){ //masik nagyobb
             result[it3++] = v3[it2++];
         }
-        else {
-            result[it3++] = resultemp[it1++];
-            result[it3++] = v3[it2++];
+
+        else if(resultemp[it1] == v3[it2]){   //egyenloek
+            resultemp[it3++] = resultemp[it1++];
+            resultemp[it3++] = v3[it2++];
 
         }
 
@@ -53,9 +63,10 @@ void myMerge(const int v1[], size_t n1, const int v2[], size_t n2,const int v3[]
     while(it1 < n1+n2){
         result[it3++] = resultemp[it1++];
     }
-    while(it2 < n3){
-        result[it3++] = v2[it2++];
+    while(it2 < n3){   //ennek nem kellene megtortennie
+        result[it3++] = v3[it2++];
     }
+
 
 
 
@@ -71,7 +82,7 @@ void mySort(int myArr[], size_t h){
     int h3 = h -h2 -h1;
 
     //cout << "h1: " << h1 << " h2: " << h2 << " h3: " << h3 << " eredeti: " <<h << " en szamom: " << h1+h2+h3 <<endl;
-
+      //cout << "sokszor" <<endl;
       mySort(myArr,h1);
       mySort(myArr+h1,h2);
       mySort(myArr+h1+h2,h3);
@@ -95,11 +106,16 @@ void mySort(int myArr[], size_t h){
         cout << v3[i] <<endl;
     }
     cout << "v3 vege" <<endl;
-
-   myMerge(v1,h1,v2,h2,v3,h3,myArr);
-    //cout << "ez a hossza az arraynak: " << sizeof(myArr) <<endl;
+    cout << "egy it vege ----------------------" <<endl;
 
 
+    myMerge(v1,h1,v2,h2,v3,h3,myArr);
+
+    /*
+    for (int i = 0; i < h; ++i) {
+        cout << myArr[i] <<endl;
+    }
+*/
 
 
 }
