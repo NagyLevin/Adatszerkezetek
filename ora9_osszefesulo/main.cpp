@@ -44,7 +44,7 @@ void mergeSort(int vec[], size_t n) {
     int n2 = n-n1;
 
     mergeSort(vec,n1);  //vektor ket reszre bontasa
-    mergeSort(vec+n1,n2);   //vektor ket reszre bontasa
+    mergeSort(vec,n2);   //vektor ket reszre bontasa
 
     int elsofel[n1] , masodikfel[n2];
 
