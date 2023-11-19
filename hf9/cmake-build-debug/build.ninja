@@ -51,7 +51,7 @@ build cmake_object_order_depends_target_hf09: phony || CMakeFiles/hf09.dir
 
 build CMakeFiles/hf09.dir/main.cpp.obj: CXX_COMPILER__hf09_unscanned_Debug D$:/Egyetem2/3felev/Adatszerkezetek/hf9/main.cpp || cmake_object_order_depends_target_hf09
   DEP_FILE = CMakeFiles\hf09.dir\main.cpp.obj.d
-  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  FLAGS = -Werror -Wall -Wextra -pedantic -g -std=gnu++23 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\hf09.dir
   OBJECT_FILE_DIR = CMakeFiles\hf09.dir
 
@@ -64,7 +64,7 @@ build CMakeFiles/hf09.dir/main.cpp.obj: CXX_COMPILER__hf09_unscanned_Debug D$:/E
 # Link the executable hf09.exe
 
 build hf09.exe: CXX_EXECUTABLE_LINKER__hf09_Debug CMakeFiles/hf09.dir/main.cpp.obj
-  FLAGS = -g
+  FLAGS = -Werror -Wall -Wextra -pedantic -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\hf09.dir
   POST_BUILD = cd .

@@ -3,14 +3,14 @@
 #define MERGE3WAY_HPP
 #include <vector>
 using namespace std;
-//set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Wall -Wextra -pedantic")
+//
 std::vector<int> merge(std::vector<int>& v1, std::vector<int>& v2) {
     std::vector<int> result;
     result.clear();
 
-    unsigned int it1 = 0, it2 = 0, it3 = 0;
-    int n1 = v1.size();
-    int n2 = v2.size();
+    unsigned int it1 = 0, it2 = 0;
+    unsigned int n1 = v1.size();
+    unsigned int n2 = v2.size();
 
 
 
@@ -46,23 +46,23 @@ void mySort(vector<int> &vec){
     }
 
     int size = vec.size();
-    int mid1 = size / 3;
-    int mid2 = mid1 * 2;
+    int s1 = size / 3;
+    int s2 = s1 * 2;
 
    // cout << mid1 << " " << mid2 << " " << vec.size() <<endl;
 
-    std::vector<int> v1(vec.begin(), vec.begin() + mid1);
+    std::vector<int> v1(vec.begin(), vec.begin() + s1);
    // cout << v1.size() <<endl;
-    std::vector<int> v2(vec.begin() + mid1, vec.begin() + mid2);
+    std::vector<int> v2(vec.begin() + s1, vec.begin() + s2);
     //cout << v2.size() <<endl;
-    std::vector<int> v3(vec.begin() + mid2, vec.end());
+    std::vector<int> v3(vec.begin() + s2, vec.end());
     //cout << v3.size() <<endl;
 
     mySort(v1);
     mySort(v2);
     mySort(v3);
 
-    if(v2.size() % 3 != 0){
+    if(v2.size() % 3 != 0){//egy kis hackeles, hogy a ket elemü vektorok is rendezve legyenek
         if(v2[0] < v2[1]){
             int temp = v2[0];
             v2[0]  = v2[1];
@@ -81,10 +81,8 @@ void mySort(vector<int> &vec){
 
     }
 
-    vec = merge(v1, v2);
-    for (int i = 0; i < vec.size(); ++i) {
-       // cout << "vec: " << vec[i] <<endl;
-    }
+    vec = merge(v1, v2); //elso ketto merge
+
 
 
     if(v3.size() % 3 != 0){
@@ -99,17 +97,15 @@ void mySort(vector<int> &vec){
 
 
 
-    vec = merge(v3, vec);
-    for (int i = 0; i < vec.size(); ++i) {
-       // cout << "vec2: " << vec[i] <<endl;
-    }
+    vec = merge(v3, vec);   //masodik 2 merge
+
 
 }
 
 void mergeSort3(vector<int> &myArr)
 {
     //  cout << "futas elkezdve" <<endl;
-    int meret = myArr.size();
+    //int meret = myArr.size();
     // cout << meret <<endl;
 
 
