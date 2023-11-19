@@ -16,6 +16,9 @@ TEST("Short, simple"){
     auto comp = [](int a, int b) {
         return a > b;
     };
+/*  for (int num : arr_student) {
+        std::cout << num << " ";
+    }*/
 
     bool sorted = std::is_sorted(arr_student.begin(), arr_student.end(), comp);
     CHECK_EQ(true, sorted);
@@ -27,7 +30,6 @@ TEST("Empty"){
     bool sorted = std::is_sorted(base.begin(), base.end());
     CHECK_EQ(true, sorted);
 }
-
 TEST("Medium timed"){
     const int L = 10000;
     unsigned int seed = 42;
@@ -49,6 +51,9 @@ TEST("Medium timed"){
     auto comp = [](int a, int b) {
         return a > b;
     };
+/*        for (int num : arr_student) {
+        std::cout << num << " ";
+    }*/
 
     bool sorted = std::is_sorted(arr_student.begin(), arr_student.end(), comp);
     CHECK_EQ(true, sorted);
@@ -58,7 +63,6 @@ TEST("Medium timed"){
     //std::cout<<t_baseline.count()<<"+"<<tolerance<<" >? "<<t_student.count()<<endl;
     CHECK_EQ( true, fast_enough);
 }
-
 TEST("Large timed"){
     const int L = 1000000;
     unsigned int seed = 42;
@@ -80,6 +84,9 @@ TEST("Large timed"){
     auto comp = [](int a, int b) {
         return a > b;
     };
+/*        for (int num : arr_student) {
+        std::cout << num << " ";
+    }*/
 
     bool sorted = std::is_sorted(arr_student.begin(), arr_student.end(), comp);
     CHECK_EQ(true, sorted);
@@ -88,8 +95,6 @@ TEST("Large timed"){
     bool fast_enough = max(0,int(t_student.count()-t_baseline.count())) < tolerance;
     //std::cout<<t_baseline.count()<<"+"<<tolerance<<" >? "<<t_student.count()<<endl;
     CHECK_EQ( true, fast_enough);
-
-
 }
 
 
