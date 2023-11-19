@@ -20,7 +20,7 @@ TEST("Short, simple"){
     bool sorted = std::is_sorted(arr_student.begin(), arr_student.end(), comp);
     CHECK_EQ(true, sorted);
 }
-/*
+
 TEST("Empty"){
     std::vector<int> base;
     mergeSort3(base);
@@ -58,6 +58,7 @@ TEST("Medium timed"){
     //std::cout<<t_baseline.count()<<"+"<<tolerance<<" >? "<<t_student.count()<<endl;
     CHECK_EQ( true, fast_enough);
 }
+
 TEST("Large timed"){
     const int L = 1000000;
     unsigned int seed = 42;
@@ -87,8 +88,10 @@ TEST("Large timed"){
     bool fast_enough = max(0,int(t_student.count()-t_baseline.count())) < tolerance;
     //std::cout<<t_baseline.count()<<"+"<<tolerance<<" >? "<<t_student.count()<<endl;
     CHECK_EQ( true, fast_enough);
+
+
 }
-*/
+
 
 WOODPECKER_TEST_MAIN()
 

@@ -4,146 +4,149 @@
 #include <vector>
 using namespace std;
 //set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Wall -Wextra -pedantic")
-void myMerge(const int v1[], size_t n1, const int v2[], size_t n2,const int v3[], size_t n3, int result[]){
+std::vector<int> merge(std::vector<int>& v1, std::vector<int>& v2) {
+    std::vector<int> result;
+    result.clear();
 
-    unsigned int it1,it2,it3 = 0;
-    int resultemp[n1+n2];
-    for (int i = 0; i < n1+n2; ++i) {
-        resultemp[i] = 0;
+    unsigned int it1 = 0, it2 = 0, it3 = 0;
+    int n1 = v1.size();
+    int n2 = v2.size();
 
+
+
+
+    while(it1 < n1 && it2 < n2){
+        if(v1[it1] > v2[it2]){
+            result.push_back( v1[it1++]);
+        }
+        else if (v1[it1] < v2[it2]){
+            result.push_back( v2[it2++]);
+        }
+        else{
+            result.push_back( v1[it1++]);
+            result.push_back( v2[it2++]);
+        }
     }
-
-    while (it1 < n1 &&  it2 < n2){
-
-        if(v1[it1] > v2[it2]){  //elso nagyobb mint masodik
-            resultemp[it3++] = v1[it1++]; //kiolvassuk majd növeljuk az erteket
-        }
-
-        else if(v2[it2] > v1[it1]){ //masik nagyobb
-            resultemp[it3++] = v2[it2++];
-        }
-
-        else if(v1[it1] == v2[it2]){   //egyenloek
-            resultemp[it3++] = v1[it1++];
-            resultemp[it3++] = v2[it2++];
-
-        }
-
-    }
-
     while(it1 < n1){
-        resultemp[it3++] = v1[it1++];
+        result.push_back( v1[it1++]);
     }
     while(it2 < n2){
-        resultemp[it3++] = v2[it2++];
-    }
-
-    it1 = 0;
-    it2 =0;
-    it3 = 0;
-
-    while (it1 < n1+n2 &&  it2 < n3){
-
-        if(resultemp[it1] > v3[it2]){  //elso nagyobb mint masodik
-            result[it3++] = resultemp[it1++]; //kiolvassuk majd növeljuk az erteket
-        }
-
-        else if(v3[it2] > resultemp[it1]){ //masik nagyobb
-            result[it3++] = v3[it2++];
-        }
-
-        else if(resultemp[it1] == v3[it2]){   //egyenloek
-            resultemp[it3++] = resultemp[it1++];
-            resultemp[it3++] = v3[it2++];
-
-        }
-
-    }
-
-    while(it1 < n1+n2){
-        result[it3++] = resultemp[it1++];
-    }
-    while(it2 < n3){   //ennek nem kellene megtortennie
-        result[it3++] = v3[it2++];
+        result.push_back( v2[it2++]);
     }
 
 
 
 
-
+    return result;
 }
 
-void mySort(int myArr[], size_t h){
-    if(h <3){
-        return; //nem lehet 3 reszre osztani
+void mySort(vector<int> &vec){
+    if (vec.size() <= 2) {
+        return;
     }
-    int h1 = h/3;
-    int h2 = (h-h1)/2;
-    int h3 = h -h2 -h1;
 
-    //cout << "h1: " << h1 << " h2: " << h2 << " h3: " << h3 << " eredeti: " <<h << " en szamom: " << h1+h2+h3 <<endl;
-      //cout << "sokszor" <<endl;
-      mySort(myArr,h1);
-      mySort(myArr+h1,h2);
-      mySort(myArr+h1+h2,h3);
+    int size = vec.size();
+    int mid1 = size / 3;
+    int mid2 = mid1 * 2;
 
+   // cout << mid1 << " " << mid2 << " " << vec.size() <<endl;
 
-    int v1[h1], v2[h2], v3[h3];
+    std::vector<int> v1(vec.begin(), vec.begin() + mid1);
+   // cout << v1.size() <<endl;
+    std::vector<int> v2(vec.begin() + mid1, vec.begin() + mid2);
+    //cout << v2.size() <<endl;
+    std::vector<int> v3(vec.begin() + mid2, vec.end());
+    //cout << v3.size() <<endl;
 
+    mySort(v1);
+    mySort(v2);
+    mySort(v3);
 
-    for(int i = 0; i<h1; i++){
-        v1[i] = myArr[i];
-        cout << v1[i] <<endl;
+    if(v2.size() % 3 != 0){
+        if(v2[0] < v2[1]){
+            int temp = v2[0];
+            v2[0]  = v2[1];
+            v2[1] = temp;
+
+        }
+
     }
-   cout << "v1 vege" <<endl;
-    for(int i = 0; i<h2; i++){
-        v2[i] = myArr[i+h1];
-        cout << v2[i] <<endl;
+    if(v1.size() % 3 != 0){
+        if(v1[0] < v1[1]){
+            int temp = v1[0];
+            v1[0]  = v1[1];
+            v1[1] = temp;
+
+        }
+
     }
-    cout << "v2 vege" <<endl;
-    for(int i = 0; i<h3; i++){
-        v3[i] = myArr[i+h1+h2];
-        cout << v3[i] <<endl;
+
+    vec = merge(v1, v2);
+    for (int i = 0; i < vec.size(); ++i) {
+       // cout << "vec: " << vec[i] <<endl;
     }
-    cout << "v3 vege" <<endl;
-    cout << "egy it vege ----------------------" <<endl;
 
 
-    myMerge(v1,h1,v2,h2,v3,h3,myArr);
+    if(v3.size() % 3 != 0){
+        if(v3[0] < v3[1]){
+            int temp = v3[0];
+            v3[0]  = v3[1];
+            v3[1] = temp;
 
-    /*
-    for (int i = 0; i < h; ++i) {
-        cout << myArr[i] <<endl;
+        }
+
     }
-*/
 
+
+
+    vec = merge(v3, vec);
+    for (int i = 0; i < vec.size(); ++i) {
+       // cout << "vec2: " << vec[i] <<endl;
+    }
 
 }
 
 void mergeSort3(vector<int> &myArr)
 {
-    int newArr[myArr.size()];
-    //cout << "ez a hossza az arraynak: " << myArr.size() <<endl;
+    //  cout << "futas elkezdve" <<endl;
+    int meret = myArr.size();
+    // cout << meret <<endl;
 
-    for (int j = 0; j < myArr.size(); ++j) {
-        newArr[j] = myArr[j];
-        cout << newArr[j] <<endl;
+
+    // int newArr[meret];
+
+
+    //cout << "ez a hossza az arraynak: " << myArr.size() <<endl;
+/*
+    for (int j = 0; j < meret; ++j) {
+        //    newArr[j] = myArr[j];
+      //  cout << myArr[j] <<endl;
 
     }
     cout << "kezdeti ertekeek" <<endl;
+*/
+    mySort(myArr);
 
-    mySort(newArr,myArr.size());
+    //int temp = myArr[0];
+    //myArr[0] = myArr[1];
+    //myArr[1] = temp;
 
 
-    for (int j = 0; j < myArr.size(); ++j) {
+    //myArr.clear();
 
-        cout << newArr[j] <<endl;
+
+
+    //myArr.insert(myArr.end(), newArr, newArr+meret);
+    /*
+    for (int j = 0; j < meret; ++j) {
+
+        cout << myArr[j] <<endl;
 
     }
     cout << "vegen" <<endl;
+*/
 
-
-
+    return;
 }
 
 
