@@ -3,9 +3,8 @@
 
 #include "vector"
 #include "map"
-#include "list"
 using namespace std;
-//set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Wall -Wextra -pedantic")
+//
 struct Pontok {
     int x;
     int y;
@@ -16,7 +15,7 @@ private:
     vector<Pontok> graf;
     int startG = -1;
     int endG = -1;
-    int akt = -1;
+
     bool lehet_ut = false;
 
 
@@ -27,7 +26,7 @@ public:
             cout << "hibas bemenet" <<endl;
         }
 
-        //graf.push_back({start,0}); //lehet nem is kell
+        //graf.push_back({start,0});
         //graf.push_back({0,target});
 
         startG = start;
@@ -44,7 +43,7 @@ public:
         graf.clear();
         startG = -1;
         endG = -1;
-        akt = -1;
+
         lehet_ut = false;
 
     }
@@ -53,7 +52,7 @@ public:
         graf =_other.graf;
         startG = _other.startG;
         endG = _other.endG;
-        akt = _other.akt;
+
         lehet_ut =_other.lehet_ut;
 
     }
@@ -63,7 +62,7 @@ public:
             this->graf =_other.graf; //egyik graf megfeleltetese a masiknak
             this->startG = _other.startG;
             this->endG = _other.endG;
-            this->akt = _other.akt;
+
             this->lehet_ut =_other.lehet_ut;
 
 
@@ -81,7 +80,7 @@ public:
 
             this->startG = std::move(_other.startG);    //ezek lehet nem is kellenek?
             this->endG = std::move(_other.endG);
-            this->akt = std::move(_other.akt);
+
             this->lehet_ut =std::move(_other.lehet_ut);
 
             //masik graf uritese a biztonsag kedveert
@@ -89,7 +88,7 @@ public:
             _other.graf.clear();
             _other.startG = -1;
             _other.endG = -1;
-            _other.akt = -1;
+
             _other.lehet_ut = false;
 
 
@@ -103,32 +102,23 @@ public:
 
     }
     bool exitsAfterPathAdded(int node1, int node2) {
-
         if(node1 < 1 || node2 < 1){
             return false;
         } else{
 
             graf.push_back({node1,node2});
+            graf.push_back({node2,node1});
 
-            for (int i = 0; i < graf.size(); ++i) {
-                if ( endG == graf[i].y && endG == node2 ) {
+            for (size_t i = 0; i < graf.size(); ++i) {
+                if (endG == graf[i].y && endG == node2 ) {
                     //cout << node2 <<endl;
                     //graf[i].x = node1;
                     lehet_ut = true;
                     //ha valami csatlakozik a vegehez onnantol nezni kell hogy van e ut
 
                 }
-                if(endG == graf[i].x && endG == node1){
-
-                    //graf[i].y = endG;
-                    //graf[i].x = node2;
-
-                    //cout << graf[i].y <<endl;
-                    //cout << graf[i].y <<endl;
-
-
+                if (endG == graf[i].x && endG == node1 ) {
                     lehet_ut = true;
-
 
                 }
 
@@ -136,16 +126,13 @@ public:
 
 
             if(lehet_ut == true){
-
-                list<int> voltmar;
-                akt = endG;
-
-                bool voltakt = true;
+               // cout << node1  <<node2<<endl;
 
 
-                for (int j = 0; j < graf.size(); ++j) {
-                    if ((graf[j].x == endG && graf[j].y == startG) || (graf[j].y == endG && graf[j].x ==
-                                                                                               startG)) {  //a legegyszerübb eset, ha a ket pont eleve ossze van kotve
+                for (size_t j = 0; j < graf.size(); ++j) {
+
+                    //cout << graf[j].x  << "x" << graf[j].y << "y" <<endl;
+                    if ((graf[j].x == endG && graf[j].y == startG) || (graf[j].y == endG && graf[j].x ==startG)) {  //a legegyszerübb eset, ha a ket pont eleve ossze van kotve
 
                         return true;
                     }
@@ -153,41 +140,70 @@ public:
 
 
 
+                vector<int> akt;
+                akt.push_back(endG);
+                int aktszam = 0;
+
+                bool voltakt = true;
+                vector<int> voltindex;
+                voltindex.clear();
+
+
                 while (voltakt == true){
                     voltakt = false;
-                    for (int j = 0; j < graf.size(); ++j) {
+                    for (size_t j = 0; j < graf.size(); ++j) {
+
+                        if(graf[j].y == akt[aktszam]){
+                            bool nemvolt = true;
+                            for (size_t i = 0; i < voltindex.size(); ++i) {
+
+                                if(int(j) == voltindex[i]){
+                                    nemvolt = false;
+                                    i = voltindex.size();
+                                }
+
+
+                            }
+                            if(nemvolt == true){
+                               // cout << akt[aktszam] <<endl;
+                                akt.push_back(graf[j].x);
+                                aktszam = aktszam +1;
+                                //cout << akt << "utana" <<endl;
+                                voltakt = true; //ha talalunk egyet akkor kilepunk a for cikulsbol
+
+                                voltindex.push_back(j);
+                                if(int(j)-1 > -1 && graf[j].x == graf[j-1].y && graf[j].y == graf[j-1].x){
+                                    voltindex.push_back(j-1);
+                                   // cout << "most volt: " << graf[j].x  << "x" << graf[j].y << "y" <<endl;
+                                   // cout << "es meg torlom: " << graf[j-1].x  << "x" << graf[j-1].y << "y" <<endl;
+
+                                }
+                                if(j+1 < graf.size() && graf[j].x == graf[j+1].y && graf[j].y == graf[j+1].x){
+                                    voltindex.push_back(j+1);
+                                    //cout << "most volt: " << graf[j].x  << "x" << graf[j].y << "y" <<endl;
+                                    //cout << "es meg torlom: " << graf[j+1].x  << "x" << graf[j+1].y << "y" <<endl;
+
+                                }
 
 
 
-
-                        if(graf[j].y == akt && (find(voltmar.begin(), voltmar.end(), j) == voltmar.end())){
-                            //cout << akt <<endl;
-                            akt = graf[j].x;
-                            voltmar.push_back(j);
-
-
-                            //cout << akt << "utana" <<endl;
-                            voltakt = true;
-
-                        }
-                        if(graf[j].x == akt && (find(voltmar.begin(), voltmar.end(), j) == voltmar.end())){
-                            //cout << akt <<endl;
-
-                            graf[j].y = akt;
-                            voltmar.push_back(j);
-
-                            //cout << graf2[j].x << "x" <<endl;
-                            //cout << graf2[j].y << "y" <<endl;
-
-
-                            //cout << akt << "utana" <<endl;
-                            voltakt = true;
-
+                                j = graf.size();
+                            }
+                            if(akt[aktszam] == startG){
+                                return true;
+                            }
 
                         }
 
 
                     }
+                    if(voltakt == false && aktszam > 0){
+                        akt.pop_back();
+                        aktszam = aktszam -1;
+                        voltakt = true;
+
+                    }
+
 
 
                 }
@@ -201,12 +217,8 @@ public:
 
         }
 
-        //cout << akt <<endl;
-        if(akt == startG){
-            return true;
-        } else{
-            return false;
-        }
+            return false;//nem talalt semmit
+
 
     }
 };
