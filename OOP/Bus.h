@@ -12,8 +12,6 @@ protected:
 public:
     Bus(const string type, double consumption, int capacity, double kmCost) : Taxi(type, consumption, capacity,kmCost) {}
 
-    Bus(){};
-
     ~Bus(){
 
     }
@@ -21,7 +19,7 @@ public:
     virtual double carriage(int member ,double km){
 
         if(moveOn(km) ==km){
-            pocket = pocket + memberCost(km,member); //mennyit fizet az utas
+            pocket = pocket + member*ticketCost - kmhCost*km; //mennyit fizet az utas
 
 
             return km;
@@ -36,18 +34,14 @@ public:
 
     }
     double memberCost(double km, int member) {
-        if(member > capacity-1){
-            return 0;//szebben egy exception osztaly meghivasa lenne
-        } //mert sofor es utasok
-        else{
-            return ticketCost*member;
-
-        }
-
+        return ticketCost;
 
     }
+
+
+
     double profit(double km, int member){
-        return memberCost(km,member) - kmhCost*km;
+        return member * ticketCost -kmhCost*km;
 
     }
 
