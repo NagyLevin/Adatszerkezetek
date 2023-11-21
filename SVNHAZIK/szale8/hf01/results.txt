@@ -1,0 +1,13 @@
+2023-09-18T17:16:38.653416
+[Compilation] testsuite 0: COMPILATION SUCCESSFUL
+[Testcase result] testsuite 0 testcase #0 "Simple & small": PASS
+[Testcase result] testsuite 0 testcase #1 "Simple": PASS
+[Testcase result] testsuite 0 testcase #2 "Bad cases": PASS
+[Testcase result] testsuite 0 testcase #3 "Complex cases": PASS
+
+Memory check:
+[Compilation] testsuite 0: COMPILATION SUCCESSFUL
+[Testcase result] testsuite 0 testcase #0 "Simple & small": PASS
+[Testcase result] testsuite 0 testcase #1 "Simple": PASS
+[Testcase result] testsuite 0 testcase #2 "Bad cases": PASS
+[Testcase result] testsuite 0 testcase #3 "Complex cases": PASS
