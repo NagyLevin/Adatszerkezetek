@@ -12,7 +12,7 @@ using namespace std;
 
 /**    ----- Konstansok -----   **/
 constexpr size_t N = 100000;             // A nagyteszt mérete
-constexpr bool PERFORMANCE_TEST = false; // Futassunk-e teljesítmény tesztet
+constexpr bool PERFORMANCE_TEST = true; // Futassunk-e teljesítmény tesztet
 
 /**    ----- Segéd függvény -----    **/
 template <class T> void printArray(T *A, size_t len) {

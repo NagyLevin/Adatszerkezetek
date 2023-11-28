@@ -14,7 +14,9 @@ void swapInt(int &a, int &b) { // Egészeket cserélő függvény
 // A gyorsrendező felosztó függvénye
 int divide(int *a, int down, int up) {
 
-    int pivot = a[down]; //elso eleme
+    int pivot_index = down+ (int )(up-down)/2;//mi van ha mást valasztunk
+    int pivot = a[pivot_index]; //elso eleme
+    swapInt(a[down],a[pivot_index]);//mi van ha mást valasztunk
 
     int left = down;
     int right = up;

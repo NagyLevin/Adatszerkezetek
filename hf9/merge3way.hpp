@@ -64,18 +64,14 @@ void mySort(vector<int> &vec){
 
     if(v2.size() % 3 != 0){//egy kis hackeles, hogy a ket elemü vektorok is rendezve legyenek
         if(v2[0] < v2[1]){
-            int temp = v2[0];
-            v2[0]  = v2[1];
-            v2[1] = temp;
+            swap(v2[0],v2[1]);
 
         }
 
     }
     if(v1.size() % 3 != 0){
         if(v1[0] < v1[1]){
-            int temp = v1[0];
-            v1[0]  = v1[1];
-            v1[1] = temp;
+            swap(v1[0],v1[1]);
 
         }
 
@@ -87,10 +83,7 @@ void mySort(vector<int> &vec){
 
     if(v3.size() % 3 != 0){
         if(v3[0] < v3[1]){
-            int temp = v3[0];
-            v3[0]  = v3[1];
-            v3[1] = temp;
-
+            swap(v3[0],v3[1]);
         }
 
     }
@@ -133,14 +126,14 @@ void mergeSort3(vector<int> &myArr)
 
 
     //myArr.insert(myArr.end(), newArr, newArr+meret);
-    /*
-    for (int j = 0; j < meret; ++j) {
+
+    for (size_t j = 0; j < myArr.size(); ++j) {
 
         cout << myArr[j] <<endl;
 
     }
     cout << "vegen" <<endl;
-*/
+
 
     return;
 }
