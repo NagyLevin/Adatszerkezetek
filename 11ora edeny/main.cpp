@@ -48,33 +48,52 @@ void bucketSort(int vec[], size_t n) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 template<typename T, typename Keyfun>
-void bucketSort(T vec[], size_t size, Keyfun f) {
-    // TODO
-    (void)vec;
-    (void)size;
-    (void)f;
+void bucketSort(T vec[], size_t n, Keyfun f) {
+    if(n < 2){
+    }
+
+
+    int min = f(vec[0]) ;
+    int max = f(vec[0]);
+
+    for (int i = 0; i < n; ++i) {
+        if(f(vec[i]) < min){
+            min = f(vec[i]);
+        }
+        if(f(vec[i]) > max){
+            max = f(vec[i]);
+        }
+
+    }
+
+    vector<queue<T>> buckets(max-min+1); //tartomany //azert +1 mert a min max ot is taroljuk
+
+
+    for (int i = 0; i < n; ++i) {
+        buckets[f(vec[i]) - min ].push(vec[i]);
+
+
+    }
+
+    int s = 0;
+
+    for (int i = 0; i < buckets.size(); ++i) {
+        while(!buckets[i].empty()) {
+            vec[s++] = buckets[i].front();
+            buckets[i].pop(); //tavolitsuk is el a sorbol az elemet
+
+        }
+
+
+        }
+
+
+
+
+
 }
 
 struct Date {
@@ -87,12 +106,27 @@ struct Date {
     }
 };
 
-// TODO : kulcsfuggvenyek
+int getDay(Date& d){
+    return d.day;
+}
 
-void radixSort(Date vec[], size_t size) {
-    // TODO
-    (void)vec;
-    (void)size;
+int getMonth(Date& d){
+    return d.month;
+}
+
+int getYear(Date& d){
+    return d.year;
+}
+
+
+
+void radixSort(Date vec[], size_t size) { //harom edenyrendezes egymas utan
+
+    bucketSort(vec,size, getDay);
+    bucketSort(vec,size, getMonth);
+    bucketSort(vec,size, getYear);
+
+
 }
 
 // Ellenorzesre. C++11 ota az algorithm headerben megtalalhato
