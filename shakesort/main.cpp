@@ -25,7 +25,7 @@ int shakesort(vector<int> v){
 
 
         }
-        for (int j = v.size(); j > 0; --j) {
+        for (int j = v.size()-1; j > i; --j) {
 
             if(minmax < v[j]){
 
