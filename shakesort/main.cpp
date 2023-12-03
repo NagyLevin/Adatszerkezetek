@@ -9,7 +9,7 @@ void printVector(const vector<int>& arr) {
     for (int num : arr) {
         cout << num << " ";
     }
-    cout << endl;
+    cout << endl;cout << endl;
 }
 int shakesort(vector<int> v){
 
@@ -323,6 +323,66 @@ void batcherSort(vector<int> &vec){
 
 }
 
+////////////////////////////// leszamlalo
+
+void leszam(vector<int> &vec){
+
+    int meret = vec.size();
+    std::vector<int> arr(100, 0);
+
+
+    for (int i = 0; i < meret; ++i) {
+        int szam = vec[i];
+       arr[szam]++;
+
+
+
+    }
+    vector<int> leszamlalo;
+    leszamlalo.push_back(arr[0]);
+
+    for (int i = 0; i < meret; ++i) {
+       leszamlalo.push_back( arr[i] + leszamlalo[i]);
+
+
+
+    }
+
+    /*
+    int szum = 0;
+    for (int i = 0; i < meret; ++i) {
+        szum = szum + arr[i];
+    }
+
+    cout << szum <<endl;
+    */
+
+
+    printVector(arr);
+    printVector(leszamlalo);
+    printVector(vec);
+
+    std::vector<int> rendezettvektor(100, 0);
+    for (int i = meret; i > -1; --i) {
+
+
+        //cout << i <<endl;
+
+        if(leszamlalo[vec[i]] > 0){
+            int temp = vec[i];
+            rendezettvektor[leszamlalo[temp]] = temp;
+
+            leszamlalo[temp]--;
+
+        }
+
+
+    }
+    printVector(rendezettvektor);
+
+
+
+}
 
 
 
@@ -346,10 +406,12 @@ int main() {
     //timSort(arr, n);
 
     //shakesort(v1);
+    //batcherSort(v1);
 
-    printVector(v1);
-    batcherSort(v1);
-    printVector(v1);
+
+    //printVector(v1);
+    leszam(v1);
+    //printVector(v1);
 
 
 
