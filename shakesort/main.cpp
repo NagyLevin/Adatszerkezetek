@@ -410,7 +410,7 @@ int main() {
 
 
     //printVector(v1);
-    leszam(v1);
+    //leszam(v1);
     //printVector(v1);
 
 

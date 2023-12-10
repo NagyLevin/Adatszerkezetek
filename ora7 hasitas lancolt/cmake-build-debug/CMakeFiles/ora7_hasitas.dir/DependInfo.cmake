@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/administrator/Documents/adatszerk/Adatszerkezetek/ora7 hasitas lancolt/main.cpp" "CMakeFiles/ora7_hasitas.dir/main.cpp.obj" "gcc" "CMakeFiles/ora7_hasitas.dir/main.cpp.obj.d"
+  "D:/Egyetem2/3felev/Adatszerkezetek/ora7 hasitas lancolt/main.cpp" "CMakeFiles/ora7_hasitas.dir/main.cpp.obj" "gcc" "CMakeFiles/ora7_hasitas.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
