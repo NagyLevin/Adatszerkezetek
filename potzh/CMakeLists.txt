@@ -10,4 +10,5 @@ add_executable(potzhgyak  main.cpp
         DinamicSor.h
         2xList.h
         binfa.h
-        awltree.h)
+        awltree.h
+        zhpelda.h)

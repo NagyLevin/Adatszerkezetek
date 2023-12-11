@@ -7,6 +7,7 @@
 #include "2xList.h"
 #include "binfa.h"
 #include "awltree.h"
+#include "zhpelda.h"
 
 using namespace std;
 
@@ -35,6 +36,14 @@ int main() {
 
 
     //zhpelda
+    ListStatic listzh;
+    listzh.insertFirst(1);
+    listzh.insertAfter(2);
+    listzh.print_list();
+
+
+
+
 
     //2xLancoltlista
     List<int> lista;
